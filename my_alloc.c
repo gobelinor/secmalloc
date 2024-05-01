@@ -22,7 +22,6 @@ struct chunk *get_free_chunk_raw(size_t size)
 {
 	if (heap == NULL)
 		heap = init_heap();
-
 	for (struct chunk *item = heap;
 			(size_t)item < (size_t)heap + heap_size;
 			item = (struct chunk *)((size_t)item + item->size + sizeof(struct chunk))

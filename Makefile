@@ -4,7 +4,7 @@ OBJ = my_alloc.o
 
 all: ${OBJ}
 
-test: ${OBJ} test.o my_alloc.o
+test: ${OBJ} test.o 
 	$(CC) -L./lib -lcriterion -I ./include -o test test.o my_alloc.o
 	./test
 
