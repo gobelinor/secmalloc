@@ -1,5 +1,5 @@
-#ifndef __MY_ALLOC_H__
-#define __MY_ALLOC_H__
+#ifndef __MY_ALLOC_PRIVATE_H__
+#define __MY_ALLOC_PRIVATE_H__
 #include <stddef.h>
 #include "my_alloc.h"
 

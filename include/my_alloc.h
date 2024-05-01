@@ -2,21 +2,18 @@
 #define __MY_ALLOC_H__
 #include <stddef.h>
 
-enum chunk_type 
-{
-	FREE = 0,
-	BUSY = 1
-};
+// enum chunk_type 
+// {
+// 	FREE = 0,
+// 	BUSY = 1
+// };
+// struct chunk 
+// {
+// 	size_t size;
+// 	enum chunk_type flags;
+// };
 
-
-struct chunk 
-{
-	size_t size;
-	enum chunk_type flags;
-};
-
-
-void *my_alloc(size_t size);
+void *my_alloc(size_t size); //size_t is unsigned int 
 void clean(void *ptr);
 
 // struct chunk *init_heap();

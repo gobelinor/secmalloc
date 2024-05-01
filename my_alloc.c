@@ -50,6 +50,7 @@ struct chunk *get_last_chunk_raw()
 	}
 	return NULL;
 }
+
 struct chunk *get_free_chunk(size_t size)
 {
 	if (heap == NULL)
@@ -77,7 +78,6 @@ struct chunk *get_free_chunk(size_t size)
 	}
 	return item;
 }
-
 
 void *my_alloc(size_t size) {
 	(void) size;
