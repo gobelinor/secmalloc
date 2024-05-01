@@ -85,3 +85,9 @@ Test(simple, simple_map_05)
 	printf("t->size = %ld\n", t->size);
 	cr_assert(t->size == 12 + 25 + sizeof(struct chunk), "Failed to clean ptr2");
 }
+
+Test(simple, simple_map_06)
+{
+	char *ptr1 = my_alloc(8192);
+	cr_assert(ptr1 != NULL, "Failed to alloc ptr1");
+}

@@ -70,7 +70,7 @@ struct chunk *get_free_chunk(size_t size)
 		struct chunk *new_heap = mremap(heap, old_size, heap_size, MREMAP_MAYMOVE);
 		printf("HEAP resized %p\n", new_heap);
 		if (new_heap != heap)
-			return NULL;
+			return NULL; // pour verifier qu'on s'est pas fait deporter
 		last_item->size += delta_size; 
 		printf("last chunk %p size %lu - flag %u\n", last_item, last_item->size, last_item->flags);
 		item = get_free_chunk_raw(size);
