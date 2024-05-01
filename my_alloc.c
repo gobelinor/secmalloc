@@ -17,22 +17,6 @@ struct chunk *init_heap()
 	}
 	return heap;
 }
-
-struct chunk *get_free_chunk_raw(size_t size)
-{
-	if (heap == NULL)
-		heap = init_heap();
-	for (struct chunk *item = heap;
-			(size_t)item < (size_t)heap + heap_size;
-			item = (struct chunk *)((size_t)item + item->size + sizeof(struct chunk))
-			)
-	{
-		if (item->flags == FREE && item->size >= size)
-			return item;
-	}
-	return NULL;
-}
-
 struct chunk *get_last_chunk_raw()
 {
 	for (struct chunk *item = heap;
@@ -50,6 +34,22 @@ struct chunk *get_last_chunk_raw()
 	}
 	return NULL;
 }
+
+struct chunk *get_free_chunk_raw(size_t size)
+{
+	if (heap == NULL)
+		heap = init_heap();
+	for (struct chunk *item = heap;
+			(size_t)item < (size_t)heap + heap_size;
+			item = (struct chunk *)((size_t)item + item->size + sizeof(struct chunk))
+			)
+	{
+		if (item->flags == FREE && item->size >= size)
+			return item;
+	}
+	return NULL;
+}
+
 
 struct chunk *get_free_chunk(size_t size)
 {
@@ -99,12 +99,12 @@ void clean(void *ptr)
 {
 	struct chunk *ch = (struct chunk*)((size_t)ptr - sizeof(struct chunk));
 	// ?? si ptr cest nimp
-	// lookp ptr
+	// lookp ptr : idee de truc secu a faire
 	ch->flags = FREE;
 	// merge les chunks consecutifs
 	for (struct chunk *item = heap;
 			(size_t)item < (size_t)heap + heap_size;
-			item = (struct chunk *)(size_t)item + item->size + sizeof(struct chunk)
+			item = (struct chunk *)((size_t)item + item->size + sizeof(struct chunk))
 			)
 	{
 		printf("Chunk check %p size %lu - flag %u\n", item, item->size, item->flags);
