@@ -12,6 +12,7 @@ struct chunk *init_heap()
 	if (heap == NULL)
 	{
 		heap = (struct chunk*) mmap((void*)(4096*100000), heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+		// heap = (struct chunk*) mmap(NULL, heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 		heap->size = heap_size - sizeof(struct chunk);
 		heap->flags = FREE;
 	}
@@ -71,6 +72,7 @@ struct chunk *get_free_chunk(size_t size)
 		printf("HEAP resized %p\n", new_heap);
 		if (new_heap != heap)
 			return NULL; // pour verifier qu'on s'est pas fait deporter
+		printf("LAST SIZE %lu - %p\n", delta_size, last_item);
 		last_item->size += delta_size; 
 		printf("last chunk %p size %lu - flag %u\n", last_item, last_item->size, last_item->flags);
 		item = get_free_chunk_raw(size);
