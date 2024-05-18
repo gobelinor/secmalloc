@@ -1,9 +1,8 @@
 #include <criterion/criterion.h>
 #include <sys/mman.h>
 #include "my_alloc.private.h"
+#include "log.h"
 #include <stdio.h>
-
-/* #include "my_alloc.private.h" */
 
 Test(simple, simple_map_01)
 {
@@ -90,4 +89,35 @@ Test(simple, simple_map_06)
 {
 	char *ptr1 = my_alloc(8192);
 	cr_assert(ptr1 != NULL, "Failed to alloc ptr1");
+}
+
+Test(simple, log_01)
+{
+	printf("log_01\n");
+	int ret = log_new_execution();
+	printf("ret = %d\n", ret);
+	cr_assert(ret == 0);
+}
+
+Test(simple, log_02)
+{
+	printf("log_02\n");
+	int ret = log_message("ecrit ce que tu %s : %d\n", "veux", 12);
+	printf("ret = %d\n", ret);
+	cr_assert(ret == 0);
+}
+
+Test(simple, log_03)
+{	
+	printf("log_03\n");
+	void *ptr = malloc(100);
+	int ret = log_event(MALLOC, START, NULL, 100);
+	cr_assert(ret == 0);
+    ret = log_event(MALLOC, END, ptr, 100); 
+	cr_assert(ret == 0);
+    ret = log_event(FREE_fn, START, ptr, 100);
+	cr_assert(ret == 0);
+    ret = log_event(FREE_fn, END, ptr, 100); 
+	cr_assert(ret == 0);
+	free(ptr);
 }
