@@ -20,7 +20,7 @@ void *init_heapdata()
 	return heapdata;
 }
 
-struct chunkmetadata *init_heapmetadata(void *heapdata)
+struct chunkmetadata *init_heapmetadata()
 {
 	if (heapmetadata == NULL)
 	{

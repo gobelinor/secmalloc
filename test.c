@@ -157,7 +157,7 @@ Test(simple, init_heaps_01)
 	cr_assert(heapmetadata == NULL);
 	cr_assert(heapdata == NULL);
 	heapdata = init_heapdata();
-	heapmetadata = init_heapmetadata(heapdata);
+	heapmetadata = init_heapmetadata();
 	cr_assert(heapmetadata != NULL);
 	cr_assert(heapdata != NULL);
 	cr_assert(heapmetadata->size == heap_size-sizeof(struct chunkmetadata));
