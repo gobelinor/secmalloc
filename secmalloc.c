@@ -6,16 +6,22 @@
 #include <linux/mman.h>
 #include <unistd.h>
 
+
 void *heapdata = NULL;
 struct chunkmetadata *heapmetadata = NULL;
 size_t heap_size = 4096;
 
-struct chunkmetadata *init_heaps()
+void *init_heapdata()
 {
 	if (heapdata == NULL)
 	{
 		heapdata = mmap((void*)(4096*100000), heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 	}
+	return heapdata;
+}
+
+struct chunkmetadata *init_heapmetadata(void *heapdata)
+{
 	if (heapmetadata == NULL)
 	{
 		heapmetadata = (struct chunkmetadata*) mmap((void*)(4096*1000), heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);

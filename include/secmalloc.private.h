@@ -3,10 +3,10 @@
 #include <stddef.h>
 #include "secmalloc.h"
 
-void *heapdata = NULL;
-struct chunkmetadata *heapmetadata = NULL;
-size_t heap_size = 4096;
-
+// void *heapdata = NULL;
+// struct chunkmetadata *heapmetadata = NULL;
+// size_t heap_size = 4096;
+//
 enum chunk_type 
 {
 	FREE = 0,
@@ -29,7 +29,8 @@ struct chunk
 	enum chunk_type flags;
 };
 
-struct chunkmetadata *init_heaps();
+void *init_heapdata();
+struct chunkmetadata *init_heapmetadata();
 struct chunk *init_heap();
 long generate_canary();
 struct chunk *get_free_chunk(size_t size);
