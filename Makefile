@@ -1,11 +1,11 @@
 CC = gcc -g
 CFLAGS = -Wall -g -Werror -Wextra -std=gnu17 -I ./include
-OBJ = my_alloc.o log.o
+OBJ = log.o secmalloc.o
 
 all: ${OBJ}
 
 test: ${OBJ} test.o 
-	$(CC) -L./lib -lcriterion -I ./include -o test test.o my_alloc.o log.o
+	$(CC) -L./lib -lcriterion -I ./include -o test test.o log.o secmalloc.o
 	./test
 
 clean:
