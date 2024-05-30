@@ -150,12 +150,10 @@ Test(simple, canary_02) // not perfect but that should be enough for our purpuse
 
 Test(simple, init_heaps_01)
 {
+	printf("init_heaps_01\n");
 	void *heapdata = NULL;
 	struct chunkmetadata *heapmetadata = NULL;
 	size_t heap_size = 4096;
-	printf("init_heaps_01\n");
-	cr_assert(heapmetadata == NULL);
-	cr_assert(heapdata == NULL);
 	heapdata = init_heapdata();
 	heapmetadata = init_heapmetadata();
 	cr_assert(heapmetadata != NULL);
