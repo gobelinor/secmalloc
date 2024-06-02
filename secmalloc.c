@@ -5,7 +5,8 @@
 #include <sys/mman.h>
 #include <linux/mman.h>
 #include <unistd.h>
-
+#include <string.h>
+#include "log.h"
 
 void *heapdata = NULL;
 struct chunkmetadata *heapmetadata = NULL;
@@ -174,3 +175,127 @@ long generate_canary()
 /* 		} */
 /* 	} */
 /* } */
+
+// not used because included in free
+int is_valid(void *ptr)
+{
+	// check if ptr is in heapdata
+	for (struct chunkmetadata *item = heapmetadata;
+			item != NULL;
+			item = item->next)
+	{
+		if (item->addr == ptr)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int verify_canary(struct chunkmetadata *item)
+{
+	log_message("Verifying canary");
+	long expected_canary = item->canary;
+	long *canary = (long*)((size_t)item->addr + item->size);
+	if (*canary != expected_canary)
+	{
+		return -1;
+	}
+	log_message("Canary verified");
+	return 1;
+}
+
+void clean_memory(struct chunkmetadata *item)
+{
+	log_message("Cleaning memory");
+	memset(item->addr, 0, item->size);
+	log_message("Memory cleaned");
+}
+
+void merge_chunks()
+{
+	log_message("Merging chunks");
+	for (struct chunkmetadata *item = heapmetadata;
+			item != NULL;
+			item = item->next)
+	{
+		if (item->flags == FREE)
+		{
+			struct chunkmetadata *end = item;
+			size_t new_size = item->size;
+			int count = 0;
+			while (end->flags == FREE && end->next != NULL)
+			{
+				end = end->next;
+				if (end->flags == FREE)
+				{
+					new_size += end->size;
+					count++;
+				}
+			}
+			item->size = new_size;
+			item->next = end->next;
+			if (end->next != NULL)
+			{
+				end->next->prev = item;
+			}
+			if (count > 0)
+			{
+				log_message("%d chunks merged", count);
+			}
+		}
+	}
+}
+
+void my_free(void *ptr)
+{
+	log_event(FREE_fn, START, ptr, 0);
+	// we check if the heap is initialized
+	if (heapdata == NULL || heapmetadata == NULL)
+	{
+		log_message("Heap not initialized");
+		return;
+	}
+	// if ptr is NULL we log an error
+	if (ptr == NULL)
+	{
+		log_message("Invalid pointer to free : NULL");
+		return;
+	}
+	// first we verify if ptr is one of the addresses where we allocated memory
+	for (struct chunkmetadata *item = heapmetadata;
+			item != NULL;
+			item = item->next)
+	{
+		// if ptr is the one of the known addr in the heapmetadata we free it
+		if (item->addr == ptr)
+		{
+			// if the chunk is already free we log an error
+			if (item->flags == FREE)
+			{
+				log_message("Double free");
+				return;
+			}
+			// if the canary is not the one we expect we log an error
+			if (verify_canary(item) == -1)
+			{
+				log_message("Canary verification failed : Buffer overflow detected");
+				return;
+			}
+			// we clean the memory before freeing it
+			clean_memory(item);
+			// we free the chunk
+			item->flags = FREE;
+			// we log the event
+			log_event(FREE_fn, END, ptr, item->size);
+			// we merge free chunks
+			merge_chunks();
+			return;
+		}
+	}
+	// if ptr is not in the heap, we log an error
+	log_message("Invalid pointer to free : not in the heap");
+	return;
+}
+
+
