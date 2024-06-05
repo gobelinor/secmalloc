@@ -14,6 +14,10 @@
 
 int log_message(const char *format, ...)	 
 {
+	// Check if the environment variable MSM_OUTPUT is set
+	if (getenv("MSM_OUTPUT") == NULL)
+		return 0; 
+
 	va_list args, args_copy;
 	va_start(args, format);
 	
@@ -28,9 +32,9 @@ int log_message(const char *format, ...)
     // Write formatted data to the buffer
     vsnprintf(buffer, size, format, args);
 	va_end(args);
-	
+
 	// Open log file
-	int fd = open(LOG_FILE, O_CREAT | O_APPEND | O_WRONLY, 0600); // 600 - rw for owner
+	int fd = open(getenv("MSM_OUTPUT"), O_CREAT | O_APPEND | O_WRONLY, 0600); // 600 - rw for owner
 	if (fd == -1) {
 		return -1;
 	}
