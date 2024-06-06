@@ -3,7 +3,10 @@
 #include "my_alloc.private.h"
 #include "log.h"
 #include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>
 
+/* ***** Begin of simples tests mmap ***** */
 Test(simple, simple_map_01)
 {
 	// utilisation simple d'un mmap
@@ -90,6 +93,66 @@ Test(simple, simple_map_06)
 	char *ptr1 = my_alloc(8192);
 	cr_assert(ptr1 != NULL, "Failed to alloc ptr1");
 }
+
+Test(simple, simple_map_07)
+{
+    // mmap avec une taille plus grande
+    printf("Testing mmap with larger size 8192 bytes\n");
+    char *ptr = mmap(NULL, 8192, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    cr_assert(ptr != MAP_FAILED, "Failed to mmap 8192 bytes");
+    printf("Successfully mapped 8192 bytes, now unmapping...\n");
+    munmap(ptr, 8192);
+}
+
+Test(simple, simple_map_08)
+{
+    // mmap pour demander une page mémoire minimale
+    printf("Testing mmap with system page size\n");
+    char *ptr = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    cr_assert(ptr != MAP_FAILED, "Failed to mmap one system page size");
+    printf("Successfully mapped one system page size, now unmapping...\n");
+    munmap(ptr, sysconf(_SC_PAGESIZE));
+}
+
+Test(simple, simple_map_09)
+{
+    // mmap avec un alignement de mémoire spécifique
+    size_t alignment = 16384; // 16KB alignment
+    size_t size = 4096;
+    printf("Testing mmap with specific alignment: 16KB over 4KB size\n");
+    char *ptr = mmap(NULL, size + alignment, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    char *aligned_ptr = (char *)(((uintptr_t)ptr + alignment - 1) & ~(alignment - 1));
+    cr_assert(aligned_ptr >= ptr && aligned_ptr < ptr + alignment, "Failed to get aligned memory");
+    printf("Alignment successful, ptr: %p, aligned_ptr: %p\n", ptr, aligned_ptr);
+    munmap(ptr, size + alignment);
+}
+
+Test(simple, simple_map_10)
+{
+    // mmap avec protection en écriture uniquement
+    printf("Testing mmap with write-only protection\n");
+    char *ptr = mmap(NULL, 4096, PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    cr_assert(ptr != MAP_FAILED, "Failed to mmap with write-only protection");
+    printf("Write-only mmap successful, now unmapping...\n");
+    munmap(ptr, 4096);
+}
+
+Test(simple, simple_map_11)
+{
+    // mmap avec un descripteur de fichier invalide
+    printf("Testing mmap with an invalid file descriptor\n");
+    char *ptr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE, -1, 0);
+    cr_assert(ptr == MAP_FAILED, "mmap should fail with an invalid file descriptor");
+    if (ptr != MAP_FAILED) {
+        printf("Unexpected success, now unmapping...\n");
+        munmap(ptr, 4096);
+    } else {
+        printf("Failed as expected with invalid file descriptor\n");
+    }
+}
+
+/* ***** End of simples tests mmap ***** */
+
 
 Test(simple, log_01)
 {
