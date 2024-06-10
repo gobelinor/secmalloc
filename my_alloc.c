@@ -81,6 +81,25 @@ struct chunk *get_free_chunk(size_t size)
 	return item;
 }
 
+// La fonction lookup permet de parcourir la pool de metadata pour y chercher un bloc a allouer 
+struct chunk *lookup(size_t size) {
+    if (heap == NULL) {
+        heap = init_heap();  // heap initialization
+    }
+
+    struct chunk *current = heap;
+    while ((size_t)current < (size_t)heap + heap_size) {
+        if (current->flags == FREE && current->size >= size) {
+            return current;  // Bloc libre trouvé avec suffisamment d'espace
+        }
+        // Avance au prochain chunk dans la mémoire du tas
+        current = (struct chunk *)((size_t)current + sizeof(struct chunk) + current->size);
+    }
+
+    // Aucun bloc trouvé, retourne NULL
+    return NULL;
+}
+
 void *my_alloc(size_t size) {
 	(void) size;
 	void *ptr;

@@ -153,6 +153,47 @@ Test(simple, simple_map_11)
 
 /* ***** End of simples tests mmap ***** */
 
+/* ***** Begin of simples tests lookup ***** */
+
+Test(lookup_tests, lookup_empty_heap)
+{
+    init_heap();  // Initializes the heap
+    struct chunk *result = lookup(100);  // Searches for a 100-byte block in an initialized empty heap
+    cr_assert_not_null(result, "No block found in an initialized but empty heap.");
+    cr_assert(result->size >= 100, "The found block is not large enough.");
+    cr_assert(result->flags == FREE, "The found block is not free.");
+}
+
+// Test the lookup function after a block has been allocated
+Test(lookup_tests, lookup_after_allocation)
+{
+    init_heap();  // Reinitializes the heap for this test
+    void *ptr = my_alloc(200);  // Allocates a 200-byte block
+    struct chunk *result = lookup(100);  // Searches for another 100-byte block
+    cr_assert_not_null(result, "No block found after an allocation.");
+    cr_assert(result->size >= 100, "The found block is not large enough after an allocation.");
+    cr_assert(result->flags == FREE, "The found block is not free after an allocation.");
+    clean(ptr);  // Cleans up to prevent memory leaks
+}
+
+// Test the lookup function when the heap is fully utilized
+Test(lookup_tests, lookup_full_heap)
+{
+    init_heap();  // Reinitializes the heap for this test
+    my_alloc(heap_size - sizeof(struct chunk));  // Attempts to allocate almost the entire heap
+    struct chunk *result = lookup(100);  // Searches for a 100-byte block
+    cr_assert_null(result, "A block was found while the heap should be full.");
+}
+
+// Test the lookup function for a size that does not exist in the heap
+Test(lookup_tests, lookup_non_existent_size)
+{
+    init_heap();  // Reinitializes the heap for this test
+    struct chunk *result = lookup(heap_size * 2);  // Searches for a block larger than the heap itself
+    cr_assert_null(result, "A block was found even though no block of this size should exist.");
+}
+
+/* ***** End of simples tests lookup ***** */
 
 Test(simple, log_01)
 {
