@@ -14,6 +14,8 @@ Test(simple, simple_map_01)
 	cr_assert(ptr != NULL, "Failed to mmap");
 }
 
+
+
 /* Test(simple, simple_map_02) */
 /* { */
 /* 	// utilisation simple d'un mmap */

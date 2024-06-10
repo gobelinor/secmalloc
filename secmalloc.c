@@ -10,7 +10,9 @@
 
 void *heapdata = NULL;
 struct chunkmetadata *heapmetadata = NULL;
-size_t heap_size = 4096;
+size_t heap_size = 4096; // used as constant
+size_t heapdata_size = 4096; // will increase
+size_t heapmetadata_size = 4096; // will increase
 
 void *init_heapdata()
 {
@@ -175,6 +177,147 @@ long generate_canary()
 /* 		} */
 /* 	} */
 /* } */
+
+// get the total size of the heapmetadata
+size_t get_heapmetadata_size()
+{
+	size_t size = 0;
+	for (struct chunkmetadata *item = heapmetadata;
+			item != NULL;
+			item = item->next)
+	{
+		size += sizeof(struct chunkmetadata);
+	}
+	return size;
+}
+
+// get the total size of the heapdata
+size_t get_heapdata_size()
+{
+	size_t size = 0;
+	for (struct chunkmetadata *item = heapmetadata;
+			item != NULL;
+			item = item->next)
+	{
+		size += item->size;
+	}
+	return size;
+}
+
+// resize the heapmetadata
+void resizeheapmetadata()
+{
+	heapmetadata = mremap(heapmetadata, heapmetadata_size, heap_size, MREMAP_MAYMOVE);
+	heapmetadata_size += heap_size;
+	return;
+}
+
+// resize the heapdata
+void resizeheapdata()
+{
+	heapdata = mremap(heapdata, heapdata_size, heap_size, MREMAP_MAYMOVE);
+	heapdata_size += heap_size;
+	return;
+}
+
+// lookup for a free bloc with a size large enough
+struct chunkmetadata *lookup(size_t size)
+{
+	for (struct chunkmetadata *item = heapmetadata;
+			item != NULL;
+			item = item->next)
+	{
+		if (item->flags == FREE && item->size >= size)
+		{
+			return item;
+		}
+	}
+	return NULL;
+}
+
+// get the last metadata bloc
+struct chunkmetadata *lastmetadata()
+{
+	struct chunkmetadata *item = heapmetadata;
+	while (item->next != NULL)
+	{
+		item = item->next;
+	}
+	return item;
+}
+
+// split a bloc in two, returns the new second bloc 
+void split(struct chunkmetadata *bloc, size_t size)
+{
+	//create new metadata bloc for the second part
+	struct chunkmetadata *newbloc = lastmetadata();
+	//set metadata for newbloc
+	newbloc->size = bloc->size - size;
+	newbloc->flags = FREE;
+	newbloc->addr = (void*)((size_t)bloc->addr + size);
+	newbloc->canary = 0xdeadbeef;
+	newbloc->next = bloc->next;
+	newbloc->prev = bloc;
+	//update first bloc metadata
+	bloc->size = size;
+	bloc->next = newbloc;
+	return;
+}
+
+void place_canary(struct chunkmetadata *bloc, long canary)
+{
+	long *canary_ptr = (long*)((size_t)bloc->addr + bloc->size);
+	*canary_ptr = canary;
+}
+
+// malloc
+void* my_malloc(size_t size)
+{
+	// check if the heap is initialized
+	if (heapdata == NULL)
+	{
+		init_heapdata();
+	}
+	// check if the heapmetadata is initialized
+	if (heapmetadata == NULL)
+	{
+		init_heapmetadata();
+	}
+	// get the total size of metadata heap and resize it if needed
+	size_t heapmetadata_size = get_heapmetadata_size();
+	if (4096 - heapmetadata_size % 4096 < sizeof(struct chunkmetadata)) 
+	{
+		resizeheapmetadata();
+	}
+	// get the total size of data heap and resize it if needed
+	size_t heapdata_size = get_heapdata_size();
+	if (4096 - heapdata_size % 4096 < size)
+	{
+		resizeheapdata();
+	}
+	// get metadata bloc of free data bloc with large enough size 
+	struct chunkmetadata *bloc = lookup(size);
+	// if no bloc found, return NULL
+	if (bloc == NULL)
+	{
+		return NULL;
+	}
+	// generate a canary
+	long canary = generate_canary();
+	// split the bloc
+	split(bloc, size);
+	// fill the bloc with metadata 
+	bloc->flags = BUSY;
+	bloc->canary = canary;
+	// place the canary at the end of the bloc data in heapdata
+	place_canary(bloc, canary);
+	// return the address of the data bloc in heapdata
+	return bloc->addr;
+}
+	
+	
+
+
 
 // not used because included in free
 int is_valid(void *ptr)
