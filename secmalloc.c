@@ -298,4 +298,4 @@ void my_free(void *ptr)
 	return;
 }
 
-
+// Vérification
