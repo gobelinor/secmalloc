@@ -1,9 +1,8 @@
-#ifndef __MY_ALLOC_H__
-#define __MY_ALLOC_H__
+#ifndef __SECMALLOC_H__
+#define __SECMALLOC_H__
 #include <stddef.h>
 
-// void *my_alloc(size_t size); //size_t is unsigned int 
-// void clean(void *ptr);
-//
+void *my_malloc(size_t size);
+void clean(void *ptr);
 
-#endif // __MY_ALLOC_H__
+#endif

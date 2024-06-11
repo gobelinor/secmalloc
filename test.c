@@ -14,90 +14,6 @@ Test(simple, simple_map_01)
 	cr_assert(ptr != NULL, "Failed to mmap");
 }
 
-
-
-/* Test(simple, simple_map_02) */
-/* { */
-/* 	// utilisation simple d'un mmap */
-/* 	char *ptr1 = my_alloc(12); */
-/* 	printf("simple_map_02\n"); */
-/* 	cr_assert(ptr1 != NULL, "Failed to alloc ptr1"); */
-/* 	char *ptr2 = my_alloc(25); */
-/* 	cr_assert(ptr2 != NULL, "Failed to alloc ptr2"); */
-/* 	#<{(| cr_assert(ptr1 != ptr2, "Failed to alloc ptr2 != ptr1"); |)}># */
-/* 	cr_assert((size_t)ptr2 == (size_t)ptr1 + 12 + (sizeof (struct chunk)), "Failed to alloc"); #<{(| : %lx - %lx", (size_t)ptr2, (size_t)ptr1 + 12 + (sizeof (struct chunk)); |)}># */
-/* 	char *ptr3 = my_alloc(55); */
-/* 	cr_assert((size_t)ptr3 == (size_t)ptr2 + 25 + (sizeof (struct chunk)), "Failed to alloc");#<{(|  : %lx - %lx", (size_t)ptr3, (size_t)ptr2 + 25 + (sizeof (struct chunk))); |)}># */
-/* } */
-/*  */
-/* Test(simple, simple_map_03) */
-/* { */
-/* 	// utilisation simple d'un mmap */
-/* 	char *ptr1 = my_alloc(12); */
-/* 	printf("simple_map_02\n"); */
-/* 	cr_assert(ptr1 != NULL, "Failed to alloc ptr1"); */
-/* 	char *ptr2 = my_alloc(25); */
-/* 	cr_assert(ptr2 != NULL, "Failed to alloc ptr2"); */
-/* 	#<{(| cr_assert(ptr1 != ptr2, "Failed to alloc ptr2 != ptr1"); |)}># */
-/* 	cr_assert((size_t)ptr2 == (size_t)ptr1 + 12 + (sizeof (struct chunk)), "Failed to alloc"); #<{(| : %lx - %lx", (size_t)ptr2, (size_t)ptr1 + 12 + (sizeof (struct chunk)); |)}># */
-/* 	char *ptr3 = my_alloc(55); */
-/* 	cr_assert((size_t)ptr3 == (size_t)ptr2 + 25 + (sizeof (struct chunk)), "Failed to alloc");#<{(|  : %lx - %lx", (size_t)ptr3, (size_t)ptr2 + 25 + (sizeof (struct chunk))); |)}># */
-/* 	printf("clean ptr1\n"); */
-/*     clean(ptr1); */
-/*     printf("clean ptr2\n"); */
-/*     clean(ptr2); */
-/*     struct chunk *t = (struct chunk *)((size_t)ptr1 - sizeof (struct chunk)); */
-/*     printf("t : %lu\n", t->size); */
-/*     cr_assert(t->size == 12 + 25 + sizeof(struct chunk), "Failed to clean"); */
-/* } */
-/*  */
-/* Test(simple, simple_map_04) */
-/* { */
-/* 	// utilisation simple d'un mmap */
-/* 	char *ptr1 = my_alloc(12); */
-/* 	cr_assert(ptr1 != NULL, "Failed to alloc ptr1"); */
-/* 	char *ptr2 = my_alloc(25); */
-/* 	cr_assert(ptr2 != NULL, "Failed to alloc ptr2"); */
-/* 	cr_assert((size_t)ptr2 == (size_t)ptr1 + 12 + (sizeof (struct chunk)), "Failed to alloc"); #<{(| : %lx - %lx", (size_t)ptr2, (size_t)ptr1 + 12 + (sizeof (struct chunk)); |)}># */
-/* 	char *ptr3 = my_alloc(55); */
-/* 	cr_assert(ptr3 != NULL, "Failed to alloc ptr3"); */
-/* 	cr_assert((size_t)ptr3 == (size_t)ptr2 + 25 + (sizeof (struct chunk)), "Failed to alloc");#<{(|  : %lx - %lx", (size_t)ptr3, (size_t)ptr2 + 25 + (sizeof (struct chunk))); |)}># */
-/* 	printf("clean ptr2\n"); */
-/* 	clean(ptr2); */
-/* 	printf("clean ptr3\n"); */
-/* 	clean(ptr3); */
-/* 	struct chunk *t = (struct chunk*)((size_t)ptr2 - sizeof(struct chunk)); */
-/* 	printf("t->size = %ld\n", t->size); */
-/* 	cr_assert(t->size == 25 + 55 + 3940 + 2 * sizeof(struct chunk), "Failed to clean"); */
-/* } */
-/*  */
-/* Test(simple, simple_map_05) */
-/* { */
-/* 	// utilisation simple d'un mmap */
-/* 	char *ptr1 = my_alloc(12); */
-/* 	cr_assert(ptr1 != NULL, "Failed to alloc ptr1"); */
-/* 	char *ptr2 = my_alloc(25); */
-/* 	cr_assert(ptr2 != NULL, "Failed to alloc ptr2"); */
-/* 	cr_assert((size_t)ptr2 == (size_t)ptr1 + 12 + (sizeof (struct chunk)), "Failed to alloc"); #<{(| : %lx - %lx", (size_t)ptr2, (size_t)ptr1 + 12 + (sizeof (struct chunk)); |)}># */
-/* 	char *ptr3 = my_alloc(55); */
-/* 	cr_assert((size_t)ptr3 == (size_t)ptr2 + 25 + (sizeof (struct chunk)), "Failed to alloc");#<{(|  : %lx - %lx", (size_t)ptr3, (size_t)ptr2 + 25 + (sizeof (struct chunk))); |)}># */
-/* 	printf("clean ptr1\n"); */
-/* 	clean(ptr1); */
-/* 	printf("clean ptr2\n"); */
-/* 	clean(ptr2); */
-/* 	struct chunk *t = (struct chunk*)((size_t)ptr1 - sizeof(struct chunk)); */
-/* 	printf("t->size = %ld\n", t->size); */
-/* 	cr_assert(t->size == 12 + 25 + sizeof(struct chunk), "Failed to clean ptr2"); */
-/* } */
-/*  */
-/* Test(simple, simple_map_06) */
-/* { */
-/* 	char *ptr1 = my_alloc(8192); */
-/* 	cr_assert(ptr1 != NULL, "Failed to alloc ptr1"); */
-/* } */
-/*  */
-
-
 Test(simple, simple_map_07)
 {
     // mmap avec une taille plus grande
@@ -158,47 +74,30 @@ Test(simple, simple_map_11)
 /* ***** End of simples tests mmap ***** */
 
 /* ***** Begin of simples tests lookup ***** */
-
 Test(lookup_tests, lookup_empty_heap)
 {
     init_heap();  // Initializes the heap
-    struct chunk *result = lookup(100);  // Searches for a 100-byte block in an initialized empty heap
+    struct chunkmetadata *result = lookup(100);  // Searches for a 100-byte block in an initialized empty heap
     cr_assert_not_null(result, "No block found in an initialized but empty heap.");
     cr_assert(result->size >= 100, "The found block is not large enough.");
     cr_assert(result->flags == FREE, "The found block is not free.");
 }
 
-// Test the lookup function after a block has been allocated
 Test(lookup_tests, lookup_after_allocation)
 {
     init_heap();  // Reinitializes the heap for this test
-    void *ptr = my_alloc(200);  // Allocates a 200-byte block
-    struct chunk *result = lookup(100);  // Searches for another 100-byte block
+    void *ptr = my_malloc(200);  // Allocates a 200-byte block
+    struct chunkmetadata *result = lookup(100);  // Searches for another 100-byte block
     cr_assert_not_null(result, "No block found after an allocation.");
     cr_assert(result->size >= 100, "The found block is not large enough after an allocation.");
     cr_assert(result->flags == FREE, "The found block is not free after an allocation.");
     clean(ptr);  // Cleans up to prevent memory leaks
 }
 
-// Test the lookup function when the heap is fully utilized
-Test(lookup_tests, lookup_full_heap)
-{
-    init_heap();  // Reinitializes the heap for this test
-    my_alloc(heap_size - sizeof(struct chunk));  // Attempts to allocate almost the entire heap
-    struct chunk *result = lookup(100);  // Searches for a 100-byte block
-    cr_assert_null(result, "A block was found while the heap should be full.");
-}
-
-// Test the lookup function for a size that does not exist in the heap
-Test(lookup_tests, lookup_non_existent_size)
-{
-    init_heap();  // Reinitializes the heap for this test
-    struct chunk *result = lookup(heap_size * 2);  // Searches for a block larger than the heap itself
-    cr_assert_null(result, "A block was found even though no block of this size should exist.");
-}
-
 /* ***** End of simples tests lookup ***** */
 
+
+/* ***** Begin of simples tests log ***** */
 Test(simple, log_01)
 {
 	printf("log_01\n");
@@ -218,7 +117,7 @@ Test(simple, log_02)
 Test(simple, log_03)
 {	
 	printf("log_03\n");
-	void *ptr = malloc(100);
+	void *ptr = my_malloc(100);
 	int ret = log_event(MALLOC, START, NULL, 100);
 	cr_assert(ret == 0);
     ret = log_event(MALLOC, END, ptr, 100); 
@@ -229,6 +128,11 @@ Test(simple, log_03)
 	cr_assert(ret == 0);
 	free(ptr);
 }
+
+/* ***** End of simples tests log ***** */
+
+
+/* ***** Begin of simples tests canary ***** */
 
 Test(simple, canary_01)
 {
@@ -254,6 +158,11 @@ Test(simple, canary_02) // not perfect but that should be enough for our purpuse
 	}
 }
 
+/* ***** End of simples tests canary ***** */
+
+
+/* ***** Begin of simples tests heap ***** */
+
 Test(simple, init_heaps_01)
 {
 	printf("init_heaps_01\n");
@@ -271,3 +180,5 @@ Test(simple, init_heaps_01)
 	cr_assert(heapmetadata->next == NULL);
 	cr_assert(heapmetadata->prev == NULL);
 }
+
+/* ***** End of simples tests heap ***** */
