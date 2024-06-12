@@ -1,4 +1,4 @@
-#include "secmalloc.private.h"
+#include "secmalloc.h"
 #define _GNU_SOURCE
 #include <fcntl.h>
 #include <stdio.h>
@@ -10,7 +10,7 @@
 
 void *heapdata = NULL;
 struct chunkmetadata *heapmetadata = NULL;
-size_t heap_size = 4096; // used as constant
+size_t pageheap_size = 4096; // used as constant
 size_t heapdata_size = 4096; // will increase
 size_t heapmetadata_size = 4096; // will increase
 
@@ -18,7 +18,7 @@ void *init_heapdata()
 {
 	if (heapdata == NULL)
 	{
-		heapdata = mmap((void*)(4096*100000), heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+		heapdata = mmap((void*)(4096*100000), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 	}
 	return heapdata;
 }
@@ -27,8 +27,8 @@ struct chunkmetadata *init_heapmetadata()
 {
 	if (heapmetadata == NULL)
 	{
-		heapmetadata = (struct chunkmetadata*) mmap((void*)(4096*1000), heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-		heapmetadata->size = heap_size - sizeof(struct chunkmetadata);
+		heapmetadata = (struct chunkmetadata*) mmap((void*)(4096*1000), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+		heapmetadata->size = pageheap_size;
 		heapmetadata->flags = FREE;
 		heapmetadata->addr = heapdata;
 		heapmetadata->canary = 0xdeadbeef; // will be replaced by a random value during first malloc
@@ -38,18 +38,6 @@ struct chunkmetadata *init_heapmetadata()
 	return heapmetadata;
 }
 
-
-/* struct chunk *init_heap() */
-/* { */
-/* 	if (heap == NULL) */
-/* 	{ */
-/* 		heap = (struct chunk*) mmap((void*)(4096*100000), heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); */
-/* 		// heap = (struct chunk*) mmap(NULL, heap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); */
-/* 		heap->size = heap_size - sizeof(struct chunk); */
-/* 		heap->flags = FREE; */
-/* 	} */
-/* 	return heap; */
-/* } */
 
 long generate_canary()
 {
@@ -66,120 +54,9 @@ long generate_canary()
 	close(fd);
 	return canary;
 }
-	
-/* struct chunk *get_last_chunk_raw() */
-/* { */
-/* 	for (struct chunk *item = heap; */
-/* 			(size_t)item < (size_t) heap + heap_size; */
-/* 			item = (struct chunk *)((size_t)item + sizeof(struct chunk) + item->size) */
-/* 			) */
-/* 	{ */
-/* 		printf("last chunk check %p size %lu - flag %u\n", item, item->size, item->flags); */
-/* 		if ((size_t)item + sizeof(struct chunk) + item->size >= (size_t) heap + heap_size) */
-/* 		{	 */
-/* 			printf("ret %p\n", item); */
-/* 			return item; */
-/* 		} */
-/* 		printf("skip\n"); */
-/* 	} */
-/* 	return NULL; */
-/* } */
-/*  */
-/* struct chunk *get_free_chunk_raw(size_t size) */
-/* { */
-/* 	if (heap == NULL) */
-/* 		heap = init_heap(); */
-/* 	for (struct chunk *item = heap; */
-/* 			(size_t)item < (size_t)heap + heap_size; */
-/* 			item = (struct chunk *)((size_t)item + item->size + sizeof(struct chunk)) */
-/* 			) */
-/* 	{ */
-/* 		if (item->flags == FREE && item->size >= size) */
-/* 			return item; */
-/* 	} */
-/* 	return NULL; */
-/* } */
-/*  */
-/*  */
-/* struct chunk *get_free_chunk(size_t size) */
-/* { */
-/* 	if (heap == NULL) */
-/* 		heap = init_heap(); */
-/* 	printf("heap %p\n", heap); */
-/* 	struct chunk *item = get_free_chunk_raw(size); */
-/* 	if (item == NULL) */
-/* 	{ */
-/* 		//manque d'espace memoire REMAP */
-/* 		printf("HERE %p\n", item); */
-/* 		size_t tot_size = size + sizeof(struct chunk); */
-/* 		size_t old_size = heap_size; */
-/* 		size_t delta_size = ((tot_size/4096) + ((tot_size % 4096 != 0) ? 1 : 0)) * 4096; */
-/* 		struct chunk *last_item = get_last_chunk_raw(); */
-/* 		heap_size += delta_size; */
-/* 		printf("HEAP NEW SIZE %lu\n", heap_size); */
-/* 		struct chunk *new_heap = mremap(heap, old_size, heap_size, MREMAP_MAYMOVE); */
-/* 		printf("HEAP resized %p\n", new_heap); */
-/* 		if (new_heap != heap) */
-/* 			return NULL; // pour verifier qu'on s'est pas fait deporter */
-/* 		printf("LAST SIZE %lu - %p\n", delta_size, last_item); */
-/* 		last_item->size += delta_size;  */
-/* 		printf("last chunk %p size %lu - flag %u\n", last_item, last_item->size, last_item->flags); */
-/* 		item = get_free_chunk_raw(size); */
-/* 		printf("item chunk %p\n", item); */
-/* 	} */
-/* 	return item; */
-/* } */
-/*  */
-/* void *my_alloc(size_t size) { */
-/* 	(void) size; */
-/* 	void *ptr; */
-/* 	// get free chunk */
-/* 	struct chunk *ch = get_free_chunk(size); */
-/* 	// split chunk */
-/* 	ptr =(void*) ((size_t)ch + sizeof(struct chunk)); */
-/* 	// get end of chunk */
-/* 	struct chunk *end = (struct chunk*)((size_t)ptr + size); */
-/* 	end->flags = FREE; */
-/* 	end->size = ch->size - sizeof(struct chunk) - size; */
-/* 	ch->flags = BUSY; */
-/* 	ch->size = size; */
-/* 	return ptr; */
-/* } */
-/*  */
-/* void clean(void *ptr) */
-/* { */
-/* 	struct chunk *ch = (struct chunk*)((size_t)ptr - sizeof(struct chunk)); */
-/* 	// ?? si ptr cest nimp */
-/* 	// lookp ptr : idee de truc secu a faire */
-/* 	ch->flags = FREE; */
-/* 	// merge les chunks consecutifs */
-/* 	for (struct chunk *item = heap; */
-/* 			(size_t)item < (size_t)heap + heap_size; */
-/* 			item = (struct chunk *)((size_t)item + item->size + sizeof(struct chunk)) */
-/* 			) */
-/* 	{ */
-/* 		printf("Chunk check %p size %lu - flag %u\n", item, item->size, item->flags); */
-/* 		if (item->flags == FREE) */
-/* 		{ */
-/* 			// voir les blocs consecutifs */
-/* 			struct chunk *end = item; */
-/* 			size_t new_size = item->size; */
-/* 			while (end->flags == FREE && (size_t)end + sizeof(struct chunk) + end->size < (size_t) heap + heap_size) */
-/* 			{ */
-/* 				end = (struct chunk*)((size_t)end + end->size + sizeof(struct chunk)); */
-/* 				if (end->flags == FREE) */
-/* 				{ */
-/* 					new_size += end->size + sizeof(struct chunk); */
-/* 				} */
-/* 				printf("new size: %lu consecutive blocks %p size %lu - flag %u\n", new_size, end, end->size, end->flags); */
-/* 			} */
-/* 			item->size = new_size; */
-/* 		} */
-/* 	} */
-/* } */
 
 // get the total size of the heapmetadata
-size_t get_heapmetadata_size()
+size_t get_allocated_heapmetadata_size()
 {
 	size_t size = 0;
 	for (struct chunkmetadata *item = heapmetadata;
@@ -192,7 +69,7 @@ size_t get_heapmetadata_size()
 }
 
 // get the total size of the heapdata
-size_t get_heapdata_size()
+size_t get_allocated_heapdata_size()
 {
 	size_t size = 0;
 	for (struct chunkmetadata *item = heapmetadata;
@@ -204,19 +81,33 @@ size_t get_heapdata_size()
 	return size;
 }
 
+// get the last metadata bloc
+struct chunkmetadata *lastmetadata()
+{
+	struct chunkmetadata *item = heapmetadata;
+	while (item->next != NULL)
+	{
+		item = item->next;
+	}
+	return item;
+}
+
 // resize the heapmetadata
 void resizeheapmetadata()
 {
-	heapmetadata = mremap(heapmetadata, heapmetadata_size, heap_size, MREMAP_MAYMOVE);
-	heapmetadata_size += heap_size;
+	heapmetadata = mremap(heapmetadata, heapmetadata_size, heapmetadata_size + pageheap_size, MREMAP_MAYMOVE);
+	heapmetadata_size += pageheap_size;
 	return;
 }
 
 // resize the heapdata
 void resizeheapdata()
 {
-	heapdata = mremap(heapdata, heapdata_size, heap_size, MREMAP_MAYMOVE);
-	heapdata_size += heap_size;
+	heapdata = mremap(heapdata, heapdata_size, heapdata_size+pageheap_size, MREMAP_MAYMOVE);
+	heapdata_size += pageheap_size;
+	struct chunkmetadata *last = lastmetadata();
+	last->size += pageheap_size;
+	/* printf("last->size : %ld\n", last->size); */
 	return;
 }
 
@@ -235,22 +126,12 @@ struct chunkmetadata *lookup(size_t size)
 	return NULL;
 }
 
-// get the last metadata bloc
-struct chunkmetadata *lastmetadata()
-{
-	struct chunkmetadata *item = heapmetadata;
-	while (item->next != NULL)
-	{
-		item = item->next;
-	}
-	return item;
-}
 
 // split a bloc in two, returns the new second bloc 
 void split(struct chunkmetadata *bloc, size_t size)
 {
 	//create new metadata bloc for the second part
-	struct chunkmetadata *newbloc = lastmetadata();
+	struct chunkmetadata *newbloc = (struct chunkmetadata*) ((size_t)lastmetadata()+sizeof(struct chunkmetadata));
 	//set metadata for newbloc
 	newbloc->size = bloc->size - size;
 	newbloc->flags = FREE;
@@ -266,13 +147,21 @@ void split(struct chunkmetadata *bloc, size_t size)
 
 void place_canary(struct chunkmetadata *bloc, long canary)
 {
+	/* printf("bloc->addr : %p\n", bloc->addr); */
 	long *canary_ptr = (long*)((size_t)bloc->addr + bloc->size);
+	/* printf("canary_ptr : %p\n", canary_ptr); */
 	*canary_ptr = canary;
+	/* printf("canary : %ld\n", *canary_ptr); */
 }
 
 // malloc
 void* my_malloc(size_t size)
 {
+	// if requested size is 0, return NULL
+	if (size == 0)
+	{
+		return NULL;
+	}
 	// check if the heap is initialized
 	if (heapdata == NULL)
 	{
@@ -284,19 +173,28 @@ void* my_malloc(size_t size)
 		init_heapmetadata();
 	}
 	// get the total size of metadata heap and resize it if needed
-	size_t heapmetadata_size = get_heapmetadata_size();
-	if (4096 - heapmetadata_size % 4096 < sizeof(struct chunkmetadata)) 
+	size_t allocated_heapmetadata_size = get_allocated_heapmetadata_size();
+	if (4096 - allocated_heapmetadata_size % 4096 < sizeof(struct chunkmetadata)) 
 	{
+		/* printf("resizeheapmetadata\n"); */
 		resizeheapmetadata();
 	}
 	// get the total size of data heap and resize it if needed
-	size_t heapdata_size = get_heapdata_size();
-	if (4096 - heapdata_size % 4096 < size)
+	size_t allocated_heapdata_size = get_allocated_heapdata_size();
+	if (4096 - allocated_heapdata_size % 4096 < size)
 	{
+		/* printf("resizeheapdata\n"); */
 		resizeheapdata();
 	}
 	// get metadata bloc of free data bloc with large enough size 
 	struct chunkmetadata *bloc = lookup(size);
+	/* printf("post lookup\n"); */
+	/* printf("bloc->addr : %p\n", bloc->addr); */
+	/* printf("bloc->size : %ld\n", bloc->size); */
+	/* printf("bloc->flags : %d\n", bloc->flags); */
+	/* printf("bloc->canary : %ld\n", bloc->canary); */
+	/* printf("bloc->next : %p\n", bloc->next); */
+	/* printf("bloc->prev : %p\n", bloc->prev); */
 	// if no bloc found, return NULL
 	if (bloc == NULL)
 	{
@@ -306,11 +204,26 @@ void* my_malloc(size_t size)
 	long canary = generate_canary();
 	// split the bloc
 	split(bloc, size);
+	/* printf("post split\n"); */
+	/* printf("bloc->addr : %p\n", bloc->addr); */
+	/* printf("bloc->size : %ld\n", bloc->size); */
+	/* printf("bloc->flags : %d\n", bloc->flags); */
+	/* printf("bloc->canary : %ld\n", bloc->canary); */
+	/* printf("bloc->next : %p\n", bloc->next); */
+	/* printf("bloc->prev : %p\n", bloc->prev); */
+	/* printf("newbloc->addr : %p\n", bloc->next->addr); */
+	/* printf("newbloc->size : %ld\n", bloc->next->size); */
+	/* printf("newbloc->flags : %d\n", bloc->next->flags); */
+	/* printf("newbloc->canary : %ld\n", bloc->next->canary); */
+	/* printf("newbloc->next : %p\n", bloc->next->next); */
+	/* printf("newbloc->prev : %p\n", bloc->next->prev); */
 	// fill the bloc with metadata 
 	bloc->flags = BUSY;
 	bloc->canary = canary;
 	// place the canary at the end of the bloc data in heapdata
+	/* printf("pre place canary\n"); */
 	place_canary(bloc, canary);
+	/* printf("post place canary\n"); */
 	// return the address of the data bloc in heapdata
 	return bloc->addr;
 }

@@ -8,6 +8,11 @@ test: ${OBJ} test.o
 	$(CC) -L./lib -lcriterion -I ./include -o test test.o log.o secmalloc.o
 	./test
 
+test2: 
+	$(CC) -L./lib -lcriterion -I ./include --coverage -o test test.c secmalloc.c log.c
+	./test
+	gcovr .
+
 clean:
 	$(RM) *.o *.swp .*.swo
 
