@@ -271,6 +271,14 @@ Test(simple, my_malloc_05)
 	cr_assert(ptr3 != NULL);
 }
 
+Test(simple, my_malloc_07)
+{
+	printf("my_malloc_06\n");
+	void *ptr = my_malloc(4096-sizeof(long));
+	void *ptr2 = my_malloc(666);
+	cr_assert(heapmetadata->next->addr == ptr2);
+}		
+
 Test(simple, canary_03)
 {
 	printf("canary_03\n");
@@ -320,7 +328,7 @@ Test(simple, free_02)
 
 Test(simple, free_03)
 {
-	void *ptr = 0xdeadbeef;
+	void *ptr = (void*)0xdeadbeef;
 	my_free(ptr);
 	cr_assert(1==1);
 }
@@ -328,7 +336,7 @@ Test(simple, free_03)
 Test(simple, free_04)
 {
 	void* ptr666 = my_malloc(100);
-	void *ptr = 0xdeadbeef;
+	void *ptr = (void*)0xdeadbeef;
 	my_free(ptr);
 	cr_assert(1==1);
 }
@@ -440,5 +448,30 @@ Test(simple, resize_02)
 	/* printf("ptr = %p\n", ptr); */
 	cr_assert(ptr != NULL);
 	my_free(ptr);
+}
+
+Test(simple, resize_03)
+{
+	void *ptr = NULL;
+	for (int i=0; i<100; i++)
+	{
+		ptr = my_malloc(3);
+	}
+	struct chunkmetadata *tmp = lastmetadata();
+	cr_assert(tmp->prev->addr == ptr);
+}
+
+Test(simple, resize_05)
+{
+	printf("resize_05\n");
+	void *ptr = my_malloc(10000);
+	cr_assert(ptr != NULL);
+	cr_assert(heapmetadata->size == 10000);
+	cr_assert(heapmetadata->flags == BUSY);
+	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
+	cr_assert(heapmetadata->next->size == 4096*3-10000-sizeof(long));
+	cr_assert(heapmetadata->next->flags == FREE);
+	my_free(ptr);
+	cr_assert(heapmetadata->flags == FREE);
 }
 

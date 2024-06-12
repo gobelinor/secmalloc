@@ -107,13 +107,13 @@ void resizeheapmetadata()
 }
 
 // resize the heapdata
-void resizeheapdata()
+void resizeheapdata(size_t new_size)
 {
-	heapdata = mremap(heapdata, heapdata_size, heapdata_size+pageheap_size, MREMAP_MAYMOVE);
-	heapdata_size += pageheap_size;
+	heapdata = mremap(heapdata, heapdata_size, new_size, MREMAP_MAYMOVE);
+	heapdata_size = new_size;
 	struct chunkmetadata *last = lastmetadata();
-	last->size += pageheap_size;
-	/* printf("last->size : %ld\n", last->size); */
+	last->size = new_size;
+	printf("last->size : %ld\n", last->size);
 	return;
 }
 
@@ -189,10 +189,15 @@ void* my_malloc(size_t size)
 	// get the total size of data heap and resize it if needed
 	size_t allocated_heapdata_size = get_allocated_heapdata_size();
 	printf("allocated_heapdata_size : %ld\n", allocated_heapdata_size);
-	if (4096 - allocated_heapdata_size % 4096 <= size + sizeof(long))
+	size_t needed_size = size + sizeof(long);
+	size_t available_size = heapdata_size - allocated_heapdata_size;
+	if (available_size < needed_size)
 	{
 		printf("resizeheapdata\n");
-		resizeheapdata();
+		size_t new_size = allocated_heapdata_size + needed_size;
+		new_size = ((new_size/4096) + ((new_size % 4096 != 0) ? 1 : 0))*4096;
+		printf("new_size : %ld\n", new_size);
+		resizeheapdata(new_size);
 	}
 	// get metadata bloc of free data bloc with large enough size 
 	struct chunkmetadata *bloc = lookup(size);
@@ -204,10 +209,6 @@ void* my_malloc(size_t size)
 	/* printf("bloc->next : %p\n", bloc->next); */
 	/* printf("bloc->prev : %p\n", bloc->prev); */
 	// if no bloc found, return NULL
-	if (bloc == NULL)
-	{
-		return NULL;
-	}
 	// generate a canary
 	long canary = generate_canary();
 	// split the bloc
@@ -237,24 +238,6 @@ void* my_malloc(size_t size)
 }
 	
 	
-
-
-
-// not used because included in free
-int is_valid(void *ptr)
-{
-	// check if ptr is in heapdata
-	for (struct chunkmetadata *item = heapmetadata;
-			item != NULL;
-			item = item->next)
-	{
-		if (item->addr == ptr)
-		{
-			return 1;
-		}
-	}
-	return 0;
-}
 
 int verify_canary(struct chunkmetadata *item)
 {
@@ -366,4 +349,3 @@ void my_free(void *ptr)
 	return;
 }
 
-// Vérification
