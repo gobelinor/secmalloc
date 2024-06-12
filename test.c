@@ -275,6 +275,7 @@ Test(simple, my_malloc_07)
 {
 	printf("my_malloc_06\n");
 	void *ptr = my_malloc(4096-sizeof(long));
+	cr_assert(ptr != NULL);
 	void *ptr2 = my_malloc(666);
 	cr_assert(heapmetadata->next->addr == ptr2);
 }		
@@ -335,9 +336,10 @@ Test(simple, free_03)
 
 Test(simple, free_04)
 {
-	void* ptr666 = my_malloc(100);
+	void* ptr666 = my_malloc(100); //initialise heaps
 	void *ptr = (void*)0xdeadbeef;
-	my_free(ptr);
+	my_free(ptr); 
+	my_free(ptr666);
 	cr_assert(1==1);
 }
 
@@ -452,6 +454,7 @@ Test(simple, resize_02)
 
 Test(simple, resize_03)
 {
+	extern struct chunkmetadata *lastmetadata();
 	void *ptr = NULL;
 	for (int i=0; i<100; i++)
 	{

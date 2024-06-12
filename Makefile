@@ -1,5 +1,5 @@
 CC = gcc -g
-CFLAGS = -Wall -g -Werror -Wextra -std=gnu17 -I ./include
+CFLAGS = -Wall -g -Werror -Wextra -std=gnu17 -I ./include -fPIC
 OBJ = log.o secmalloc.o
 
 all: ${OBJ}
@@ -15,6 +15,12 @@ test2:
 
 clean:
 	$(RM) *.o *.swp .*.swo
+
+dynamic: ${OBJ}
+	$(CC) -shared -o libmy_secmalloc.so ${OBJ}
+
+static: ${OBJ}
+	ar rcs libmy_secmalloc.a ${OBJ}
 
 distclean: clean
 	$(RM) test
