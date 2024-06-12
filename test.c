@@ -322,22 +322,37 @@ Test(simple, resize_02)
 Test(simple, resize_03)
 {
 	/* printf("resize_03\n"); */
+	log_message("\nresize_03\n");
 	void *ptr1 = my_malloc(3000);
 	/* void *ptr2 = my_malloc(2000); */
 	printf("ptr1 = %p\n", ptr1);
 	printf("heapmetadata->addr = %p\n", heapmetadata->addr);
 	printf("heapmetadata->size = %ld\n", heapmetadata->size);
+	printf("heapmetadata->flags = %d\n", heapmetadata->flags);
+	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
+	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
+	printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags);
 	void *ptr3 = my_malloc(1000);
 	printf("ptr3 = %p\n", ptr3);
 	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
 	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
+	printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags);
 	cr_assert(ptr1 != NULL);
 	/* cr_assert(ptr2 != NULL); */
 	cr_assert(ptr3 != NULL);
 	my_free(ptr1);
+	
 	printf("post free\n");
+	printf("ptr1 = %p\n", ptr1);
+	printf("heapmetadata->addr = %p\n", heapmetadata->addr);
+	printf("heapmetadata->size = %ld\n", heapmetadata->size);
+	printf("heapmetadata->flags = %d\n", heapmetadata->flags);
+
 	/* my_free(ptr2); */
+	printf("ptr3 = %p\n", ptr3);
 	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
+	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
+	printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags);
 	cr_assert(heapmetadata->addr == ptr1);	
 	cr_assert(heapmetadata->next->addr == ptr3);
 	my_free(ptr3);

@@ -250,31 +250,35 @@ int is_valid(void *ptr)
 
 int verify_canary(struct chunkmetadata *item)
 {
-	log_message("Verifying canary");
+	log_message("Verifying canary\n");
 	long expected_canary = item->canary;
 	long *canary = (long*)((size_t)item->addr + item->size);
 	if (*canary != expected_canary)
 	{
 		return -1;
 	}
-	log_message("Canary verified");
+	log_message("Canary verified\n");
 	return 1;
 }
 
 void clean_memory(struct chunkmetadata *item)
 {
-	log_message("Cleaning memory");
+	log_message("Cleaning memory\n");
 	memset(item->addr, 0, item->size);
-	log_message("Memory cleaned");
+	log_message("Memory cleaned\n");
 }
 
 void merge_chunks()
 {
-	log_message("Merging chunks");
+	log_message("Merging chunks\n");
+	// we iterate over the heapmetadata to merge free chunks
+	printf("Merge chunks\n");
 	for (struct chunkmetadata *item = heapmetadata;
 			item != NULL;
 			item = item->next)
 	{
+		printf("item->addr : %p\n", item->addr);
+		// if the chunk is free we merge it with the next one if it is free
 		if (item->flags == FREE)
 		{
 			struct chunkmetadata *end = item;
@@ -287,17 +291,17 @@ void merge_chunks()
 				{
 					new_size += end->size;
 					count++;
-				}
+					item->size = new_size;
+					item->next = end->next;
+				}	
 			}
-			item->size = new_size;
-			item->next = end->next;
 			if (end->next != NULL)
 			{
 				end->next->prev = item;
 			}
 			if (count > 0)
 			{
-				log_message("%d chunks merged", count);
+				log_message("%d chunks merged\n", count);
 			}
 		}
 	}
@@ -309,13 +313,13 @@ void my_free(void *ptr)
 	// we check if the heap is initialized
 	if (heapdata == NULL || heapmetadata == NULL)
 	{
-		log_message("Heap not initialized");
+		log_message("Heap not initialized\n");
 		return;
 	}
 	// if ptr is NULL we log an error
 	if (ptr == NULL)
 	{
-		log_message("Invalid pointer to free : NULL");
+		log_message("Invalid pointer to free : NULL\n");
 		return;
 	}
 	// first we verify if ptr is one of the addresses where we allocated memory
@@ -329,13 +333,13 @@ void my_free(void *ptr)
 			// if the chunk is already free we log an error
 			if (item->flags == FREE)
 			{
-				log_message("Double free");
+				log_message("Double free\n");
 				return;
 			}
 			// if the canary is not the one we expect we log an error
 			if (verify_canary(item) == -1)
 			{
-				log_message("Canary verification failed : Buffer overflow detected");
+				log_message("Canary verification failed : Buffer overflow detected\n");
 				return;
 			}
 			// we clean the memory before freeing it
@@ -350,7 +354,7 @@ void my_free(void *ptr)
 		}
 	}
 	// if ptr is not in the heap, we log an error
-	log_message("Invalid pointer to free : not in the heap");
+	log_message("Invalid pointer to free : not in the heap\n");
 	return;
 }
 
