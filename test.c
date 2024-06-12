@@ -464,6 +464,32 @@ Test(simple, resize_03)
 	cr_assert(tmp->prev->addr == ptr);
 }
 
+Test(simple, resize_06)
+{
+	extern struct chunkmetadata *lastmetadata();
+	void *ptr = NULL;
+	for (int i=0; i<100; i++) // 100 is ok but 1000 is not and i dont know why 
+	{
+		ptr = my_malloc(300);
+	}
+	struct chunkmetadata *tmp = lastmetadata();
+	cr_assert(tmp->prev->addr == ptr);
+}
+
+Test(simple, resize_07)
+{
+	extern struct chunkmetadata *lastmetadata();
+	void *ptr = NULL;
+	ptr = malloc(10);
+	printf("HELLO (size_t*)(heapdata - heapmetadata) = %ld\n"), ((size_t)(heapdata) - (size_t)heapmetadata);
+	for (int i=0; i<200; i++) // 200 is ok but 200 is not and i dont know why it is probably becaue there is not enough space beatween heapdata and heapmetadata 
+	{
+		ptr = my_malloc(300);
+	}
+	struct chunkmetadata *tmp = lastmetadata();
+	cr_assert(tmp->prev->addr == ptr);
+}
+
 Test(simple, resize_05)
 {
 	printf("resize_05\n");
