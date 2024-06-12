@@ -71,12 +71,18 @@ size_t get_allocated_heapmetadata_size()
 // get the total size of the heapdata
 size_t get_allocated_heapdata_size()
 {
+	struct chunkmetadata *last_item = NULL;
 	size_t size = 0;
 	for (struct chunkmetadata *item = heapmetadata;
 			item != NULL;
 			item = item->next)
 	{
-		size += item->size;
+		size += item->size + sizeof(long); // add the size of the canary
+		last_item = item;
+	}
+	if (last_item->flags == FREE)
+	{
+		size -= last_item->size;
 	}
 	return size;
 }
@@ -118,7 +124,7 @@ struct chunkmetadata *lookup(size_t size)
 			item != NULL;
 			item = item->next)
 	{
-		if (item->flags == FREE && item->size >= size)
+		if (item->flags == FREE && item->size >= size + sizeof(long))
 		{
 			return item;
 		}
@@ -133,9 +139,9 @@ void split(struct chunkmetadata *bloc, size_t size)
 	//create new metadata bloc for the second part
 	struct chunkmetadata *newbloc = (struct chunkmetadata*) ((size_t)lastmetadata()+sizeof(struct chunkmetadata));
 	//set metadata for newbloc
-	newbloc->size = bloc->size - size;
+	newbloc->size = bloc->size - size - sizeof(long);
 	newbloc->flags = FREE;
-	newbloc->addr = (void*)((size_t)bloc->addr + size);
+	newbloc->addr = (void*)((size_t)bloc->addr + size + sizeof(long));
 	newbloc->canary = 0xdeadbeef;
 	newbloc->next = bloc->next;
 	newbloc->prev = bloc;
@@ -174,6 +180,7 @@ void* my_malloc(size_t size)
 	}
 	// get the total size of metadata heap and resize it if needed
 	size_t allocated_heapmetadata_size = get_allocated_heapmetadata_size();
+	printf("allocated_heapmetadata_size : %ld\n", allocated_heapmetadata_size);
 	if (4096 - allocated_heapmetadata_size % 4096 < sizeof(struct chunkmetadata)) 
 	{
 		/* printf("resizeheapmetadata\n"); */
@@ -181,9 +188,10 @@ void* my_malloc(size_t size)
 	}
 	// get the total size of data heap and resize it if needed
 	size_t allocated_heapdata_size = get_allocated_heapdata_size();
-	if (4096 - allocated_heapdata_size % 4096 < size)
+	printf("allocated_heapdata_size : %ld\n", allocated_heapdata_size);
+	if (4096 - allocated_heapdata_size % 4096 <= size + sizeof(long))
 	{
-		/* printf("resizeheapdata\n"); */
+		printf("resizeheapdata\n");
 		resizeheapdata();
 	}
 	// get metadata bloc of free data bloc with large enough size 
