@@ -20,8 +20,8 @@ dynamic: CFLAGS += -DDYNAMIC
 dynamic: ${OBJ}
 	$(CC) -shared -o libmy_secmalloc.so ${OBJ}
 
-static: ${OBJ}
-	ar rcs libmy_secmalloc.a ${OBJ}
+# static: ${OBJ}
+	# ar rcs libmy_secmalloc.a ${OBJ}
 
 distclean: clean
 	$(RM) test
