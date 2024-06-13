@@ -7369,3 +7369,4280 @@ Memory cleaned
 23:55:14.284807 FREE END 0x186a0000 10000
 Merging chunks
 1 chunks merged
+09:24:35.986825 FREE START 0xdeadbeef 0
+09:24:35.986874 FREE START 0x186a0000 0
+09:24:35.986892 FREE START (nil) 0
+NEW EXECUTION : 2024-06-13 09:24:35
+09:24:35.986931 FREE START 0xdeadbeef 0
+09:24:35.986938 FREE START 0x186a0000 0
+Heap not initialized
+Verifying canary
+Invalid pointer to free : NULL
+Invalid pointer to free : not in the heap
+Canary verified
+09:24:35.987066 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Cleaning memory
+09:24:35.987072 FREE START 0x186a0000 0
+Canary verified
+Canary verification failed : Buffer overflow detected
+Memory cleaned
+Cleaning memory
+Verifying canary
+Memory cleaned
+09:24:35.987097 FREE END 0x186a0000 100
+Canary verified
+09:24:35.987105 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+Cleaning memory
+1 chunks merged
+1 chunks merged
+Memory cleaned
+09:24:35.987134 FREE START 0x186a0000 0
+Double free
+09:24:35.987140 FREE END 0x186a0000 100
+ecrit ce que tu veux : 12
+Merging chunks
+1 chunks merged
+09:24:35.987209 MALLOC START 100
+09:24:35.987237 MALLOC END 0x5d45e1b9d4f0 100
+09:24:35.987248 FREE START 0x5d45e1b9d4f0 100
+09:24:35.987255 FREE END 0x5d45e1b9d4f0 100
+
+resize_03
+09:24:35.987274 FREE START 0x186a0000 0
+09:24:35.987284 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+09:24:35.987302 FREE START 0x186a0000 0
+Canary verified
+Canary verified
+Verifying canary
+Cleaning memory
+Cleaning memory
+Canary verified
+Memory cleaned
+Cleaning memory
+Memory cleaned
+09:24:35.987353 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+09:24:35.987350 FREE START 0x186a0000 0
+09:24:35.987362 FREE END 0x186a0000 100
+09:24:35.987368 FREE END 0x186a0000 100
+Verifying canary
+Merging chunks
+Merging chunks
+Canary verified
+09:24:35.987354 FREE START 0x186a0000 0
+09:24:35.987362 FREE START 0x186a0000 0
+Cleaning memory
+1 chunks merged
+Memory cleaned
+Verifying canary
+Verifying canary
+1 chunks merged
+Canary verified
+09:24:35.987412 FREE END 0x186a0000 100
+Canary verified
+09:24:35.987423 FREE START 0x186a0000 0
+Cleaning memory
+Merging chunks
+Cleaning memory
+Verifying canary
+Memory cleaned
+09:24:35.987418 FREE START 0x186a006c 0
+Memory cleaned
+Canary verified
+Verifying canary
+09:24:35.987451 FREE END 0x186a0000 3000
+1 chunks merged
+09:24:35.987455 FREE END 0x186a0000 100
+Canary verified
+Cleaning memory
+Merging chunks
+Cleaning memory
+Merging chunks
+Memory cleaned
+Memory cleaned
+09:24:35.987489 FREE END 0x186a0000 100
+09:24:35.987492 FREE END 0x186a006c 100
+Merging chunks
+Merging chunks
+1 chunks merged
+1 chunks merged
+1 chunks merged
+09:24:35.987536 FREE START 0x186a00d8 0
+09:24:35.987533 FREE START 0x186a0bc0 0
+Verifying canary
+Verifying canary
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Memory cleaned
+09:24:35.987583 FREE END 0x186a00d8 100
+Merging chunks
+09:24:35.987592 FREE END 0x186a0bc0 1000
+2 chunks merged
+Merging chunks
+2 chunks merged
+09:24:36.005851 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:24:36.005947 FREE END 0x186a0000 3000
+Merging chunks
+09:24:36.005979 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:24:36.006019 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+09:24:36.022239 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:24:36.022304 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+09:24:36.022589 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:24:36.022688 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+09:25:17.786678 FREE START 0x186a0000 0
+09:25:17.786678 FREE START 0x186a0000 0
+09:25:17.786693 FREE START (nil) 0
+09:25:17.786690 FREE START 0x186a0000 0
+09:25:17.786718 FREE START 0xdeadbeef 0
+Verifying canary
+Invalid pointer to free : NULL
+Verifying canary
+NEW EXECUTION : 2024-06-13 09:25:17
+Verifying canary
+Canary verified
+Canary verified
+Invalid pointer to free : not in the heap
+09:25:17.786772 FREE START 0x186a0000 0
+Canary verified
+Cleaning memory
+Cleaning memory
+Verifying canary
+09:25:17.786788 FREE START 0x186a0000 0
+Cleaning memory
+Memory cleaned
+Memory cleaned
+Canary verified
+Verifying canary
+Memory cleaned
+Cleaning memory
+09:25:17.786804 FREE END 0x186a0000 100
+09:25:17.786805 FREE END 0x186a0000 100
+Canary verified
+09:25:17.786811 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+Merging chunks
+Cleaning memory
+Merging chunks
+09:25:17.786825 FREE END 0x186a0000 100
+Memory cleaned
+1 chunks merged
+1 chunks merged
+09:25:17.786806 FREE START 0xdeadbeef 0
+Merging chunks
+09:25:17.786839 FREE END 0x186a0000 100
+09:25:17.786802 MALLOC START 100
+09:25:17.786842 FREE START 0x186a0000 0
+Merging chunks
+Heap not initialized
+1 chunks merged
+Double free
+
+resize_03
+1 chunks merged
+ecrit ce que tu veux : 12
+09:25:17.786867 MALLOC END 0x61226fe9a4f0 100
+1 chunks merged
+09:25:17.786889 FREE START 0x61226fe9a4f0 100
+09:25:17.786904 FREE END 0x61226fe9a4f0 100
+09:25:17.786901 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:25:17.786955 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+09:25:17.786966 FREE START 0x186a0000 0
+09:25:17.786963 FREE START 0x186a0000 0
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Verifying canary
+Canary verified
+09:25:17.786983 FREE START 0x186a0000 0
+09:25:17.787001 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Verifying canary
+Canary verified
+09:25:17.787041 FREE END 0x186a0000 100
+Canary verified
+Cleaning memory
+Merging chunks
+Memory cleaned
+Cleaning memory
+Memory cleaned
+09:25:17.787069 FREE END 0x186a0000 3000
+09:25:17.787070 FREE START 0x186a006c 0
+Merging chunks
+Verifying canary
+09:25:17.787080 FREE END 0x186a0000 100
+Canary verified
+Merging chunks
+Cleaning memory
+Memory cleaned
+1 chunks merged
+09:25:17.787117 FREE END 0x186a006c 100
+09:25:17.787118 FREE START 0x186a0bc0 0
+Merging chunks
+Verifying canary
+1 chunks merged
+Canary verified
+09:25:17.787139 FREE START 0x186a0000 0
+Cleaning memory
+09:25:17.787150 FREE START 0x186a00d8 0
+Verifying canary
+Memory cleaned
+Verifying canary
+Canary verified
+Canary verified
+09:25:17.787168 FREE END 0x186a0bc0 1000
+Cleaning memory
+Merging chunks
+Memory cleaned
+Cleaning memory
+2 chunks merged
+09:25:17.787193 FREE END 0x186a00d8 100
+Memory cleaned
+Merging chunks
+09:25:17.787207 FREE END 0x186a0000 100
+2 chunks merged
+Merging chunks
+1 chunks merged
+09:25:17.798450 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:25:17.798545 FREE END 0x186a0000 3000
+Merging chunks
+09:25:17.798578 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:25:17.798625 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+09:25:17.819606 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:25:17.819828 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+09:25:17.820059 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+09:25:17.820133 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:23:36.836605 FREE START 0xdeadbeef 0
+12:23:36.836635 FREE START 0x186a0000 0
+Heap not initialized
+12:23:36.836653 FREE START 0xdeadbeef 0
+Verifying canary
+12:23:36.836659 FREE START 0x186a0000 0
+12:23:36.836664 FREE START 0x186a0000 0
+Canary verification failed : Buffer overflow detected
+Invalid pointer to free : not in the heap
+Verifying canary
+NEW EXECUTION : 2024-06-13 12:23:36
+12:23:36.836739 FREE START (nil) 0
+12:23:36.836733 MALLOC START 100
+ecrit ce que tu veux : 12
+12:23:36.836782 FREE START 0x186a0000 0
+
+resize_03
+Verifying canary
+Canary verified
+12:23:36.836856 FREE START 0x186a0000 0
+Invalid pointer to free : NULL
+12:23:36.836871 MALLOC END 0x5c77c0d224f0 100
+Verifying canary
+Canary verified
+Cleaning memory
+Verifying canary
+12:23:36.836894 FREE START 0x186a0000 0
+12:23:36.836883 FREE START 0x186a0000 0
+Canary verified
+12:23:36.836901 FREE START 0x5c77c0d224f0 100
+Cleaning memory
+Memory cleaned
+Canary verified
+Verifying canary
+Verifying canary
+Cleaning memory
+Memory cleaned
+12:23:36.836915 FREE END 0x5c77c0d224f0 100
+Cleaning memory
+Canary verified
+12:23:36.836919 FREE END 0x186a0000 100
+Canary verified
+Memory cleaned
+Memory cleaned
+12:23:36.836925 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Cleaning memory
+12:23:36.836939 FREE END 0x186a0000 100
+Merging chunks
+Memory cleaned
+12:23:36.836939 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+1 chunks merged
+Merging chunks
+12:23:36.836952 FREE END 0x186a0000 100
+1 chunks merged
+12:23:36.836955 FREE END 0x186a0000 100
+12:23:36.836959 FREE START 0x186a0000 0
+Merging chunks
+1 chunks merged
+Merging chunks
+1 chunks merged
+Double free
+1 chunks merged
+1 chunks merged
+12:23:36.836986 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+12:23:36.837035 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+Canary verified
+12:23:36.837063 FREE END 0x186a0000 3000
+Cleaning memory
+Merging chunks
+Memory cleaned
+12:23:36.837091 FREE END 0x186a0000 100
+Merging chunks
+12:23:36.837124 FREE START 0x186a006c 0
+12:23:36.837127 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Verifying canary
+Cleaning memory
+Canary verified
+Memory cleaned
+Cleaning memory
+12:23:36.837167 FREE END 0x186a006c 100
+Memory cleaned
+Merging chunks
+12:23:36.837183 FREE END 0x186a0bc0 1000
+1 chunks merged
+Merging chunks
+12:23:36.837204 FREE START 0x186a00d8 0
+2 chunks merged
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:23:36.837243 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:23:36.837326 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:23:36.837381 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:23:36.837416 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:23:36.837452 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:23:36.847931 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:23:36.847984 FREE END 0x186a0000 3000
+Merging chunks
+12:23:36.848002 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:23:36.848025 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:23:36.868231 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:23:36.868304 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:23:36.868537 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:23:36.868684 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:26:49.067379 FREE START 0x186a0000 0
+12:26:49.067369 FREE START 0xdeadbeef 0
+12:26:49.067390 FREE START 0x186a0000 0
+Verifying canary
+Heap not initialized
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Canary verified
+Cleaning memory
+12:26:49.067437 FREE START (nil) 0
+12:26:49.067434 FREE START 0xdeadbeef 0
+Cleaning memory
+Memory cleaned
+Invalid pointer to free : NULL
+NEW EXECUTION : 2024-06-13 12:26:49
+12:26:49.067506 FREE START 0x186a0000 0
+ecrit ce que tu veux : 12
+12:26:49.067547 FREE START 0x186a0000 0
+Memory cleaned
+Invalid pointer to free : not in the heap
+12:26:49.067611 FREE END 0x186a0000 100
+12:26:49.067611 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+12:26:49.067684 FREE END 0x186a0000 100
+Merging chunks
+Verifying canary
+12:26:49.067689 FREE START 0x186a0000 0
+Canary verified
+Merging chunks
+Canary verified
+Canary verified
+Verifying canary
+1 chunks merged
+Cleaning memory
+Cleaning memory
+Cleaning memory
+Canary verified
+Memory cleaned
+1 chunks merged
+Memory cleaned
+Cleaning memory
+Memory cleaned
+12:26:49.067726 FREE END 0x186a0000 100
+12:26:49.067729 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+Merging chunks
+12:26:49.067737 FREE END 0x186a0000 100
+12:26:49.067743 FREE END 0x186a0000 100
+1 chunks merged
+1 chunks merged
+Merging chunks
+Merging chunks
+1 chunks merged
+1 chunks merged
+12:26:49.067767 MALLOC START 100
+12:26:49.067800 MALLOC END 0x61450c56d4f0 100
+12:26:49.067812 FREE START 0x61450c56d4f0 100
+12:26:49.067822 FREE END 0x61450c56d4f0 100
+12:26:49.067829 FREE START 0x186a0000 0
+
+resize_03
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:26:49.067884 FREE END 0x186a0000 100
+Merging chunks
+12:26:49.067908 FREE START 0x186a006c 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:26:49.067946 FREE END 0x186a006c 100
+Merging chunks
+12:26:49.067938 FREE START 0x186a0000 0
+Verifying canary
+1 chunks merged
+Canary verified
+Cleaning memory
+12:26:49.067990 FREE START 0x186a00d8 0
+Verifying canary
+Memory cleaned
+Canary verified
+Cleaning memory
+12:26:49.068012 FREE END 0x186a0000 3000
+Memory cleaned
+Merging chunks
+12:26:49.068030 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:26:49.068082 FREE START 0x186a0000 0
+12:26:49.068080 FREE START 0x186a0000 0
+Verifying canary
+12:26:49.068109 FREE START 0x186a0bc0 0
+Canary verified
+Verifying canary
+Verifying canary
+Cleaning memory
+Canary verified
+Memory cleaned
+Canary verified
+Cleaning memory
+12:26:49.068153 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Memory cleaned
+Memory cleaned
+1 chunks merged
+12:26:49.068178 FREE END 0x186a0000 100
+12:26:49.068182 FREE END 0x186a0bc0 1000
+12:26:49.068192 FREE START 0x186a0000 0
+Merging chunks
+Merging chunks
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+1 chunks merged
+2 chunks merged
+12:26:49.068231 FREE END 0x186a0000 100
+12:26:49.068237 FREE START 0x186a0000 0
+Merging chunks
+Double free
+1 chunks merged
+12:26:49.076127 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:26:49.076259 FREE END 0x186a0000 3000
+Merging chunks
+12:26:49.076278 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:26:49.076307 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:26:49.097234 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:26:49.097321 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:26:49.097449 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:26:49.097539 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:27:21.948151 FREE START 0x186a0000 0
+12:27:21.948154 FREE START 0x186a0000 0
+12:27:21.948158 FREE START 0xdeadbeef 0
+Verifying canary
+Verifying canary
+12:27:21.948207 FREE START 0x186a0000 0
+NEW EXECUTION : 2024-06-13 12:27:21
+12:27:21.948253 FREE START 0xdeadbeef 0
+12:27:21.948245 FREE START 0x186a0000 0
+12:27:21.948389 FREE START 0x186a0000 0
+Heap not initialized
+Canary verification failed : Buffer overflow detected
+Canary verified
+Verifying canary
+Invalid pointer to free : not in the heap
+
+resize_03
+Verifying canary
+Cleaning memory
+Cleaning memory
+Canary verified
+Verifying canary
+Memory cleaned
+Cleaning memory
+Canary verified
+Memory cleaned
+Memory cleaned
+Canary verified
+12:27:21.949108 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+12:27:21.949124 FREE END 0x186a0000 100
+12:27:21.949124 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+12:27:21.948475 FREE START 0x186a0000 0
+Merging chunks
+12:27:21.949141 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:27:21.949140 FREE START 0x186a0000 0
+12:27:21.948510 FREE START (nil) 0
+Verifying canary
+Verifying canary
+Canary verified
+Invalid pointer to free : NULL
+12:27:21.948525 MALLOC START 100
+Cleaning memory
+Canary verified
+12:27:21.949186 FREE START 0x186a0000 0
+Memory cleaned
+Cleaning memory
+12:27:21.949193 MALLOC END 0x5f69332f44f0 100
+Verifying canary
+12:27:21.949201 FREE END 0x186a0000 3000
+12:27:21.949203 FREE START 0x186a006c 0
+Memory cleaned
+Canary verified
+Merging chunks
+12:27:21.949210 FREE START 0x5f69332f44f0 100
+Verifying canary
+Cleaning memory
+Canary verified
+12:27:21.949224 FREE END 0x5f69332f44f0 100
+Memory cleaned
+Cleaning memory
+12:27:21.949221 FREE END 0x186a0000 100
+Memory cleaned
+12:27:21.949240 FREE END 0x186a0000 100
+12:27:21.949244 FREE START 0x186a0bc0 0
+ecrit ce que tu veux : 12
+Merging chunks
+Merging chunks
+Verifying canary
+12:27:21.949258 FREE END 0x186a006c 100
+12:27:21.948712 FREE START 0x186a0000 0
+Canary verified
+Merging chunks
+Cleaning memory
+Verifying canary
+12:27:21.948729 FREE START 0x186a0000 0
+Cleaning memory
+Memory cleaned
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:21.949301 FREE END 0x186a0bc0 1000
+Memory cleaned
+Verifying canary
+Merging chunks
+12:27:21.949314 FREE END 0x186a0000 100
+12:27:21.949319 FREE END 0x186a0000 100
+Canary verified
+Merging chunks
+Merging chunks
+Cleaning memory
+Memory cleaned
+12:27:21.949355 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+1 chunks merged
+1 chunks merged
+1 chunks merged
+1 chunks merged
+12:27:21.949608 FREE START 0x186a00d8 0
+2 chunks merged
+Verifying canary
+1 chunks merged
+Canary verified
+1 chunks merged
+Cleaning memory
+1 chunks merged
+12:27:21.949635 FREE START 0x186a0000 0
+Memory cleaned
+12:27:21.949637 FREE START 0x186a0000 0
+Verifying canary
+Double free
+12:27:21.949653 FREE END 0x186a00d8 100
+Canary verified
+Merging chunks
+Cleaning memory
+2 chunks merged
+Memory cleaned
+12:27:21.949683 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:27:21.959708 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:21.959804 FREE END 0x186a0000 3000
+Merging chunks
+12:27:21.959842 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:21.959896 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:27:21.979509 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:21.979599 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:27:21.979675 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:21.979766 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:27:45.426658 FREE START 0x186a0000 0
+12:27:45.426686 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Canary verified
+Canary verification failed : Buffer overflow detected
+12:27:45.426713 FREE START 0xdeadbeef 0
+Cleaning memory
+Cleaning memory
+12:27:45.426715 FREE START 0x186a0000 0
+12:27:45.426720 MALLOC START 100
+Memory cleaned
+Invalid pointer to free : not in the heap
+Memory cleaned
+12:27:45.426737 FREE START 0x186a0000 0
+Verifying canary
+12:27:45.426754 FREE START (nil) 0
+12:27:45.426938 FREE END 0x186a0000 100
+12:27:45.426940 FREE START 0x186a0000 0
+12:27:45.426940 MALLOC END 0x607bb0f5c4f0 100
+Canary verified
+12:27:45.426942 FREE END 0x186a0000 100
+Verifying canary
+Merging chunks
+Verifying canary
+Invalid pointer to free : NULL
+12:27:45.426963 FREE START 0x607bb0f5c4f0 100
+Cleaning memory
+Merging chunks
+Canary verified
+Canary verified
+12:27:45.426975 FREE START 0x186a0000 0
+12:27:45.426977 FREE END 0x607bb0f5c4f0 100
+Memory cleaned
+Cleaning memory
+Cleaning memory
+Verifying canary
+Memory cleaned
+1 chunks merged
+1 chunks merged
+Canary verified
+12:27:45.426992 FREE END 0x186a0000 100
+Memory cleaned
+Cleaning memory
+12:27:45.427005 FREE END 0x186a0000 100
+Merging chunks
+Memory cleaned
+Merging chunks
+12:27:45.427015 FREE END 0x186a0000 100
+12:27:45.427027 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+1 chunks merged
+
+resize_03
+1 chunks merged
+1 chunks merged
+12:27:45.427084 FREE START 0x186a0000 0
+12:27:45.427064 FREE START 0x186a0000 0
+Double free
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:45.427109 FREE START 0x186a0000 0
+1 chunks merged
+12:27:45.427133 FREE END 0x186a0000 100
+ecrit ce que tu veux : 12
+Merging chunks
+Verifying canary
+Canary verified
+1 chunks merged
+Cleaning memory
+12:27:45.427141 FREE START 0x186a0000 0
+Memory cleaned
+12:27:45.427156 FREE START 0xdeadbeef 0
+Verifying canary
+12:27:45.427188 FREE END 0x186a0000 100
+Heap not initialized
+12:27:45.427171 FREE START 0x186a0000 0
+NEW EXECUTION : 2024-06-13 12:27:45
+Canary verified
+Merging chunks
+Verifying canary
+Cleaning memory
+Canary verified
+Memory cleaned
+Cleaning memory
+12:27:45.427231 FREE START 0x186a006c 0
+12:27:45.427234 FREE END 0x186a0000 100
+Memory cleaned
+Verifying canary
+Merging chunks
+Canary verified
+12:27:45.427261 FREE END 0x186a0000 3000
+Cleaning memory
+Merging chunks
+Memory cleaned
+1 chunks merged
+12:27:45.427291 FREE END 0x186a006c 100
+Merging chunks
+12:27:45.427301 FREE START 0x186a0000 0
+12:27:45.427312 FREE START 0x186a0bc0 0
+Verifying canary
+1 chunks merged
+Verifying canary
+Canary verified
+Canary verified
+Cleaning memory
+12:27:45.427337 FREE START 0x186a00d8 0
+Cleaning memory
+Memory cleaned
+Verifying canary
+Memory cleaned
+12:27:45.427357 FREE END 0x186a0000 100
+Canary verified
+12:27:45.427367 FREE END 0x186a0bc0 1000
+Merging chunks
+Cleaning memory
+Merging chunks
+Memory cleaned
+1 chunks merged
+2 chunks merged
+12:27:45.427393 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:27:45.435569 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:45.435628 FREE END 0x186a0000 3000
+Merging chunks
+12:27:45.435660 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:45.435693 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:27:45.459793 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:45.459868 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:27:45.460177 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:27:45.460243 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:28:19.806057 FREE START 0x186a0000 0
+Verifying canary
+12:28:19.806086 FREE START 0xdeadbeef 0
+Canary verification failed : Buffer overflow detected
+Heap not initialized
+Cleaning memory
+Memory cleaned
+12:28:19.806098 FREE START 0x186a0000 0
+12:28:19.806107 FREE START 0x186a0000 0
+12:28:19.806145 FREE END 0x186a0000 100
+Verifying canary
+12:28:19.806140 FREE START 0xdeadbeef 0
+Merging chunks
+Canary verified
+Verifying canary
+12:28:19.806162 MALLOC START 100
+Invalid pointer to free : not in the heap
+Cleaning memory
+
+resize_03
+Canary verified
+12:28:19.806161 FREE START (nil) 0
+12:28:19.806199 MALLOC END 0x62e6444504f0 100
+1 chunks merged
+12:28:19.806198 FREE START 0x186a0000 0
+Memory cleaned
+Cleaning memory
+Verifying canary
+12:28:19.806213 FREE START 0x62e6444504f0 100
+Invalid pointer to free : NULL
+Memory cleaned
+12:28:19.806218 FREE END 0x186a0000 100
+Canary verified
+12:28:19.806227 FREE END 0x62e6444504f0 100
+12:28:19.806211 FREE START 0x186a0000 0
+Cleaning memory
+Merging chunks
+12:28:19.806231 FREE START 0x186a0000 0
+12:28:19.806232 FREE END 0x186a0000 100
+12:28:19.806236 FREE START 0x186a0000 0
+12:28:19.806269 FREE START 0x186a0000 0
+12:28:19.806274 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+Verifying canary
+Merging chunks
+Verifying canary
+Verifying canary
+Verifying canary
+Canary verified
+12:28:19.806426 FREE END 0x186a0000 100
+1 chunks merged
+Canary verified
+Canary verified
+Canary verified
+Canary verified
+Cleaning memory
+Merging chunks
+Cleaning memory
+Cleaning memory
+Cleaning memory
+Cleaning memory
+1 chunks merged
+Memory cleaned
+Memory cleaned
+Memory cleaned
+Memory cleaned
+Memory cleaned
+12:28:19.806469 FREE END 0x186a0000 100
+12:28:19.806470 FREE END 0x186a0000 100
+12:28:19.806474 FREE END 0x186a0000 100
+12:28:19.806474 FREE END 0x186a0000 100
+12:28:19.806475 FREE END 0x186a0000 3000
+1 chunks merged
+Merging chunks
+Merging chunks
+Merging chunks
+Merging chunks
+Merging chunks
+1 chunks merged
+1 chunks merged
+ecrit ce que tu veux : 12
+12:28:19.806518 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:28:19.806549 FREE START 0x186a006c 0
+12:28:19.806556 FREE END 0x186a0000 100
+Verifying canary
+Merging chunks
+Canary verified
+Cleaning memory
+Memory cleaned
+1 chunks merged
+12:28:19.806589 FREE END 0x186a006c 100
+Merging chunks
+NEW EXECUTION : 2024-06-13 12:28:19
+12:28:19.806603 FREE START 0x186a0bc0 0
+1 chunks merged
+Verifying canary
+Canary verified
+Cleaning memory
+12:28:19.806635 FREE START 0x186a00d8 0
+Memory cleaned
+Verifying canary
+12:28:19.806647 FREE END 0x186a0bc0 1000
+Canary verified
+12:28:19.806633 FREE START 0x186a0000 0
+Merging chunks
+Cleaning memory
+Memory cleaned
+Verifying canary
+2 chunks merged
+12:28:19.806682 FREE END 0x186a00d8 100
+Canary verified
+Merging chunks
+Cleaning memory
+Memory cleaned
+2 chunks merged
+12:28:19.806715 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:28:19.806762 FREE START 0x186a0000 0
+Double free
+12:28:19.815115 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:28:19.815187 FREE END 0x186a0000 3000
+Merging chunks
+12:28:19.815230 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:28:19.815274 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:28:19.837714 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:28:19.837779 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:28:19.837961 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:28:19.838023 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:30:14.798971 FREE START 0xdeadbeef 0
+12:30:14.798984 FREE START 0x186a0000 0
+Heap not initialized
+12:30:14.799008 FREE START 0x186a0000 0
+12:30:14.799023 FREE START (nil) 0
+NEW EXECUTION : 2024-06-13 12:30:14
+12:30:14.799028 FREE START 0xdeadbeef 0
+12:30:14.799044 FREE START 0x186a0000 0
+ecrit ce que tu veux : 12
+12:30:14.799113 FREE START 0x186a0000 0
+Verifying canary
+Invalid pointer to free : NULL
+Verifying canary
+Invalid pointer to free : not in the heap
+Verifying canary
+Canary verification failed : Buffer overflow detected
+12:30:14.799221 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Canary verified
+Cleaning memory
+Verifying canary
+Canary verified
+12:30:14.799229 FREE START 0x186a0000 0
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Canary verified
+Cleaning memory
+Verifying canary
+Memory cleaned
+Memory cleaned
+Cleaning memory
+Memory cleaned
+12:30:14.799255 FREE END 0x186a0000 100
+Canary verified
+Memory cleaned
+12:30:14.799265 FREE END 0x186a0000 100
+Merging chunks
+12:30:14.799270 FREE END 0x186a0000 100
+12:30:14.799267 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+12:30:14.799279 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+Memory cleaned
+Merging chunks
+12:30:14.799301 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+1 chunks merged
+12:30:14.799327 MALLOC START 100
+1 chunks merged
+12:30:14.799342 FREE START 0x186a0000 0
+12:30:14.799358 FREE START 0x186a0000 0
+12:30:14.799360 MALLOC END 0x58eeae37e4f0 100
+Verifying canary
+
+resize_03
+1 chunks merged
+Double free
+12:30:14.799373 FREE START 0x58eeae37e4f0 100
+Canary verified
+12:30:14.799386 FREE END 0x58eeae37e4f0 100
+Cleaning memory
+Memory cleaned
+12:30:14.799414 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:30:14.799433 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:30:14.799488 FREE END 0x186a0000 100
+Merging chunks
+12:30:14.799555 FREE START 0x186a006c 0
+Verifying canary
+Canary verified
+Cleaning memory
+1 chunks merged
+1 chunks merged
+12:30:14.799594 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+Canary verified
+Cleaning memory
+12:30:14.799609 FREE END 0x186a006c 100
+12:30:14.799589 FREE START 0x186a0000 0
+Memory cleaned
+Merging chunks
+12:30:14.799637 FREE END 0x186a0000 100
+Verifying canary
+Merging chunks
+1 chunks merged
+12:30:14.799631 FREE START 0x186a0000 0
+Canary verified
+1 chunks merged
+12:30:14.799664 FREE START 0x186a00d8 0
+Cleaning memory
+Verifying canary
+Verifying canary
+Memory cleaned
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+12:30:14.799772 FREE END 0x186a0000 100
+Memory cleaned
+12:30:14.799811 FREE END 0x186a0000 3000
+Merging chunks
+Memory cleaned
+Merging chunks
+12:30:14.799866 FREE END 0x186a00d8 100
+12:30:14.799874 FREE START 0x186a0bc0 0
+Merging chunks
+Verifying canary
+Canary verified
+2 chunks merged
+1 chunks merged
+Cleaning memory
+Memory cleaned
+12:30:14.799936 FREE END 0x186a0bc0 1000
+Merging chunks
+2 chunks merged
+12:30:14.810632 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:30:14.810698 FREE END 0x186a0000 3000
+Merging chunks
+12:30:14.810733 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:30:14.810770 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:30:14.830853 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:30:14.830948 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:30:14.831011 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:30:14.831082 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:31:17.403774 FREE START 0x186a0000 0
+Verifying canary
+Canary verification failed : Buffer overflow detected
+12:31:17.403808 FREE START 0x186a0000 0
+Cleaning memory
+12:31:17.403830 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+12:31:17.403844 FREE START 0x186a0000 0
+Verifying canary
+12:31:17.403871 FREE END 0x186a0000 100
+Canary verified
+12:31:17.403849 FREE START 0xdeadbeef 0
+Canary verified
+Merging chunks
+Verifying canary
+Cleaning memory
+12:31:17.403862 FREE START (nil) 0
+12:31:17.403872 FREE START 0x186a0000 0
+Cleaning memory
+Canary verified
+Invalid pointer to free : not in the heap
+Memory cleaned
+Invalid pointer to free : NULL
+Memory cleaned
+Verifying canary
+Cleaning memory
+12:31:17.403893 MALLOC START 100
+12:31:17.403927 FREE START 0x186a0000 0
+Canary verified
+12:31:17.403931 FREE END 0x186a0000 100
+12:31:17.403929 FREE END 0x186a0000 100
+Memory cleaned
+12:31:17.403931 FREE START 0x186a0000 0
+1 chunks merged
+12:31:17.403928 FREE START 0x186a0000 0
+Merging chunks
+Cleaning memory
+Verifying canary
+12:31:17.403948 MALLOC END 0x5566771b64f0 100
+Merging chunks
+Verifying canary
+12:31:17.403954 FREE END 0x186a0000 100
+12:31:17.403948 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+Canary verified
+12:31:17.404101 FREE START 0x5566771b64f0 100
+Merging chunks
+Canary verified
+Canary verified
+Cleaning memory
+12:31:17.404114 FREE END 0x186a0000 100
+Verifying canary
+Cleaning memory
+12:31:17.404124 FREE END 0x5566771b64f0 100
+Cleaning memory
+12:31:17.404115 FREE START 0xdeadbeef 0
+Merging chunks
+Memory cleaned
+Canary verified
+Memory cleaned
+Heap not initialized
+Memory cleaned
+
+resize_03
+12:31:17.404147 FREE END 0x186a0000 100
+Cleaning memory
+12:31:17.404151 FREE END 0x186a0000 100
+12:31:17.404158 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+Memory cleaned
+Merging chunks
+1 chunks merged
+12:31:17.404179 FREE END 0x186a0000 100
+Merging chunks
+ecrit ce que tu veux : 12
+1 chunks merged
+12:31:17.404236 FREE START 0x186a0000 0
+Double free
+1 chunks merged
+NEW EXECUTION : 2024-06-13 12:31:17
+1 chunks merged
+1 chunks merged
+12:31:17.404291 FREE START 0x186a006c 0
+1 chunks merged
+Verifying canary
+Canary verified
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:31:17.404337 FREE END 0x186a006c 100
+12:31:17.404341 FREE START 0x186a0000 0
+Merging chunks
+Verifying canary
+1 chunks merged
+Canary verified
+12:31:17.404343 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+12:31:17.404369 FREE START 0x186a00d8 0
+Memory cleaned
+Canary verified
+Verifying canary
+12:31:17.404382 FREE END 0x186a0000 100
+Cleaning memory
+Canary verified
+Merging chunks
+Memory cleaned
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:31:17.404403 FREE END 0x186a0000 3000
+12:31:17.404411 FREE END 0x186a00d8 100
+Merging chunks
+Merging chunks
+2 chunks merged
+12:31:17.404452 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:31:17.404490 FREE END 0x186a0bc0 1000
+Merging chunks
+2 chunks merged
+12:31:17.417121 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:31:17.417213 FREE END 0x186a0000 3000
+Merging chunks
+12:31:17.417256 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:31:17.417304 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:31:17.435953 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:31:17.436019 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:31:17.436485 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:31:17.436630 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:32:19.174279 FREE START 0x186a0000 0
+12:32:19.174322 FREE START 0xdeadbeef 0
+12:32:19.174349 FREE START 0x186a0000 0
+12:32:19.174365 FREE START (nil) 0
+12:32:19.174374 FREE START 0xdeadbeef 0
+12:32:19.174377 FREE START 0x186a0000 0
+NEW EXECUTION : 2024-06-13 12:32:19
+12:32:19.174437 FREE START 0x186a0000 0
+Verifying canary
+Heap not initialized
+Verifying canary
+Invalid pointer to free : NULL
+Invalid pointer to free : not in the heap
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Verifying canary
+Canary verified
+12:32:19.174557 FREE START 0x186a0000 0
+Cleaning memory
+Canary verified
+Canary verified
+12:32:19.174561 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Cleaning memory
+12:32:19.174301 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Canary verified
+Memory cleaned
+12:32:19.174583 FREE END 0x186a0000 100
+Memory cleaned
+Verifying canary
+Canary verified
+Cleaning memory
+Merging chunks
+12:32:19.174599 FREE END 0x186a0000 100
+12:32:19.174598 FREE END 0x186a0000 100
+Canary verified
+Cleaning memory
+12:32:19.174603 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+Memory cleaned
+Merging chunks
+Merging chunks
+1 chunks merged
+12:32:19.174629 FREE END 0x186a0000 100
+12:32:19.174625 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+1 chunks merged
+Memory cleaned
+Merging chunks
+1 chunks merged
+1 chunks merged
+12:32:19.174671 FREE START 0x186a0000 0
+1 chunks merged
+1 chunks merged
+Double free
+12:32:19.174661 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:32:19.174719 MALLOC START 100
+12:32:19.174736 FREE START 0x186a0000 0
+Verifying canary
+12:32:19.174741 FREE START 0x186a0000 0
+12:32:19.174761 MALLOC END 0x60c78fbf34f0 100
+Canary verified
+Cleaning memory
+Verifying canary
+Memory cleaned
+12:32:19.174780 FREE START 0x60c78fbf34f0 100
+Canary verified
+12:32:19.174791 FREE END 0x186a0000 100
+12:32:19.174796 FREE END 0x60c78fbf34f0 100
+Merging chunks
+Cleaning memory
+Memory cleaned
+12:32:19.174823 FREE START 0x186a006c 0
+12:32:19.174825 FREE END 0x186a0000 100
+Verifying canary
+Canary verified
+Merging chunks
+Cleaning memory
+ecrit ce que tu veux : 12
+Memory cleaned
+12:32:19.174859 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+1 chunks merged
+12:32:19.174882 FREE START 0x186a0000 0
+12:32:19.174886 FREE START 0x186a00d8 0
+Verifying canary
+Verifying canary
+Canary verified
+Cleaning memory
+Canary verified
+Memory cleaned
+Cleaning memory
+12:32:19.174918 FREE END 0x186a00d8 100
+Merging chunks
+Memory cleaned
+2 chunks merged
+12:32:19.174937 FREE END 0x186a0000 100
+12:32:19.174919 FREE START 0x186a0000 0
+Merging chunks
+Verifying canary
+1 chunks merged
+Canary verified
+Cleaning memory
+Memory cleaned
+12:32:19.174999 FREE END 0x186a0000 3000
+Merging chunks
+12:32:19.175035 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:32:19.175082 FREE END 0x186a0bc0 1000
+Merging chunks
+2 chunks merged
+12:32:19.188212 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:32:19.188277 FREE END 0x186a0000 3000
+Merging chunks
+12:32:19.188304 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:32:19.188328 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:32:19.206197 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:32:19.206287 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:32:19.206350 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:32:19.206429 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:33:00.452911 FREE START 0xdeadbeef 0
+12:33:00.452926 FREE START 0x186a0000 0
+12:33:00.452945 FREE START 0x186a0000 0
+12:33:00.452957 FREE START 0x186a0000 0
+12:33:00.452957 FREE START 0xdeadbeef 0
+ecrit ce que tu veux : 12
+12:33:00.452987 FREE START 0x186a0000 0
+12:33:00.452985 MALLOC START 100
+NEW EXECUTION : 2024-06-13 12:33:00
+12:33:00.453010 FREE START 0x186a0000 0
+12:33:00.453032 FREE START 0x186a0000 0
+Heap not initialized
+Verifying canary
+Verifying canary
+Verifying canary
+Invalid pointer to free : not in the heap
+Verifying canary
+12:33:00.453174 MALLOC END 0x64d04f68a4f0 100
+Verifying canary
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Canary verified
+Canary verified
+Canary verified
+12:33:00.453206 FREE START 0x64d04f68a4f0 100
+Canary verified
+12:33:00.453205 FREE START 0x186a0000 0
+Cleaning memory
+Cleaning memory
+Canary verified
+Cleaning memory
+Cleaning memory
+12:33:00.453218 FREE END 0x64d04f68a4f0 100
+Cleaning memory
+Memory cleaned
+Memory cleaned
+Verifying canary
+Memory cleaned
+Cleaning memory
+Memory cleaned
+Memory cleaned
+12:33:00.453235 FREE END 0x186a0000 100
+12:33:00.453236 FREE END 0x186a0000 100
+Canary verified
+12:33:00.453240 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+Merging chunks
+12:33:00.453246 FREE END 0x186a0000 100
+12:33:00.453246 FREE END 0x186a0000 100
+Merging chunks
+Cleaning memory
+1 chunks merged
+1 chunks merged
+Merging chunks
+12:33:00.453257 FREE END 0x186a0000 3000
+Merging chunks
+12:33:00.453264 FREE START 0x186a006c 0
+Memory cleaned
+1 chunks merged
+12:33:00.453270 FREE START 0x186a0000 0
+Merging chunks
+Verifying canary
+1 chunks merged
+Double free
+12:33:00.453282 FREE END 0x186a0000 100
+Canary verified
+12:33:00.453287 FREE START 0x186a0bc0 0
+Cleaning memory
+Merging chunks
+12:33:00.453297 FREE START 0x186a0000 0
+Verifying canary
+Memory cleaned
+1 chunks merged
+Verifying canary
+Canary verified
+12:33:00.453316 FREE END 0x186a006c 100
+Canary verified
+Merging chunks
+Cleaning memory
+1 chunks merged
+Memory cleaned
+Cleaning memory
+12:33:00.453343 FREE START 0x186a00d8 0
+Memory cleaned
+12:33:00.453349 FREE END 0x186a0bc0 1000
+Verifying canary
+Canary verified
+Merging chunks
+12:33:00.453360 FREE END 0x186a0000 100
+Cleaning memory
+2 chunks merged
+Merging chunks
+Memory cleaned
+1 chunks merged
+12:33:00.453386 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:33:00.453485 FREE START (nil) 0
+12:33:00.453504 FREE START 0x186a0000 0
+Invalid pointer to free : NULL
+Verifying canary
+Canary verified
+12:33:00.453536 FREE START 0x186a0000 0
+Cleaning memory
+Memory cleaned
+Verifying canary
+12:33:00.453558 FREE END 0x186a0000 100
+Canary verified
+Merging chunks
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:33:00.453591 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:33:00.455103 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:00.455149 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:33:00.466505 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:00.466610 FREE END 0x186a0000 3000
+Merging chunks
+12:33:00.466636 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:00.466695 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:33:00.485847 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:00.485915 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:33:00.485937 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:00.486018 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:33:17.338142 FREE START 0x186a0000 0
+12:33:17.338155 FREE START 0x186a0000 0
+12:33:17.338165 FREE START 0xdeadbeef 0
+12:33:17.338167 FREE START 0xdeadbeef 0
+12:33:17.338175 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+12:33:17.338185 FREE START (nil) 0
+12:33:17.338194 MALLOC START 100
+NEW EXECUTION : 2024-06-13 12:33:17
+12:33:17.338207 FREE START 0x186a0000 0
+Heap not initialized
+Invalid pointer to free : not in the heap
+Canary verified
+Canary verified
+Verifying canary
+Invalid pointer to free : NULL
+12:33:17.338406 MALLOC END 0x5628343924f0 100
+Cleaning memory
+12:33:17.338424 FREE START 0x186a0000 0
+Verifying canary
+Cleaning memory
+Canary verification failed : Buffer overflow detected
+12:33:17.338432 FREE START 0x186a0000 0
+12:33:17.338435 FREE START 0x5628343924f0 100
+Memory cleaned
+Verifying canary
+Cleaning memory
+Memory cleaned
+Canary verified
+ecrit ce que tu veux : 12
+Verifying canary
+12:33:17.338456 FREE END 0x5628343924f0 100
+Canary verified
+Memory cleaned
+12:33:17.338458 FREE END 0x186a0000 100
+12:33:17.338463 FREE END 0x186a0000 100
+Cleaning memory
+Canary verified
+Cleaning memory
+Merging chunks
+Merging chunks
+12:33:17.338474 FREE END 0x186a0000 100
+Memory cleaned
+Cleaning memory
+Memory cleaned
+1 chunks merged
+1 chunks merged
+Merging chunks
+Memory cleaned
+12:33:17.338494 FREE END 0x186a0000 100
+1 chunks merged
+12:33:17.338493 FREE END 0x186a0000 100
+Merging chunks
+12:33:17.338502 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Merging chunks
+1 chunks merged
+1 chunks merged
+12:33:17.338532 FREE START 0x186a0000 0
+Double free
+12:33:17.338544 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:17.338575 FREE START 0x186a0000 0
+12:33:17.338600 FREE END 0x186a0000 100
+Merging chunks
+Verifying canary
+1 chunks merged
+12:33:17.338605 FREE START 0x186a0000 0
+12:33:17.338606 FREE START 0x186a0000 0
+Canary verified
+Verifying canary
+12:33:17.338632 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Canary verified
+Verifying canary
+Cleaning memory
+Memory cleaned
+Canary verified
+Memory cleaned
+Cleaning memory
+Cleaning memory
+Memory cleaned
+12:33:17.338664 FREE END 0x186a0000 3000
+12:33:17.338661 FREE END 0x186a0000 100
+Memory cleaned
+12:33:17.338672 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+Merging chunks
+12:33:17.338680 FREE END 0x186a0000 100
+12:33:17.338686 FREE START 0x186a0bc0 0
+12:33:17.338687 FREE START 0x186a006c 0
+Merging chunks
+1 chunks merged
+Verifying canary
+Verifying canary
+1 chunks merged
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Memory cleaned
+12:33:17.338732 FREE END 0x186a0bc0 1000
+12:33:17.338733 FREE END 0x186a006c 100
+Merging chunks
+Merging chunks
+1 chunks merged
+2 chunks merged
+12:33:17.338756 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:17.338780 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:33:17.349573 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:17.349661 FREE END 0x186a0000 3000
+Merging chunks
+12:33:17.349684 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:17.349727 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:33:17.370281 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:17.370489 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:33:17.370511 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:33:17.370588 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:34:48.530754 FREE START 0x186a0000 0
+12:34:48.530776 FREE START (nil) 0
+Invalid pointer to free : NULL
+Verifying canary
+NEW EXECUTION : 2024-06-13 12:34:48
+12:34:48.530770 FREE START 0xdeadbeef 0
+Canary verified
+12:34:48.530831 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Heap not initialized
+Memory cleaned
+Canary verified
+ecrit ce que tu veux : 12
+Cleaning memory
+12:34:48.530868 FREE END 0x186a0000 100
+12:34:48.530846 FREE START 0xdeadbeef 0
+Memory cleaned
+Merging chunks
+1 chunks merged
+12:34:48.530889 FREE END 0x186a0000 100
+Invalid pointer to free : not in the heap
+12:34:48.530860 FREE START 0x186a0000 0
+Merging chunks
+12:34:48.530902 FREE START 0x186a0000 0
+1 chunks merged
+Verifying canary
+Canary verified
+Verifying canary
+12:34:48.530903 FREE START 0x186a0000 0
+Cleaning memory
+Canary verification failed : Buffer overflow detected
+Memory cleaned
+Verifying canary
+Cleaning memory
+12:34:48.530929 FREE START 0x186a0000 0
+Canary verified
+12:34:48.530951 FREE END 0x186a0000 100
+Memory cleaned
+12:34:48.530942 FREE START 0x186a0000 0
+Verifying canary
+Cleaning memory
+Merging chunks
+Verifying canary
+Canary verified
+12:34:48.530968 FREE END 0x186a0000 100
+Memory cleaned
+1 chunks merged
+Canary verified
+Cleaning memory
+12:34:48.530979 FREE START 0x186a0000 0
+Merging chunks
+Cleaning memory
+12:34:48.530996 FREE END 0x186a0000 100
+Memory cleaned
+Verifying canary
+1 chunks merged
+Memory cleaned
+Merging chunks
+Canary verified
+12:34:48.531011 FREE END 0x186a0000 100
+1 chunks merged
+Cleaning memory
+Merging chunks
+12:34:48.531021 FREE END 0x186a0000 100
+Memory cleaned
+1 chunks merged
+Merging chunks
+12:34:48.531036 FREE START 0x186a0000 0
+1 chunks merged
+Verifying canary
+12:34:48.531043 FREE END 0x186a0000 3000
+Canary verified
+12:34:48.531053 FREE START 0x186a0000 0
+Merging chunks
+12:34:48.531041 MALLOC START 100
+Cleaning memory
+Double free
+12:34:48.531066 FREE START 0x186a0bc0 0
+Memory cleaned
+12:34:48.531068 MALLOC END 0x650ad017c4f0 100
+Verifying canary
+12:34:48.531078 FREE END 0x186a0000 100
+12:34:48.531079 FREE START 0x650ad017c4f0 100
+Canary verified
+Merging chunks
+12:34:48.531090 FREE END 0x650ad017c4f0 100
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:34:48.531110 FREE END 0x186a0bc0 1000
+Merging chunks
+2 chunks merged
+12:34:48.531131 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.531201 FREE END 0x186a0000 100
+Merging chunks
+12:34:48.531198 FREE START 0x186a0000 0
+1 chunks merged
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.531259 FREE END 0x186a0000 100
+Merging chunks
+12:34:48.531278 FREE START 0x186a006c 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.531315 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+12:34:48.531339 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.531375 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:34:48.544830 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.544890 FREE END 0x186a0000 3000
+Merging chunks
+12:34:48.544901 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.544925 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:34:48.566808 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.566980 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:34:48.566984 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:34:48.567055 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+ecrit ce que tu veux : 12
+12:35:41.106429 FREE START 0xdeadbeef 0
+12:35:41.106460 FREE START 0xdeadbeef 0
+Heap not initialized
+Invalid pointer to free : not in the heap
+12:35:41.106481 FREE START 0x186a0000 0
+12:35:41.106516 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Canary verified
+12:35:41.106517 FREE START 0x186a0000 0
+Cleaning memory
+Canary verified
+12:35:41.106528 FREE START 0x186a0000 0
+Verifying canary
+Memory cleaned
+Cleaning memory
+12:35:41.106540 FREE START 0x186a0000 0
+12:35:41.106545 FREE START 0x186a0000 0
+Canary verified
+12:35:41.106569 FREE END 0x186a0000 100
+Verifying canary
+Memory cleaned
+Verifying canary
+Cleaning memory
+Verifying canary
+Merging chunks
+Canary verification failed : Buffer overflow detected
+Memory cleaned
+Canary verified
+1 chunks merged
+Canary verified
+12:35:41.106664 FREE END 0x186a0000 100
+Cleaning memory
+Cleaning memory
+12:35:41.106672 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Memory cleaned
+Memory cleaned
+Merging chunks
+1 chunks merged
+Memory cleaned
+12:35:41.106692 FREE END 0x186a0000 100
+12:35:41.106695 FREE END 0x186a0000 100
+12:35:41.106699 FREE START 0x186a0000 0
+Merging chunks
+1 chunks merged
+12:35:41.106700 FREE END 0x186a0000 100
+Double free
+Merging chunks
+1 chunks merged
+12:35:41.106691 MALLOC START 100
+Merging chunks
+1 chunks merged
+12:35:41.106724 MALLOC END 0x56aa5d8504f0 100
+1 chunks merged
+12:35:41.106734 FREE START 0x56aa5d8504f0 100
+12:35:41.106742 FREE START 0x186a0000 0
+12:35:41.106744 FREE END 0x56aa5d8504f0 100
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:35:41.106789 FREE END 0x186a0000 100
+Merging chunks
+12:35:41.106782 FREE START (nil) 0
+1 chunks merged
+Invalid pointer to free : NULL
+12:35:41.106832 FREE START 0x186a0000 0
+NEW EXECUTION : 2024-06-13 12:35:41
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:35:41.106882 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:35:41.106898 FREE START 0x186a0000 0
+Verifying canary
+12:35:41.106908 FREE START 0x186a0000 0
+Canary verified
+12:35:41.106915 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Verifying canary
+Memory cleaned
+Canary verified
+Canary verified
+12:35:41.106948 FREE END 0x186a0000 3000
+Cleaning memory
+Cleaning memory
+Merging chunks
+Memory cleaned
+Memory cleaned
+12:35:41.106966 FREE START 0x186a0bc0 0
+12:35:41.106970 FREE END 0x186a0000 100
+12:35:41.106971 FREE END 0x186a0000 100
+Verifying canary
+Merging chunks
+Canary verified
+Merging chunks
+Cleaning memory
+1 chunks merged
+12:35:41.106990 FREE START 0x186a006c 0
+Memory cleaned
+Verifying canary
+12:35:41.107005 FREE END 0x186a0bc0 1000
+Canary verified
+Merging chunks
+Cleaning memory
+2 chunks merged
+Memory cleaned
+12:35:41.107033 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+12:35:41.107053 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:35:41.107078 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:35:41.117506 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:35:41.117590 FREE END 0x186a0000 3000
+Merging chunks
+12:35:41.117611 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:35:41.117653 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:35:41.140475 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:35:41.140549 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:35:41.140657 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:35:41.140747 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:36:42.802723 FREE START 0x186a0000 0
+12:36:42.802731 FREE START 0x186a0000 0
+12:36:42.802716 FREE START 0xdeadbeef 0
+12:36:42.802755 FREE START 0xdeadbeef 0
+Verifying canary
+Verifying canary
+12:36:42.802765 FREE START 0x186a0000 0
+12:36:42.802762 FREE START 0x186a0000 0
+Heap not initialized
+Invalid pointer to free : not in the heap
+Canary verified
+Canary verified
+12:36:42.802785 FREE START (nil) 0
+NEW EXECUTION : 2024-06-13 12:36:42
+12:36:42.802870 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Cleaning memory
+Cleaning memory
+12:36:42.802970 FREE START 0x186a0000 0
+Invalid pointer to free : NULL
+Canary verification failed : Buffer overflow detected
+Verifying canary
+12:36:42.802980 FREE START 0x186a0000 0
+Memory cleaned
+Cleaning memory
+Canary verified
+Memory cleaned
+Verifying canary
+Canary verified
+12:36:42.803004 FREE START 0x186a0000 0
+Verifying canary
+Memory cleaned
+Cleaning memory
+12:36:42.803017 FREE END 0x186a0000 100
+12:36:42.803013 FREE END 0x186a0000 100
+Canary verified
+Verifying canary
+Canary verified
+Cleaning memory
+12:36:42.803027 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+Merging chunks
+Cleaning memory
+Canary verified
+Cleaning memory
+Merging chunks
+Memory cleaned
+1 chunks merged
+12:36:42.803042 FREE END 0x186a0000 100
+1 chunks merged
+Memory cleaned
+Cleaning memory
+Memory cleaned
+1 chunks merged
+Merging chunks
+12:36:42.803056 FREE END 0x186a0000 100
+Memory cleaned
+12:36:42.803062 FREE END 0x186a0000 100
+12:36:42.803064 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+Merging chunks
+Merging chunks
+12:36:42.803075 FREE END 0x186a0000 100
+1 chunks merged
+1 chunks merged
+Merging chunks
+12:36:42.803087 FREE START 0x186a006c 0
+1 chunks merged
+Verifying canary
+12:36:42.803098 FREE START 0x186a0000 0
+Canary verified
+Cleaning memory
+Double free
+Memory cleaned
+12:36:42.803125 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+12:36:42.803145 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+ecrit ce que tu veux : 12
+Memory cleaned
+12:36:42.803154 FREE START 0x186a0000 0
+12:36:42.803176 FREE END 0x186a00d8 100
+Verifying canary
+12:36:42.803156 MALLOC START 100
+Merging chunks
+Canary verified
+2 chunks merged
+Cleaning memory
+12:36:42.803190 FREE START 0x186a0000 0
+12:36:42.803205 MALLOC END 0x5ab2933304f0 100
+Verifying canary
+Memory cleaned
+12:36:42.803221 FREE START 0x5ab2933304f0 100
+Canary verified
+12:36:42.803227 FREE END 0x186a0000 3000
+Cleaning memory
+Merging chunks
+12:36:42.803237 FREE END 0x5ab2933304f0 100
+Memory cleaned
+12:36:42.803247 FREE START 0x186a0bc0 0
+12:36:42.803252 FREE END 0x186a0000 100
+Verifying canary
+Merging chunks
+1 chunks merged
+Canary verified
+Cleaning memory
+12:36:42.803278 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+Canary verified
+12:36:42.803293 FREE END 0x186a0bc0 1000
+Cleaning memory
+Merging chunks
+Memory cleaned
+2 chunks merged
+12:36:42.803315 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:36:42.812092 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:36:42.812147 FREE END 0x186a0000 3000
+Merging chunks
+12:36:42.812158 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:36:42.812182 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:36:42.840231 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:36:42.840314 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:36:42.840501 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:36:42.840559 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:37:58.155458 FREE START 0x186a0000 0
+12:37:58.155467 FREE START 0x186a0000 0
+12:37:58.155465 FREE START 0xdeadbeef 0
+Verifying canary
+Verifying canary
+Heap not initialized
+Canary verified
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+Cleaning memory
+12:37:58.155508 FREE START 0xdeadbeef 0
+Memory cleaned
+Memory cleaned
+12:37:58.155560 FREE END 0x186a0000 100
+12:37:58.155562 FREE END 0x186a0000 100
+12:37:58.155537 FREE START (nil) 0
+Invalid pointer to free : not in the heap
+Merging chunks
+NEW EXECUTION : 2024-06-13 12:37:58
+Merging chunks
+ecrit ce que tu veux : 12
+1 chunks merged
+Invalid pointer to free : NULL
+1 chunks merged
+12:37:58.155590 FREE START 0x186a0000 0
+12:37:58.155576 MALLOC START 100
+12:37:58.155570 FREE START 0x186a0000 0
+12:37:58.155602 FREE START 0x186a0000 0
+Verifying canary
+12:37:58.155616 MALLOC END 0x56b864ce64f0 100
+Verifying canary
+Canary verified
+Verifying canary
+12:37:58.155628 FREE START 0x56b864ce64f0 100
+Canary verified
+Cleaning memory
+Canary verified
+Cleaning memory
+12:37:58.155644 FREE END 0x56b864ce64f0 100
+Memory cleaned
+Cleaning memory
+Memory cleaned
+12:37:58.155661 FREE END 0x186a0000 100
+Memory cleaned
+12:37:58.155667 FREE END 0x186a0000 100
+12:37:58.155658 FREE START 0x186a0000 0
+Merging chunks
+Merging chunks
+Verifying canary
+12:37:58.155677 FREE END 0x186a0000 100
+1 chunks merged
+1 chunks merged
+Canary verified
+Merging chunks
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:37:58.155683 FREE START 0x186a0000 0
+12:37:58.155718 FREE END 0x186a0000 100
+12:37:58.155718 FREE START 0x186a0000 0
+Merging chunks
+Verifying canary
+Double free
+1 chunks merged
+12:37:58.155728 FREE START 0x186a0000 0
+Canary verified
+12:37:58.155720 FREE START 0x186a0000 0
+12:37:58.155752 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Verifying canary
+Canary verified
+Memory cleaned
+Verifying canary
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Canary verified
+12:37:58.155785 FREE END 0x186a0000 100
+Memory cleaned
+12:37:58.155799 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+12:37:58.155806 FREE END 0x186a0000 100
+Merging chunks
+Memory cleaned
+Merging chunks
+1 chunks merged
+12:37:58.155821 FREE START 0x186a006c 0
+1 chunks merged
+12:37:58.155825 FREE END 0x186a0000 3000
+Verifying canary
+Canary verified
+Merging chunks
+Cleaning memory
+Memory cleaned
+12:37:58.155854 FREE START 0x186a0bc0 0
+12:37:58.155863 FREE END 0x186a006c 100
+Verifying canary
+Merging chunks
+Canary verified
+1 chunks merged
+Cleaning memory
+12:37:58.155888 FREE START 0x186a00d8 0
+Memory cleaned
+Verifying canary
+Canary verified
+12:37:58.155909 FREE END 0x186a0bc0 1000
+Cleaning memory
+Merging chunks
+Memory cleaned
+2 chunks merged
+12:37:58.155935 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:37:58.155967 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:37:58.156042 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:37:58.164816 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:37:58.164867 FREE END 0x186a0000 3000
+Merging chunks
+12:37:58.164878 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:37:58.164900 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:37:58.178365 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:37:58.178419 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:37:58.198499 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:37:58.198595 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:37:58.198805 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:37:58.198878 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:56:12.766358 FREE START 0x186a0000 0
+12:56:12.766368 FREE START 0xdeadbeef 0
+12:56:12.766391 FREE START 0x186a0000 0
+12:56:12.766416 FREE START 0xdeadbeef 0
+Verifying canary
+Heap not initialized
+Verifying canary
+12:56:12.766429 FREE START 0x186a0000 0
+Invalid pointer to free : not in the heap
+Canary verified
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+Verifying canary
+12:56:12.766472 FREE START 0x186a0000 0
+Cleaning memory
+Memory cleaned
+Canary verified
+Verifying canary
+Memory cleaned
+Cleaning memory
+12:56:12.766489 FREE END 0x186a0000 100
+Canary verified
+12:56:12.766468 FREE START (nil) 0
+12:56:12.766474 MALLOC START 100
+Memory cleaned
+Merging chunks
+Cleaning memory
+12:56:12.766502 FREE END 0x186a0000 100
+Invalid pointer to free : NULL
+1 chunks merged
+Memory cleaned
+12:56:12.766517 FREE END 0x186a0000 100
+ecrit ce que tu veux : 12
+12:56:12.766519 MALLOC END 0x5e96eb9444f0 100
+Merging chunks
+Merging chunks
+12:56:12.766529 FREE START 0x186a0000 0
+12:56:12.766531 FREE END 0x186a0000 100
+12:56:12.766542 FREE START 0x5e96eb9444f0 100
+1 chunks merged
+Verifying canary
+1 chunks merged
+Merging chunks
+12:56:12.766555 FREE END 0x5e96eb9444f0 100
+12:56:12.766541 FREE START 0x186a0000 0
+Canary verified
+1 chunks merged
+12:56:12.766560 FREE START 0x186a0000 0
+Verifying canary
+Cleaning memory
+Double free
+Canary verified
+Memory cleaned
+Cleaning memory
+12:56:12.766588 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+12:56:12.766600 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+1 chunks merged
+12:56:12.766638 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+12:56:12.766651 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Canary verified
+12:56:12.766692 FREE END 0x186a0000 3000
+Cleaning memory
+Merging chunks
+Memory cleaned
+12:56:12.766698 FREE START 0x186a0000 0
+12:56:12.766711 FREE START 0x186a0bc0 0
+12:56:12.766715 FREE END 0x186a0000 100
+Verifying canary
+Verifying canary
+Merging chunks
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+12:56:12.766735 FREE START 0x186a006c 0
+Memory cleaned
+Memory cleaned
+Verifying canary
+12:56:12.766751 FREE END 0x186a0000 100
+Canary verified
+12:56:12.766752 FREE END 0x186a0bc0 1000
+Merging chunks
+Cleaning memory
+Merging chunks
+1 chunks merged
+Memory cleaned
+2 chunks merged
+12:56:12.766779 FREE END 0x186a006c 100
+12:56:12.766782 FREE START 0x186a0000 0
+Merging chunks
+Verifying canary
+1 chunks merged
+Canary verified
+Cleaning memory
+12:56:12.766804 FREE START 0x186a00d8 0
+NEW EXECUTION : 2024-06-13 12:56:12
+Memory cleaned
+Verifying canary
+12:56:12.766822 FREE END 0x186a0000 100
+Canary verified
+Merging chunks
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:56:12.766851 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:56:12.767029 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:56:12.767097 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:56:12.780599 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:56:12.780696 FREE END 0x186a0000 3000
+Merging chunks
+12:56:12.780718 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:56:12.780764 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:56:12.791470 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:56:12.791572 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:56:12.808890 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:56:12.808966 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:56:12.809070 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:56:12.809136 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:57:25.763276 FREE START 0xdeadbeef 0
+12:57:25.763305 FREE START 0x186a0000 0
+12:57:25.763305 FREE START 0x186a0000 0
+Heap not initialized
+Verifying canary
+12:57:25.763329 FREE START 0xdeadbeef 0
+Canary verified
+NEW EXECUTION : 2024-06-13 12:57:25
+Verifying canary
+Cleaning memory
+Invalid pointer to free : not in the heap
+ecrit ce que tu veux : 12
+Memory cleaned
+Canary verification failed : Buffer overflow detected
+12:57:25.763383 FREE START 0x186a0000 0
+12:57:25.763358 FREE START 0x186a0000 0
+Cleaning memory
+12:57:25.763391 FREE END 0x186a0000 100
+12:57:25.763364 FREE START (nil) 0
+Verifying canary
+12:57:25.763385 MALLOC START 100
+Merging chunks
+Memory cleaned
+Verifying canary
+Canary verified
+12:57:25.763398 FREE START 0x186a0000 0
+1 chunks merged
+Invalid pointer to free : NULL
+12:57:25.763427 MALLOC END 0x5eb25c8a94f0 100
+Canary verified
+Cleaning memory
+12:57:25.763431 FREE END 0x186a0000 100
+Verifying canary
+12:57:25.763603 FREE START 0x5eb25c8a94f0 100
+Cleaning memory
+Memory cleaned
+12:57:25.763603 FREE START 0x186a0000 0
+Merging chunks
+Canary verified
+12:57:25.763614 FREE END 0x5eb25c8a94f0 100
+Memory cleaned
+12:57:25.763619 FREE END 0x186a0000 100
+Verifying canary
+Cleaning memory
+1 chunks merged
+Merging chunks
+Memory cleaned
+Canary verified
+12:57:25.763632 FREE END 0x186a0000 100
+1 chunks merged
+12:57:25.763646 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Merging chunks
+Memory cleaned
+1 chunks merged
+1 chunks merged
+12:57:25.763675 FREE END 0x186a0000 100
+12:57:25.763678 FREE START 0x186a0000 0
+Merging chunks
+Double free
+1 chunks merged
+12:57:25.763739 FREE START 0x186a0000 0
+12:57:25.763761 FREE START 0x186a0000 0
+12:57:25.763757 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Canary verified
+Verifying canary
+Canary verified
+Cleaning memory
+Canary verified
+Cleaning memory
+Memory cleaned
+Cleaning memory
+Memory cleaned
+Memory cleaned
+12:57:25.763856 FREE END 0x186a0000 100
+12:57:25.763859 FREE END 0x186a0000 100
+Merging chunks
+12:57:25.763868 FREE END 0x186a0000 100
+Merging chunks
+12:57:25.763878 FREE START 0x186a006c 0
+1 chunks merged
+Merging chunks
+Verifying canary
+1 chunks merged
+Canary verified
+Cleaning memory
+12:57:25.763904 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+12:57:25.763918 FREE END 0x186a006c 100
+Canary verified
+Merging chunks
+Cleaning memory
+1 chunks merged
+Memory cleaned
+12:57:25.763944 FREE START 0x186a00d8 0
+12:57:25.763946 FREE END 0x186a0000 100
+Verifying canary
+Merging chunks
+Canary verified
+1 chunks merged
+Cleaning memory
+Memory cleaned
+12:57:25.763984 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:57:25.764204 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.764266 FREE END 0x186a0000 3000
+Merging chunks
+12:57:25.764284 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.764321 FREE END 0x186a0bc0 1000
+Merging chunks
+2 chunks merged
+12:57:25.772346 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.772405 FREE END 0x186a0000 3000
+Merging chunks
+12:57:25.772431 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.772473 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:57:25.785238 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.785295 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+12:57:25.805779 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.805843 FREE END 0x186a0000 100
+Merging chunks
+12:57:25.810183 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.810256 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:57:25.810288 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:57:25.810359 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:58:31.604312 FREE START 0x186a0000 0
+12:58:31.604457 FREE START 0x186a0000 0
+12:58:31.604468 FREE START 0x186a0000 0
+12:58:31.604483 FREE START 0x186a0000 0
+12:58:31.604327 FREE START 0x186a0000 0
+12:58:31.604490 FREE START 0x186a0000 0
+12:58:31.604519 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Verifying canary
+Verifying canary
+Verifying canary
+Canary verified
+Verifying canary
+Canary verified
+Verifying canary
+Canary verified
+Canary verified
+Cleaning memory
+Canary verified
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+Canary verified
+Cleaning memory
+Memory cleaned
+Cleaning memory
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Memory cleaned
+Cleaning memory
+Memory cleaned
+Memory cleaned
+12:58:31.604657 FREE END 0x186a0000 100
+Memory cleaned
+12:58:31.604663 FREE END 0x186a0000 100
+12:58:31.604666 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+12:58:31.604671 FREE END 0x186a0000 100
+12:58:31.604672 FREE END 0x186a0000 3000
+Merging chunks
+12:58:31.604675 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Merging chunks
+Merging chunks
+1 chunks merged
+Merging chunks
+1 chunks merged
+12:58:31.604685 FREE END 0x186a0000 100
+1 chunks merged
+12:58:31.604697 FREE START 0x186a0bc0 0
+12:58:31.604699 FREE START 0x186a006c 0
+Verifying canary
+12:58:31.604707 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Double free
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Memory cleaned
+12:58:31.604747 FREE END 0x186a0bc0 1000
+12:58:31.604749 FREE END 0x186a006c 100
+Merging chunks
+Merging chunks
+Merging chunks
+1 chunks merged
+2 chunks merged
+1 chunks merged
+12:58:31.604775 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+12:58:31.604706 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+12:58:31.604808 FREE END 0x186a00d8 100
+Canary verified
+Merging chunks
+Cleaning memory
+2 chunks merged
+Memory cleaned
+12:58:31.604834 FREE END 0x186a0000 100
+12:58:31.604347 FREE START 0xdeadbeef 0
+Merging chunks
+12:58:31.604337 FREE START 0xdeadbeef 0
+1 chunks merged
+Invalid pointer to free : not in the heap
+12:58:31.604369 FREE START (nil) 0
+12:58:31.604873 FREE START 0x186a0000 0
+Heap not initialized
+Verifying canary
+Invalid pointer to free : NULL
+Canary verified
+Cleaning memory
+12:58:31.604899 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+Canary verified
+12:58:31.604921 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Memory cleaned
+1 chunks merged
+12:58:31.604948 FREE END 0x186a0000 100
+Merging chunks
+12:58:31.604379 FREE START 0x186a0000 0
+1 chunks merged
+ecrit ce que tu veux : 12
+Verifying canary
+NEW EXECUTION : 2024-06-13 12:58:31
+Canary verified
+Cleaning memory
+Memory cleaned
+12:58:31.605009 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+12:58:31.604433 MALLOC START 100
+12:58:31.605321 MALLOC END 0x58aa226794f0 100
+12:58:31.605340 FREE START 0x58aa226794f0 100
+12:58:31.605349 FREE END 0x58aa226794f0 100
+12:58:31.617798 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:58:31.617866 FREE END 0x186a0000 3000
+Merging chunks
+12:58:31.617879 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:58:31.617914 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:58:31.625966 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:58:31.626045 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+12:58:31.647598 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:58:31.647657 FREE END 0x186a0000 100
+Merging chunks
+Invalid pointer to realloc : not in the heap
+12:58:31.652729 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:58:31.652806 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:58:31.652914 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:58:31.652978 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:59:08.857835 FREE START 0x186a0000 0
+12:59:08.857835 FREE START 0x186a0000 0
+12:59:08.857818 FREE START 0xdeadbeef 0
+12:59:08.857840 FREE START (nil) 0
+12:59:08.857844 FREE START 0xdeadbeef 0
+12:59:08.857860 FREE START 0x186a0000 0
+ecrit ce que tu veux : 12
+12:59:08.857883 FREE START 0x186a0000 0
+12:59:08.857931 FREE START 0x186a0000 0
+12:59:08.857933 FREE START 0x186a0000 0
+Verifying canary
+12:59:08.858009 FREE START 0x186a0000 0
+Verifying canary
+Heap not initialized
+Invalid pointer to free : NULL
+Invalid pointer to free : not in the heap
+Verifying canary
+Verifying canary
+Verifying canary
+Canary verified
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Verifying canary
+Canary verified
+12:59:08.858120 FREE START 0x186a0000 0
+Cleaning memory
+Canary verified
+12:59:08.858120 FREE START 0x186a0000 0
+Canary verified
+Canary verified
+Canary verified
+Cleaning memory
+Memory cleaned
+Verifying canary
+Cleaning memory
+Cleaning memory
+Verifying canary
+Cleaning memory
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Canary verified
+12:59:08.858153 FREE END 0x186a0000 100
+Memory cleaned
+Memory cleaned
+Canary verified
+Memory cleaned
+Memory cleaned
+Memory cleaned
+Cleaning memory
+Merging chunks
+12:59:08.858168 FREE END 0x186a0000 100
+Cleaning memory
+12:59:08.858177 FREE END 0x186a0000 100
+12:59:08.858178 FREE END 0x186a0000 3000
+12:59:08.858176 FREE END 0x186a0000 100
+Memory cleaned
+12:59:08.858180 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+Memory cleaned
+12:59:08.858184 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+Merging chunks
+Merging chunks
+12:59:08.858199 FREE END 0x186a0000 100
+1 chunks merged
+12:59:08.858207 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+1 chunks merged
+12:59:08.858213 FREE START 0x186a0bc0 0
+Merging chunks
+1 chunks merged
+Merging chunks
+Verifying canary
+12:59:08.858226 FREE START 0x186a0000 0
+1 chunks merged
+12:59:08.858228 FREE START 0x186a0000 0
+12:59:08.858227 FREE START 0x186a006c 0
+1 chunks merged
+Canary verified
+Double free
+Verifying canary
+Verifying canary
+Cleaning memory
+Canary verified
+NEW EXECUTION : 2024-06-13 12:59:08
+Canary verified
+Memory cleaned
+Cleaning memory
+Cleaning memory
+Memory cleaned
+12:59:08.858272 FREE END 0x186a0bc0 1000
+Memory cleaned
+Merging chunks
+12:59:08.858283 FREE END 0x186a0000 100
+2 chunks merged
+Merging chunks
+12:59:08.858292 FREE END 0x186a006c 100
+12:59:08.858277 MALLOC START 100
+1 chunks merged
+Merging chunks
+12:59:08.858308 MALLOC END 0x594bda59a4f0 100
+12:59:08.858339 FREE START 0x594bda59a4f0 100
+12:59:08.858349 FREE END 0x594bda59a4f0 100
+12:59:08.857871 FREE START 0x186a0000 0
+1 chunks merged
+Verifying canary
+Canary verified
+12:59:08.858387 FREE START 0x186a00d8 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Canary verified
+12:59:08.858414 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Memory cleaned
+1 chunks merged
+12:59:08.858437 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:59:08.868750 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:08.868834 FREE END 0x186a0000 3000
+Merging chunks
+12:59:08.868856 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:08.868900 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:59:08.881542 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:08.881761 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Invalid pointer to realloc : not in the heap
+Verifying canary
+Canary verified
+12:59:08.900561 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:08.900602 FREE END 0x186a0000 100
+Merging chunks
+12:59:08.903258 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:08.903324 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:59:08.903488 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:08.903564 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+12:59:38.475495 FREE START 0xdeadbeef 0
+12:59:38.475511 FREE START 0x186a0000 0
+12:59:38.475518 FREE START 0x186a0000 0
+Heap not initialized
+12:59:38.475545 FREE START (nil) 0
+Verifying canary
+ecrit ce que tu veux : 12
+12:59:38.475543 FREE START 0xdeadbeef 0
+NEW EXECUTION : 2024-06-13 12:59:38
+12:59:38.475542 FREE START 0x186a0000 0
+12:59:38.475561 FREE START 0x186a0000 0
+Verifying canary
+Invalid pointer to free : NULL
+Canary verification failed : Buffer overflow detected
+12:59:38.475723 MALLOC START 100
+Invalid pointer to free : not in the heap
+Verifying canary
+Canary verified
+Verifying canary
+Cleaning memory
+12:59:38.475784 FREE START 0x186a0000 0
+12:59:38.475776 FREE START 0x186a0000 0
+12:59:38.475794 FREE START 0x186a0000 0
+Cleaning memory
+Canary verified
+Canary verified
+Memory cleaned
+12:59:38.475799 MALLOC END 0x59ad6934a4f0 100
+Verifying canary
+Verifying canary
+Verifying canary
+Memory cleaned
+Cleaning memory
+Cleaning memory
+12:59:38.475815 FREE END 0x186a0000 100
+Canary verified
+Canary verified
+Canary verified
+12:59:38.475821 FREE START 0x59ad6934a4f0 100
+12:59:38.475825 FREE END 0x186a0000 100
+Memory cleaned
+Memory cleaned
+Merging chunks
+Cleaning memory
+Cleaning memory
+Cleaning memory
+Merging chunks
+12:59:38.475840 FREE END 0x59ad6934a4f0 100
+12:59:38.475841 FREE END 0x186a0000 100
+1 chunks merged
+Memory cleaned
+Memory cleaned
+1 chunks merged
+12:59:38.475844 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+12:59:38.475861 FREE END 0x186a0000 100
+12:59:38.475862 FREE END 0x186a0000 3000
+Merging chunks
+1 chunks merged
+12:59:38.475868 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+Merging chunks
+1 chunks merged
+12:59:38.475879 FREE START 0x186a0000 0
+1 chunks merged
+12:59:38.475884 FREE START 0x186a0bc0 0
+1 chunks merged
+Double free
+Verifying canary
+Canary verified
+Cleaning memory
+12:59:38.475900 FREE START 0x186a0000 0
+Memory cleaned
+12:59:38.475907 FREE START 0x186a0000 0
+Verifying canary
+12:59:38.475929 FREE END 0x186a0bc0 1000
+Verifying canary
+Canary verified
+Merging chunks
+Canary verified
+Cleaning memory
+2 chunks merged
+Cleaning memory
+Memory cleaned
+Memory cleaned
+12:59:38.475967 FREE END 0x186a0000 100
+12:59:38.475968 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+12:59:38.475967 FREE START 0x186a0000 0
+1 chunks merged
+1 chunks merged
+Verifying canary
+Canary verified
+12:59:38.475998 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Canary verified
+12:59:38.476019 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Memory cleaned
+12:59:38.476033 FREE START 0x186a006c 0
+Verifying canary
+12:59:38.476040 FREE END 0x186a0000 100
+Canary verified
+Cleaning memory
+Merging chunks
+Memory cleaned
+1 chunks merged
+12:59:38.476061 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+12:59:38.476084 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:38.476110 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+12:59:38.484165 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:38.484251 FREE END 0x186a0000 3000
+Merging chunks
+12:59:38.484274 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:38.484319 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+12:59:38.497038 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:38.497109 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+12:59:38.518350 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:38.518414 FREE END 0x186a0000 100
+Merging chunks
+Invalid pointer to realloc : not in the heap
+12:59:38.525923 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:38.526013 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+12:59:38.526160 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+12:59:38.526236 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+13:00:18.097497 FREE START 0x186a0000 0
+13:00:18.097492 FREE START 0xdeadbeef 0
+13:00:18.097512 FREE START 0x186a0000 0
+13:00:18.097513 FREE START 0x186a0000 0
+Verifying canary
+13:00:18.097534 FREE START 0xdeadbeef 0
+Heap not initialized
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Verifying canary
+13:00:18.097568 FREE START 0x186a0000 0
+13:00:18.097599 FREE START (nil) 0
+13:00:18.097654 FREE START 0x186a0000 0
+13:00:18.097650 FREE START 0x186a0000 0
+Invalid pointer to free : not in the heap
+Canary verified
+Cleaning memory
+Invalid pointer to free : NULL
+Canary verified
+Verifying canary
+Verifying canary
+Cleaning memory
+Verifying canary
+Memory cleaned
+13:00:18.097767 FREE START 0x186a0000 0
+Cleaning memory
+Canary verified
+Canary verified
+Canary verified
+Memory cleaned
+13:00:18.097774 FREE START 0x186a0000 0
+Verifying canary
+Cleaning memory
+Memory cleaned
+13:00:18.097784 FREE END 0x186a0000 100
+Cleaning memory
+Cleaning memory
+Canary verified
+ecrit ce que tu veux : 12
+13:00:18.097797 FREE END 0x186a0000 100
+Memory cleaned
+Verifying canary
+Merging chunks
+Memory cleaned
+13:00:18.097805 FREE END 0x186a0000 100
+Cleaning memory
+Memory cleaned
+Merging chunks
+1 chunks merged
+13:00:18.097820 FREE END 0x186a0000 100
+Merging chunks
+Canary verified
+13:00:18.097825 FREE END 0x186a0000 100
+Memory cleaned
+13:00:18.097810 MALLOC START 100
+1 chunks merged
+NEW EXECUTION : 2024-06-13 13:00:18
+Merging chunks
+1 chunks merged
+13:00:18.097833 FREE END 0x186a0000 100
+Merging chunks
+Cleaning memory
+13:00:18.097843 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+Merging chunks
+13:00:18.097860 FREE START 0x186a006c 0
+Memory cleaned
+13:00:18.097844 MALLOC END 0x5af38c5b24f0 100
+1 chunks merged
+Verifying canary
+1 chunks merged
+13:00:18.097881 FREE START 0x5af38c5b24f0 100
+Canary verified
+13:00:18.097881 FREE END 0x186a0000 100
+13:00:18.097889 FREE START 0x186a0000 0
+Cleaning memory
+13:00:18.097893 FREE END 0x5af38c5b24f0 100
+Merging chunks
+Memory cleaned
+Double free
+1 chunks merged
+13:00:18.097915 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+13:00:18.097939 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.097942 FREE START 0x186a0000 0
+13:00:18.097965 FREE END 0x186a00d8 100
+Verifying canary
+Merging chunks
+Canary verified
+2 chunks merged
+Cleaning memory
+Memory cleaned
+13:00:18.098007 FREE END 0x186a0000 3000
+Merging chunks
+13:00:18.098003 FREE START 0x186a0000 0
+13:00:18.098025 FREE START 0x186a0bc0 0
+Verifying canary
+Verifying canary
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Memory cleaned
+13:00:18.098066 FREE END 0x186a0000 100
+13:00:18.098073 FREE END 0x186a0bc0 1000
+Merging chunks
+Merging chunks
+1 chunks merged
+2 chunks merged
+13:00:18.098098 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.098133 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+13:00:18.109528 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.109595 FREE END 0x186a0000 3000
+Merging chunks
+13:00:18.109608 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.109634 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+13:00:18.122689 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.122814 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+13:00:18.141129 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.141182 FREE END 0x186a0000 100
+Merging chunks
+Invalid pointer to realloc : not in the heap
+13:00:18.149335 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.149506 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+13:00:18.152086 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.152178 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+13:00:18.152203 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:18.152275 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+13:00:38.356113 FREE START 0x186a0000 0
+13:00:38.356125 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Canary verification failed : Buffer overflow detected
+13:00:38.356144 FREE START 0xdeadbeef 0
+13:00:38.356163 FREE START 0x186a0000 0
+Canary verified
+Cleaning memory
+13:00:38.356177 FREE START 0xdeadbeef 0
+Heap not initialized
+13:00:38.356211 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Invalid pointer to free : not in the heap
+Memory cleaned
+Canary verified
+Verifying canary
+13:00:38.356371 FREE START 0x186a0000 0
+Cleaning memory
+13:00:38.356371 FREE END 0x186a0000 100
+13:00:38.356374 FREE END 0x186a0000 100
+Verifying canary
+Canary verified
+Memory cleaned
+Merging chunks
+Merging chunks
+Canary verified
+1 chunks merged
+Cleaning memory
+1 chunks merged
+Cleaning memory
+13:00:38.356398 FREE END 0x186a0000 100
+Memory cleaned
+Memory cleaned
+Merging chunks
+13:00:38.356420 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+13:00:38.356423 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+1 chunks merged
+13:00:38.356460 FREE START 0x186a0000 0
+Double free
+NEW EXECUTION : 2024-06-13 13:00:38
+13:00:38.356546 FREE START (nil) 0
+ecrit ce que tu veux : 12
+Invalid pointer to free : NULL
+13:00:38.356581 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+13:00:38.356557 MALLOC START 100
+Cleaning memory
+Memory cleaned
+13:00:38.356620 FREE END 0x186a0000 100
+13:00:38.356620 MALLOC END 0x586195bb94f0 100
+Merging chunks
+1 chunks merged
+13:00:38.356640 FREE START 0x586195bb94f0 100
+13:00:38.356620 FREE START 0x186a0000 0
+13:00:38.356639 FREE START 0x186a0000 0
+13:00:38.356656 FREE END 0x586195bb94f0 100
+Verifying canary
+Verifying canary
+13:00:38.356639 FREE START 0x186a0000 0
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+Verifying canary
+Memory cleaned
+Memory cleaned
+Canary verified
+13:00:38.356705 FREE END 0x186a0000 100
+13:00:38.356704 FREE END 0x186a0000 100
+Merging chunks
+Cleaning memory
+Merging chunks
+13:00:38.356735 FREE START 0x186a006c 0
+Memory cleaned
+1 chunks merged
+Verifying canary
+Canary verified
+Cleaning memory
+13:00:38.356750 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+13:00:38.356767 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+1 chunks merged
+13:00:38.356788 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+13:00:38.356794 FREE START 0x186a0000 0
+Cleaning memory
+Memory cleaned
+Verifying canary
+13:00:38.356815 FREE END 0x186a00d8 100
+Canary verified
+Merging chunks
+13:00:38.356799 FREE START 0x186a0000 0
+2 chunks merged
+Cleaning memory
+Memory cleaned
+Verifying canary
+13:00:38.356849 FREE END 0x186a0000 100
+Canary verified
+Merging chunks
+Cleaning memory
+1 chunks merged
+Memory cleaned
+13:00:38.356885 FREE END 0x186a0000 3000
+Merging chunks
+13:00:38.356907 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:38.356953 FREE END 0x186a0bc0 1000
+Merging chunks
+2 chunks merged
+13:00:38.357949 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:38.358010 FREE END 0x186a0000 3000
+Merging chunks
+13:00:38.358027 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:38.358070 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+13:00:38.380108 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:38.380186 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+13:00:38.401820 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:38.401882 FREE END 0x186a0000 100
+Merging chunks
+Invalid pointer to realloc : not in the heap
+13:00:38.411574 FREE START 0x186a0000 0
+13:00:38.411593 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Verifying canary
+Cleaning memory
+Memory cleaned
+Canary verified
+13:00:38.411763 FREE END 0x186a0000 100
+Cleaning memory
+Merging chunks
+Memory cleaned
+1 chunks merged
+13:00:38.411793 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+13:00:38.412217 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:00:38.412275 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+13:01:17.923048 FREE START 0x186a0000 0
+Verifying canary
+13:01:17.923074 FREE START 0x186a0000 0
+Canary verified
+Cleaning memory
+Verifying canary
+Memory cleaned
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+13:01:17.923129 FREE END 0x186a0000 100
+Memory cleaned
+13:01:17.923101 FREE START 0xdeadbeef 0
+Merging chunks
+13:01:17.923120 FREE START 0x186a0000 0
+13:01:17.923143 FREE END 0x186a0000 100
+1 chunks merged
+13:01:17.923136 FREE START 0xdeadbeef 0
+Heap not initialized
+Merging chunks
+13:01:17.923143 FREE START 0x186a0000 0
+13:01:17.923166 FREE START (nil) 0
+NEW EXECUTION : 2024-06-13 13:01:17
+13:01:17.923211 MALLOC START 100
+13:01:17.923220 FREE START 0x186a0000 0
+1 chunks merged
+Invalid pointer to free : not in the heap
+Verifying canary
+Invalid pointer to free : NULL
+13:01:17.923337 MALLOC END 0x56f5dc6d84f0 100
+Verifying canary
+Verifying canary
+Canary verified
+13:01:17.923345 FREE START 0x186a0000 0
+Canary verified
+13:01:17.923353 FREE START 0x56f5dc6d84f0 100
+Canary verified
+Cleaning memory
+13:01:17.923354 FREE START 0x186a0000 0
+Verifying canary
+Cleaning memory
+13:01:17.923365 FREE END 0x56f5dc6d84f0 100
+Cleaning memory
+Memory cleaned
+Canary verified
+Memory cleaned
+Memory cleaned
+Verifying canary
+Cleaning memory
+13:01:17.923379 FREE END 0x186a0000 100
+Memory cleaned
+13:01:17.923385 FREE END 0x186a0000 100
+13:01:17.923387 FREE END 0x186a0000 100
+Merging chunks
+Canary verified
+Merging chunks
+13:01:17.923398 FREE END 0x186a0000 100
+ecrit ce que tu veux : 12
+Cleaning memory
+Merging chunks
+1 chunks merged
+1 chunks merged
+Merging chunks
+1 chunks merged
+13:01:17.923420 FREE START 0x186a0000 0
+Memory cleaned
+1 chunks merged
+Double free
+13:01:17.923435 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+13:01:17.923577 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+13:01:17.923614 FREE START 0x186a0000 0
+Cleaning memory
+Verifying canary
+Memory cleaned
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.923656 FREE END 0x186a0000 100
+13:01:17.923670 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+1 chunks merged
+13:01:17.923684 FREE START 0x186a006c 0
+13:01:17.923695 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+13:01:17.923731 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+1 chunks merged
+13:01:17.923743 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+13:01:17.923773 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.923817 FREE END 0x186a00d8 100
+Merging chunks
+13:01:17.923817 FREE START 0x186a0000 0
+2 chunks merged
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.923866 FREE END 0x186a0000 3000
+Merging chunks
+13:01:17.923879 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.923911 FREE END 0x186a0bc0 1000
+Merging chunks
+2 chunks merged
+13:01:17.935024 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.935117 FREE END 0x186a0000 3000
+Merging chunks
+13:01:17.935154 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.935200 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+13:01:17.945341 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.945406 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+13:01:17.964859 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.964925 FREE END 0x186a0000 100
+Merging chunks
+Invalid pointer to realloc : not in the heap
+13:01:17.972499 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.972563 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verification failed : Buffer overflow detected
+13:01:17.977882 FREE START 0x186a0000 0
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+Memory cleaned
+13:01:17.977936 FREE END 0x186a0000 100
+Merging chunks
+13:01:17.978015 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.978100 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+13:01:17.978202 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:01:17.978276 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+13:02:00.128871 FREE START 0x186a0000 0
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+13:02:00.128915 FREE START 0xdeadbeef 0
+Memory cleaned
+13:02:00.128904 FREE START 0xdeadbeef 0
+13:02:00.128935 MALLOC START 100
+13:02:00.128957 FREE END 0x186a0000 100
+Invalid pointer to free : not in the heap
+13:02:00.128940 FREE START 0x186a0000 0
+Merging chunks
+Heap not initialized
+13:02:00.128975 MALLOC END 0x59ec6cb304f0 100
+13:02:00.128976 FREE START 0x186a0000 0
+13:02:00.128957 FREE START (nil) 0
+1 chunks merged
+Verifying canary
+Verifying canary
+13:02:00.128992 FREE START 0x59ec6cb304f0 100
+NEW EXECUTION : 2024-06-13 13:02:00
+Canary verified
+Invalid pointer to free : NULL
+Canary verified
+13:02:00.129008 FREE END 0x59ec6cb304f0 100
+13:02:00.128977 FREE START 0x186a0000 0
+Cleaning memory
+Cleaning memory
+13:02:00.129017 FREE START 0x186a0000 0
+Memory cleaned
+Verifying canary
+Verifying canary
+Memory cleaned
+13:02:00.129041 FREE END 0x186a0000 100
+Canary verified
+13:02:00.129028 FREE START 0x186a0000 0
+Canary verified
+Merging chunks
+Cleaning memory
+13:02:00.129053 FREE END 0x186a0000 100
+13:02:00.129040 FREE START 0x186a0000 0
+Memory cleaned
+1 chunks merged
+Verifying canary
+13:02:00.129052 FREE START 0x186a0000 0
+Cleaning memory
+Merging chunks
+13:02:00.129082 FREE END 0x186a0000 100
+Canary verified
+Verifying canary
+Verifying canary
+Memory cleaned
+Merging chunks
+Cleaning memory
+1 chunks merged
+Canary verified
+Canary verified
+1 chunks merged
+Memory cleaned
+13:02:00.129107 FREE END 0x186a0000 100
+Cleaning memory
+Cleaning memory
+13:02:00.129119 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+Memory cleaned
+Merging chunks
+13:02:00.129134 FREE END 0x186a0000 100
+1 chunks merged
+1 chunks merged
+13:02:00.129138 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Merging chunks
+13:02:00.129150 FREE START 0x186a0000 0
+13:02:00.129154 FREE START 0x186a0000 0
+1 chunks merged
+13:02:00.129147 FREE START 0x186a0000 0
+Verifying canary
+Double free
+Canary verified
+Verifying canary
+Cleaning memory
+Canary verified
+Memory cleaned
+Cleaning memory
+Memory cleaned
+13:02:00.129199 FREE END 0x186a0000 100
+13:02:00.129185 FREE START 0x186a0000 0
+13:02:00.129208 FREE END 0x186a0000 3000
+Merging chunks
+Merging chunks
+1 chunks merged
+Verifying canary
+13:02:00.129227 FREE START 0x186a0bc0 0
+Canary verified
+Verifying canary
+ecrit ce que tu veux : 12
+Cleaning memory
+Canary verified
+Cleaning memory
+Memory cleaned
+Memory cleaned
+13:02:00.129264 FREE END 0x186a0bc0 1000
+Merging chunks
+13:02:00.129265 FREE END 0x186a0000 100
+2 chunks merged
+Merging chunks
+13:02:00.129290 FREE START 0x186a006c 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.129347 FREE END 0x186a006c 100
+Merging chunks
+1 chunks merged
+13:02:00.129375 FREE START 0x186a00d8 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.129418 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+13:02:00.140028 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.140104 FREE END 0x186a0000 3000
+Merging chunks
+13:02:00.140121 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.140157 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+13:02:00.151187 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.151254 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+13:02:00.171630 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.171698 FREE END 0x186a0000 100
+Merging chunks
+Invalid pointer to realloc : not in the heap
+13:02:00.178682 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.178755 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Realloc : Canary verification failed : Buffer overflow detected
+13:02:00.180942 FREE START 0x186a0000 0
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+Memory cleaned
+13:02:00.180995 FREE END 0x186a0000 100
+Merging chunks
+13:02:00.183401 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.183463 FREE END 0x186a0000 5000
+Merging chunks
+1 chunks merged
+13:02:00.183666 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:02:00.183759 FREE END 0x186a0000 10000
+Merging chunks
+1 chunks merged
+13:06:18.202471 FREE START 0xdeadbeef 0
+13:06:18.202495 FREE START 0x186a0000 0
+13:06:18.202488 FREE START 0x186a0000 0
+13:06:18.202505 FREE START 0x186a0000 0
+Heap not initialized
+Verifying canary
+NEW EXECUTION : 2024-06-13 13:06:18
+13:06:18.202554 FREE START 0xdeadbeef 0
+13:06:18.202573 FREE START (nil) 0
+13:06:18.202557 FREE START 0x186a0000 0
+13:06:18.202619 FREE START 0x186a0000 0
+13:06:18.202614 FREE START 0x186a0000 0
+13:06:18.202641 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Verifying canary
+Invalid pointer to free : not in the heap
+Invalid pointer to free : NULL
+Verifying canary
+Verifying canary
+Verifying canary
+Cleaning memory
+Canary verified
+Canary verification failed : Buffer overflow detected
+Verifying canary
+Canary verified
+13:06:18.202741 FREE START 0x186a0000 0
+Cleaning memory
+Canary verified
+13:06:18.202743 FREE START 0x186a0000 0
+Canary verified
+Memory cleaned
+Verifying canary
+Cleaning memory
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Verifying canary
+Cleaning memory
+Canary verified
+Memory cleaned
+13:06:18.202771 FREE END 0x186a0000 100
+Cleaning memory
+Memory cleaned
+13:06:18.202762 FREE START 0x186a0000 0
+Memory cleaned
+Canary verified
+13:06:18.202782 FREE END 0x186a0000 100
+Cleaning memory
+Memory cleaned
+Merging chunks
+13:06:18.202788 FREE END 0x186a0000 100
+Memory cleaned
+13:06:18.202795 FREE END 0x186a0000 3000
+Cleaning memory
+Verifying canary
+Merging chunks
+Memory cleaned
+Merging chunks
+1 chunks merged
+13:06:18.202803 FREE END 0x186a0000 100
+Memory cleaned
+Merging chunks
+13:06:18.202810 FREE END 0x186a0000 100
+Canary verified
+1 chunks merged
+1 chunks merged
+13:06:18.202816 FREE END 0x186a0000 100
+13:06:18.202821 FREE END 0x186a0000 100
+13:06:18.202823 FREE START 0x186a0000 0
+13:06:18.202828 FREE END 0x186a0000 100
+Merging chunks
+Merging chunks
+13:06:18.202830 FREE START 0x186a0bc0 0
+Cleaning memory
+Merging chunks
+Merging chunks
+Double free
+Merging chunks
+1 chunks merged
+Memory cleaned
+Verifying canary
+1 chunks merged
+1 chunks merged
+1 chunks merged
+13:06:18.202854 FREE START 0x186a006c 0
+Canary verified
+13:06:18.202863 FREE END 0x186a0000 100
+Verifying canary
+Cleaning memory
+Merging chunks
+Memory cleaned
+Canary verified
+1 chunks merged
+13:06:18.202890 FREE END 0x186a0bc0 1000
+Cleaning memory
+13:06:18.202899 FREE START 0x186a0000 0
+Merging chunks
+Verifying canary
+Memory cleaned
+2 chunks merged
+Canary verified
+Cleaning memory
+13:06:18.202924 FREE END 0x186a006c 100
+Memory cleaned
+Merging chunks
+13:06:18.202942 FREE END 0x186a0000 100
+1 chunks merged
+Merging chunks
+1 chunks merged
+13:06:18.202960 FREE START 0x186a00d8 0
+13:06:18.202946 MALLOC START 100
+Verifying canary
+Canary verified
+13:06:18.202982 MALLOC END 0x60b62b8d94f0 100
+ecrit ce que tu veux : 12
+Cleaning memory
+13:06:18.202994 FREE START 0x60b62b8d94f0 100
+Memory cleaned
+13:06:18.203007 FREE END 0x60b62b8d94f0 100
+13:06:18.203012 FREE END 0x186a00d8 100
+Merging chunks
+2 chunks merged
+13:06:18.213454 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:06:18.213508 FREE END 0x186a0000 3000
+Merging chunks
+13:06:18.213519 FREE START 0x186a0bc0 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:06:18.213540 FREE END 0x186a0bc0 2000
+Merging chunks
+1 chunks merged
+13:06:18.223975 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:06:18.224035 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Canary verified
+13:06:18.243903 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:06:18.243947 FREE END 0x186a0000 100
+Merging chunks
+Invalid pointer to realloc : not in the heap
+13:06:18.251153 FREE START 0x186a0000 0
+Verifying canary
+Canary verified
+Cleaning memory
+Memory cleaned
+13:06:18.251243 FREE END 0x186a0000 100
+Merging chunks
+1 chunks merged
+Verifying canary
+Realloc : Canary verification failed : Buffer overflow detected
+13:06:18.253530 FREE START 0x186a0000 0
+Verifying canary
+Canary verification failed : Buffer overflow detected
+Cleaning memory
+Memory cleaned
+13:06:18.253605 FREE END 0x186a0000 100
+Merging chunks
+13:06:18.255860 FREE START 0x186a0000 0
+13:06:18.256035 FREE START 0x186a0000 0
+Verifying canary
+Verifying canary
+Canary verified
+Canary verified
+Cleaning memory
+Cleaning memory
+Memory cleaned
+Memory cleaned
+13:06:18.256175 FREE END 0x186a0000 10000
+Merging chunks
+13:06:18.256183 FREE END 0x186a0000 5000
+1 chunks merged
+Merging chunks
+1 chunks merged

@@ -38,7 +38,6 @@ struct chunkmetadata *init_heapmetadata()
 	return heapmetadata;
 }
 
-
 long generate_canary()
 {
 	long canary = 0;
@@ -113,7 +112,7 @@ void resizeheapdata(size_t new_size)
 	heapdata_size = new_size;
 	struct chunkmetadata *last = lastmetadata();
 	last->size = new_size;
-	printf("last->size : %ld\n", last->size);
+	/* printf("last->size : %ld\n", last->size); */
 	return;
 }
 
@@ -180,7 +179,7 @@ void* my_malloc(size_t size)
 	}
 	// get the total size of metadata heap and resize it if needed
 	size_t allocated_heapmetadata_size = get_allocated_heapmetadata_size();
-	printf("allocated_heapmetadata_size : %ld\n", allocated_heapmetadata_size);
+	/* printf("allocated_heapmetadata_size : %ld\n", allocated_heapmetadata_size); */
 	if (4096 - allocated_heapmetadata_size % 4096 < sizeof(struct chunkmetadata)) 
 	{
 		/* printf("resizeheapmetadata\n"); */
@@ -188,15 +187,15 @@ void* my_malloc(size_t size)
 	}
 	// get the total size of data heap and resize it if needed
 	size_t allocated_heapdata_size = get_allocated_heapdata_size();
-	printf("allocated_heapdata_size : %ld\n", allocated_heapdata_size);
+	/* printf("allocated_heapdata_size : %ld\n", allocated_heapdata_size); */
 	size_t needed_size = size + sizeof(long);
 	size_t available_size = heapdata_size - allocated_heapdata_size;
 	if (available_size < needed_size)
 	{
-		printf("resizeheapdata\n");
+		/* printf("resizeheapdata\n"); */
 		size_t new_size = allocated_heapdata_size + needed_size;
 		new_size = ((new_size/4096) + ((new_size % 4096 != 0) ? 1 : 0))*4096;
-		printf("new_size : %ld\n", new_size);
+		/* printf("new_size : %ld\n", new_size); */
 		resizeheapdata(new_size);
 	}
 	// get metadata bloc of free data bloc with large enough size 
@@ -263,12 +262,12 @@ void merge_chunks()
 {
 	log_message("Merging chunks\n");
 	// we iterate over the heapmetadata to merge free chunks
-	printf("Merge chunks\n");
+	/* printf("Merge chunks\n"); */
 	for (struct chunkmetadata *item = heapmetadata;
 			item != NULL;
 			item = item->next)
 	{
-		printf("item->addr : %p\n", item->addr);
+		/* printf("item->addr : %p\n", item->addr); */
 		// if the chunk is free we merge it with the next one if it is free
 		if (item->flags == FREE)
 		{
@@ -331,7 +330,6 @@ void my_free(void *ptr)
 			if (verify_canary(item) == -1)
 			{
 				log_message("Canary verification failed : Buffer overflow detected\n");
-				return;
 			}
 			// we clean the memory before freeing it
 			clean_memory(item);
@@ -349,3 +347,103 @@ void my_free(void *ptr)
 	return;
 }
 
+void* my_calloc(size_t nmemb, size_t size)
+{
+	// we check if the heap is initialized
+	if (heapdata == NULL)
+	{
+		init_heapdata();
+	}
+	// we check if the heapmetadata is initialized
+	if (heapmetadata == NULL)
+	{
+		init_heapmetadata();
+	}
+	if (nmemb == 0 || size == 0)
+	{
+		return NULL;
+	}
+	// we allocate memory
+	void *ptr = my_malloc(nmemb*size);
+	// we set the memory to 0
+	memset(ptr, 0, nmemb*size);
+	// we return the pointer
+	return ptr;
+}
+
+void *my_realloc(void *ptr, size_t size)
+{
+	// we check if the heap is initialized
+	if (heapdata == NULL)
+	{
+		init_heapdata();
+	}
+	// we check if the heapmetadata is initialized
+	if (heapmetadata == NULL)
+	{
+		init_heapmetadata();
+	}
+	// if ptr is NULL we call malloc
+	if (ptr == NULL)
+	{
+		return my_malloc(size);
+	}
+	// if size is 0 we call free
+	if (size == 0)
+	{
+		my_free(ptr);
+		return NULL;
+	}
+	// we look for the metadata bloc corresponding to ptr
+	for (struct chunkmetadata *item = heapmetadata;
+			item != NULL;
+			item = item->next)
+	{
+		if (item->addr == ptr)
+		{
+			// if the canary is not the one we expect we log an error
+			if (verify_canary(item) == -1)
+			{
+				log_message("Realloc : Canary verification failed : Buffer overflow detected\n");
+			}
+			// we allocate memory
+			void *new_ptr = my_malloc(size);
+			// we copy the data from the old memory to the new one
+			memcpy(new_ptr, ptr, item->size);
+			// we free the old memory
+			my_free(ptr);
+			// we return the new pointer
+			return new_ptr;
+		}
+	}
+	// if ptr is not in the heap, we log an error
+	log_message("Invalid pointer to realloc : not in the heap\n");
+	return NULL;
+}
+
+#if DYNAMIC
+
+void *malloc(size_t size) 
+{
+    void *ptr = my_malloc(size);
+    return ptr;
+}
+
+void free(void *ptr) 
+{
+    my_free(ptr);
+}
+
+void *calloc(size_t nmemb, size_t size) 
+{
+    void *ptr = my_calloc(nmemb, size);
+    return ptr;
+}
+
+void *realloc(void *ptr, size_t size) 
+{
+    void *new_ptr = my_realloc(ptr, size);
+    return new_ptr;
+}
+
+#endif

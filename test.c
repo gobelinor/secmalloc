@@ -254,13 +254,13 @@ Test(simple, my_malloc_04)
 
 Test(simple, my_malloc_05)
 {
-	printf("my_malloc_05\n");
+	/* printf("my_malloc_05\n"); */
 	void *ptr1 = my_malloc(4096);
-	printf("ptr1 = %p\n", ptr1);
+	/* printf("ptr1 = %p\n", ptr1); */
 	void *ptr2 = my_malloc(4096);
-	printf("ptr2 = %p\n", ptr2);
+	/* printf("ptr2 = %p\n", ptr2); */
 	void *ptr3 = my_malloc(4096);
-	printf("ptr3 = %p\n", ptr3);
+	/* printf("ptr3 = %p\n", ptr3); */
 	cr_assert(ptr1 != NULL);
 	cr_assert(heapmetadata->size == 4096);
 	cr_assert(heapmetadata->next->addr == ptr2);
@@ -273,7 +273,7 @@ Test(simple, my_malloc_05)
 
 Test(simple, my_malloc_07)
 {
-	printf("my_malloc_06\n");
+	/* printf("my_malloc_06\n"); */
 	void *ptr = my_malloc(4096-sizeof(long));
 	cr_assert(ptr != NULL);
 	void *ptr2 = my_malloc(666);
@@ -282,7 +282,7 @@ Test(simple, my_malloc_07)
 
 Test(simple, canary_03)
 {
-	printf("canary_03\n");
+	/* printf("canary_03\n"); */
 	void *ptr1 = my_malloc(100);
 	cr_assert(ptr1 != NULL);
 	cr_assert(heapmetadata->canary == *((long *)((size_t)heapdata + 100)));
@@ -295,19 +295,19 @@ Test(simple, canary_03)
 
 Test(simple, canary_04)
 {
-	printf("canary_04\n");
+	/* printf("canary_04\n"); */
 	void *ptr1 = my_malloc(100);
 	cr_assert(ptr1 != NULL);
 	*((long *)((size_t)ptr1 + 100)) = 0xdeadbeef;
 	my_free(ptr1); // will not free because wrong canary
-	cr_assert(heapmetadata->flags == BUSY);
+	cr_assert(heapmetadata->flags == FREE);
 }
 
 Test(simple, my_malloc_06)
 {
-	printf("my_malloc_06\n");
+	/* printf("my_malloc_06\n"); */
 	void *ptr1 = my_malloc(4090);
-	printf("ptr1 = %p\n", ptr1);
+	/* printf("ptr1 = %p\n", ptr1); */
 	cr_assert(ptr1 != NULL);
 }
 
@@ -399,40 +399,56 @@ Test(simple, malloc_free_03)
 Test(simple, malloc_free_04)
 {
 	/* printf("resize_03\n"); */
-	log_message("\nresize_03\n");
+	/* log_message("\nresize_03\n"); */
 	void *ptr1 = my_malloc(3000);
 	/* void *ptr2 = my_malloc(2000); */
-	printf("ptr1 = %p\n", ptr1);
-	printf("heapmetadata->addr = %p\n", heapmetadata->addr);
-	printf("heapmetadata->size = %ld\n", heapmetadata->size);
-	printf("heapmetadata->flags = %d\n", heapmetadata->flags);
-	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
-	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
-	printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags);
+	/* printf("ptr1 = %p\n", ptr1); */
+	/* printf("heapmetadata->addr = %p\n", heapmetadata->addr); */
+	/* printf("heapmetadata->size = %ld\n", heapmetadata->size); */
+	/* printf("heapmetadata->flags = %d\n", heapmetadata->flags); */
+	/* printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr); */
+	/* printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size); */
+	/* printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags); */
 	void *ptr3 = my_malloc(1000);
-	printf("ptr3 = %p\n", ptr3);
-	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
-	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
-	printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags);
+	/* printf("ptr3 = %p\n", ptr3); */
+	/* printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr); */
+	/* printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size); */
+	/* printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags); */
 	cr_assert(ptr1 != NULL);
 	/* cr_assert(ptr2 != NULL); */
 	cr_assert(ptr3 != NULL);
 	my_free(ptr1);
 
-	printf("post free\n");
-	printf("ptr1 = %p\n", ptr1);
-	printf("heapmetadata->addr = %p\n", heapmetadata->addr);
-	printf("heapmetadata->size = %ld\n", heapmetadata->size);
-	printf("heapmetadata->flags = %d\n", heapmetadata->flags);
+	/* printf("post free\n"); */
+	/* printf("ptr1 = %p\n", ptr1); */
+	/* printf("heapmetadata->addr = %p\n", heapmetadata->addr); */
+	/* printf("heapmetadata->size = %ld\n", heapmetadata->size); */
+	/* printf("heapmetadata->flags = %d\n", heapmetadata->flags); */
 
 	/* my_free(ptr2); */
-	printf("ptr3 = %p\n", ptr3);
-	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
-	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
-	printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags);
+	/* printf("ptr3 = %p\n", ptr3); */
+	/* printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr); */
+	/* printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size); */
+	/* printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags); */
 	cr_assert(heapmetadata->addr == ptr1);	
 	cr_assert(heapmetadata->next->addr == ptr3);
 	my_free(ptr3);
+}
+
+Test(simple, malloc_free_05)
+{
+	void *ptr1 = my_malloc(3000);
+	void *ptr2 = my_malloc(2000);
+	void *ptr3 = my_malloc(1000);
+	cr_assert(ptr1 != NULL);
+	cr_assert(ptr2 != NULL);
+	cr_assert(ptr3 != NULL);
+	my_free(ptr1);
+	my_free(ptr2);
+	void* ptr4 = my_malloc(1000);	
+	cr_assert(ptr4 != NULL);
+	cr_assert(heapmetadata->addr == ptr4);
+	cr_assert(ptr4 == ptr1);
 }
 
 Test(simple, resize_01)
@@ -481,7 +497,7 @@ Test(simple, resize_07)
 	extern struct chunkmetadata *lastmetadata();
 	void *ptr = NULL;
 	ptr = malloc(10);
-	printf("HELLO (size_t*)(heapdata - heapmetadata) = %ld\n"), ((size_t)(heapdata) - (size_t)heapmetadata);
+	/* printf("HELLO (size_t*)(heapdata - heapmetadata) = %ld\n"), ((size_t)(heapdata) - (size_t)heapmetadata); */
 	for (int i=0; i<200; i++) // 200 is ok but 200 is not and i dont know why it is probably becaue there is not enough space beatween heapdata and heapmetadata 
 	{
 		ptr = my_malloc(300);
@@ -492,15 +508,87 @@ Test(simple, resize_07)
 
 Test(simple, resize_05)
 {
-	printf("resize_05\n");
+	/* printf("resize_05\n"); */
 	void *ptr = my_malloc(10000);
 	cr_assert(ptr != NULL);
 	cr_assert(heapmetadata->size == 10000);
 	cr_assert(heapmetadata->flags == BUSY);
-	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
+	/* printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size); */
 	cr_assert(heapmetadata->next->size == 4096*3-10000-sizeof(long));
 	cr_assert(heapmetadata->next->flags == FREE);
 	my_free(ptr);
 	cr_assert(heapmetadata->flags == FREE);
 }
 
+Test(simple, my_calloc_01)
+{
+	/* printf("my_calloc_01\n"); */
+	void *ptr = my_calloc(100, 1);
+	cr_assert(ptr != NULL);
+	cr_assert(heapmetadata->size == 100);
+	cr_assert(heapmetadata->flags == BUSY);
+	cr_assert(heapmetadata->next->size == 4096-100-sizeof(long));
+	cr_assert(heapmetadata->next->flags == FREE);
+}
+
+Test(simple, my_calloc_02)
+{
+	/* printf("my_calloc_02\n"); */
+	void *ptr = my_calloc(0, 1);
+	cr_assert(ptr == NULL);
+}
+
+Test(simple, my_calloc_03)
+{
+	/* printf("my_calloc_03\n"); */
+	void *ptr = my_calloc(100, 0);
+	cr_assert(ptr == NULL);
+}
+
+Test(simple, my_calloc_04)
+{
+	void *ptr = my_calloc(100, 1);
+	cr_assert(ptr != NULL);
+	cr_assert(heapmetadata->flags == BUSY);
+	my_free(ptr);
+	cr_assert(heapmetadata->flags == FREE);
+}
+
+Test(simple, my_realloc_01)
+{
+	void *ptr = my_malloc(100);
+	cr_assert(ptr != NULL);
+	void *ptr2 = my_realloc(ptr, 200);
+	cr_assert(ptr2 != NULL);
+}
+
+Test(simple, my_realloc_02)
+{
+	void *ptr = (void*)0xdeadbeef;
+	void *ptr2 = my_realloc(ptr, 200);
+	cr_assert(ptr2 == NULL);
+}
+
+Test(simple, my_realloc_03)
+{
+	void *ptr = NULL;
+	void *ptr2 = my_realloc(ptr, 10);
+	cr_assert(ptr2 != NULL);
+}
+
+Test(simple, my_realloc_04)
+{
+	void *ptr = my_malloc(100);
+	cr_assert(ptr != NULL);
+	void *ptr2 = my_realloc(ptr, 0);
+	cr_assert(ptr2 == NULL);
+}
+
+Test(simple, my_realloc_05)
+{
+	void *ptr = my_malloc(100);
+	cr_assert(ptr != NULL);
+	*((long *)((size_t)ptr + 100)) = 0xdeadbeef;
+	void *ptr2 = my_realloc(ptr, 10);
+	cr_assert(ptr2 != NULL);
+}

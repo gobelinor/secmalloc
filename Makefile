@@ -16,6 +16,7 @@ test2:
 clean:
 	$(RM) *.o *.swp .*.swo
 
+dynamic: CFLAGS += -DDYNAMIC
 dynamic: ${OBJ}
 	$(CC) -shared -o libmy_secmalloc.so ${OBJ}
 
