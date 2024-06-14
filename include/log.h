@@ -1,18 +1,17 @@
 #ifndef __LOG_H__
 #define __LOG_H__
-
 #include <stddef.h>
 
 // Enum to define different log types
 typedef enum {
-	MALLOC,    // Log type for memory allocation
-	FREE_fn,   // Log type for memory deallocation
+	MALLOC,
+	FREE_fn,
 } log_type;
 
 // Enum to define different log actions
 typedef enum {
-	START,    // Log action indicating the start of an operation
-	END,      // Log action indicating the end of an operation
+	START,
+	END,
 } log_action;
 
 // Function to log a formatted message to a log file

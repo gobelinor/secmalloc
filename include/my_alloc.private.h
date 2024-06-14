@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include "my_alloc.h"
+extern size_t heap_size;
 
 // Enum to define chunk types
 enum chunk_type 
