@@ -14,7 +14,7 @@ size_t pageheap_size = 4096; // used as constant
 size_t heapdata_size = 4096; // will increase
 size_t heapmetadata_size = 4096; // will increase
 size_t max_metadata_size = 100000*sizeof(struct chunkmetadata);
-void* base_address = (void*)(4096*10000);
+void* base_address = (void*)(4096*1000);
 
 void *init_heapdata()
 {
