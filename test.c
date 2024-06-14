@@ -172,7 +172,7 @@ Test(simple, init_heaps_01)
 	heapmetadata = init_heapmetadata();
 	cr_assert(heapmetadata != NULL);
 	cr_assert(heapdata != NULL);
-	cr_assert(heapmetadata->size == pageheap_size);
+	cr_assert(heapmetadata->size == PAGE_HEAP_SIZE);
 	cr_assert(heapmetadata->flags == FREE);
 	cr_assert(heapmetadata->addr == heapdata);
 	cr_assert(heapmetadata->canary == 0xdeadbeef);
@@ -204,7 +204,7 @@ Test(simple, my_malloc_01)
 	cr_assert(heapmetadata->next == (void *) ((size_t)heapmetadata + sizeof(struct chunkmetadata)));
 	cr_assert(heapmetadata->prev == NULL);
 	// verify the next metadata bloc
-	cr_assert(heapmetadata->next->size == pageheap_size - 100 - sizeof(long));
+	cr_assert(heapmetadata->next->size == PAGE_HEAP_SIZE - 100 - sizeof(long));
 	cr_assert(heapmetadata->next->flags == FREE);
 	cr_assert(heapmetadata->next->addr == (void *) ((size_t)heapdata + 100 + sizeof(long)));
 	cr_assert(heapmetadata->next->canary == 0xdeadbeef);

@@ -15,6 +15,14 @@ Le projet met l'accent sur la sécurité plutôt que sur la performance, avec de
 - Détournement d'`malloc` pour sécuriser les allocations mémoire.
 - Rapports d'exécution qui tracent les appels de fonction, les tailles des blocs alloués et les adresses.
 
+## Pré-requis
+Pour installer les pré-requis nécessaires à la compilation et aux tests, exécutez les commandes suivantes :
+
+```bash
+sudo apt install gcovr
+sudo apt install criterion
+```
+
 ## Compilation et Tests
 
 Pour compiler le projet et exécuter les tests, utilisez les commandes suivantes :

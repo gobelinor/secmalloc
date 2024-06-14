@@ -8,14 +8,16 @@
 #include <string.h>
 #include "log.h"
 
+// Constants
+#define PAGE_HEAP_SIZE 4096
+#define MAX_METADATA_SIZE (100000 * sizeof(struct chunkmetadata))
+#define BASE_ADDRESS ((void*)(4096 * 1000))
+
 // Global variables
 void *heapdata = NULL; // Pointer to the heap data
 struct chunkmetadata *heapmetadata = NULL; // Pointer to the heap metadata
-size_t pageheap_size = 4096; // Constant size for page heap
-size_t heapdata_size = 4096; // Current size of the heap data, will increase as needed
-size_t heapmetadata_size = 4096; // Current size of the heap metadata, will increase as needed
-size_t max_metadata_size = 100000 * sizeof(struct chunkmetadata); // Maximum size of the heap metadata
-void* base_address = (void*)(4096 * 1000); // Base address for memory mapping
+size_t heapdata_size = PAGE_HEAP_SIZE; // Current size of the heap data, will increase as needed
+size_t heapmetadata_size = PAGE_HEAP_SIZE; // Current size of the heap metadata, will increase as needed
 
 // Function to initialize heap data
 void *init_heapdata()
@@ -23,7 +25,7 @@ void *init_heapdata()
     if (heapdata == NULL)
     {
         // Attempt to map memory for heap data
-		heapdata = mmap((void*)((size_t)base_address+max_metadata_size), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+        heapdata = mmap((void*)((size_t)BASE_ADDRESS + MAX_METADATA_SIZE), PAGE_HEAP_SIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
         // Check if the mmap operation was successful
         if (heapdata == MAP_FAILED) {
@@ -41,7 +43,7 @@ struct chunkmetadata *init_heapmetadata()
 	if (heapmetadata == NULL)
 	{
 	    // Attempt to map memory for heap metadata
-		heapmetadata = (struct chunkmetadata*) mmap(base_address, pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+        heapmetadata = (struct chunkmetadata*) mmap(BASE_ADDRESS, PAGE_HEAP_SIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
         // Check if the mmap operation was successful
         if (heapmetadata == MAP_FAILED) {
@@ -51,12 +53,12 @@ struct chunkmetadata *init_heapmetadata()
         }
 
         // Initialize the first chunk metadata
-		heapmetadata->size = pageheap_size;
-		heapmetadata->flags = FREE;
-		heapmetadata->addr = heapdata;
-		heapmetadata->canary = 0xdeadbeef; // will be replaced by a random value during first malloc
-		heapmetadata->next = NULL;
-		heapmetadata->prev = NULL;
+        heapmetadata->size = PAGE_HEAP_SIZE;
+        heapmetadata->flags = FREE;
+        heapmetadata->addr = heapdata;
+        heapmetadata->canary = 0xdeadbeef; // will be replaced by a random value during first malloc
+        heapmetadata->next = NULL;
+        heapmetadata->prev = NULL;
 	}
 	return heapmetadata;
 }
@@ -104,6 +106,7 @@ size_t get_allocated_heapmetadata_size()
 			item != NULL;
 			item = item->next)
 	{
+	    log_message("Traversing metadata block at %p with next at %p", item, item->next);
 		size += sizeof(struct chunkmetadata);
 	}
 	return size;
@@ -149,7 +152,7 @@ void resizeheapmetadata()
     }
 
     // Calculate the new size of the heap metadata
-    size_t new_size = heapmetadata_size + pageheap_size;
+    size_t new_size = heapmetadata_size + PAGE_HEAP_SIZE;
 
     // Attempt to resize the heap metadata using mremap
     void *new_heapmetadata = mremap(heapmetadata, heapmetadata_size, new_size, MREMAP_MAYMOVE);
@@ -300,7 +303,7 @@ void* my_malloc(size_t size)
 
     // Get the total size of allocated metadata heap and resize if needed
     size_t allocated_heapmetadata_size = get_allocated_heapmetadata_size();
-    if (4096 - allocated_heapmetadata_size % 4096 < sizeof(struct chunkmetadata))
+    if (PAGE_HEAP_SIZE - allocated_heapmetadata_size % PAGE_HEAP_SIZE < sizeof(struct chunkmetadata))
     {
     	log_message("resizeheapmetadata\n");
         resizeheapmetadata();
@@ -313,7 +316,7 @@ void* my_malloc(size_t size)
     if (available_size < needed_size)
     {
         size_t new_size = allocated_heapdata_size + needed_size;
-        new_size = ((new_size / 4096) + ((new_size % 4096 != 0) ? 1 : 0)) * 4096;
+        new_size = ((new_size / PAGE_HEAP_SIZE) + ((new_size % PAGE_HEAP_SIZE != 0) ? 1 : 0)) * PAGE_HEAP_SIZE;
         log_message("resizeheapdata : newsize %ld\n", new_size);
         resizeheapdata(new_size);
     }

@@ -4,7 +4,7 @@
 
 extern void *heapdata;
 extern struct chunkmetadata *heapmetadata;
-extern size_t pageheap_size; // used as constant
+#define PAGE_HEAP_SIZE 4096 // used as constant
 extern size_t heapdata_size; // will increase
 extern size_t heapmetadata_size; // will increase
 
