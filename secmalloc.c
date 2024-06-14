@@ -9,11 +9,13 @@
 #include "log.h"
 
 // Global variables
-void *heapdata = NULL;
-struct chunkmetadata *heapmetadata = NULL;
-size_t pageheap_size = 4096; // used as constant
-size_t heapdata_size = 4096; // will increase
-size_t heapmetadata_size = 4096; // will increase
+void *heapdata = NULL; // Pointer to the heap data
+struct chunkmetadata *heapmetadata = NULL; // Pointer to the heap metadata
+size_t pageheap_size = 4096; // Constant size for page heap
+size_t heapdata_size = 4096; // Current size of the heap data, will increase as needed
+size_t heapmetadata_size = 4096; // Current size of the heap metadata, will increase as needed
+size_t max_metadata_size = 100000 * sizeof(struct chunkmetadata); // Maximum size of the heap metadata
+void* base_address = (void*)(4096 * 1000); // Base address for memory mapping
 
 // Function to initialize heap data
 void *init_heapdata()
@@ -21,7 +23,7 @@ void *init_heapdata()
     if (heapdata == NULL)
     {
         // Attempt to map memory for heap data
-        heapdata = mmap((void*)(4096*100000), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+		heapdata = mmap((void*)((size_t)base_address+max_metadata_size), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
         // Check if the mmap operation was successful
         if (heapdata == MAP_FAILED) {
@@ -39,7 +41,7 @@ struct chunkmetadata *init_heapmetadata()
 	if (heapmetadata == NULL)
 	{
 	    // Attempt to map memory for heap metadata
-		heapmetadata = (struct chunkmetadata*) mmap((void*)(4096*1000), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+		heapmetadata = (struct chunkmetadata*) mmap(base_address, pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
         // Check if the mmap operation was successful
         if (heapmetadata == MAP_FAILED) {
@@ -270,6 +272,7 @@ void place_canary(struct chunkmetadata *bloc, long canary)
 // Function to allocate memory of the specified size
 void* my_malloc(size_t size)
 {
+	log_event(MALLOC, START, NULL, size);
     // If requested size is 0, return NULL
     if (size == 0)
     {
@@ -298,6 +301,7 @@ void* my_malloc(size_t size)
     size_t allocated_heapmetadata_size = get_allocated_heapmetadata_size();
     if (4096 - allocated_heapmetadata_size % 4096 < sizeof(struct chunkmetadata))
     {
+    	log_message("resizeheapmetadata\n");
         resizeheapmetadata();
     }
 
@@ -309,6 +313,7 @@ void* my_malloc(size_t size)
     {
         size_t new_size = allocated_heapdata_size + needed_size;
         new_size = ((new_size / 4096) + ((new_size % 4096 != 0) ? 1 : 0)) * 4096;
+        log_message("resizeheapdata : newsize %ld\n", new_size);
         resizeheapdata(new_size);
     }
 
@@ -335,6 +340,8 @@ void* my_malloc(size_t size)
 
     // Place the canary at the end of the block data in heapdata
     place_canary(bloc, canary);
+
+	log_event(MALLOC, END, bloc->addr, size);
 
     // Return the address of the data block in heapdata
     return bloc->addr;
