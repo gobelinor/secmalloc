@@ -177,7 +177,6 @@ Test(simple, init_heaps_01)
 	cr_assert(heapmetadata->addr == heapdata);
 	cr_assert(heapmetadata->canary == 0xdeadbeef);
 	cr_assert(heapmetadata->next == NULL);
-	cr_assert(heapmetadata->prev == NULL);
 }
 
 /* ***** End of simples tests heap ***** */
@@ -202,14 +201,12 @@ Test(simple, my_malloc_01)
 	/* printf("sizeof(struct chunkmetadata) = %ld\n", sizeof(struct chunkmetadata)); */
 	/* printf("heapmetadata + sizeof(struct chunkmetadata) = %p\n", (void*)((size_t)heapmetadata + sizeof(struct chunkmetadata))); */
 	cr_assert(heapmetadata->next == (void *) ((size_t)heapmetadata + sizeof(struct chunkmetadata)));
-	cr_assert(heapmetadata->prev == NULL);
 	// verify the next metadata bloc
 	cr_assert(heapmetadata->next->size == PAGE_HEAP_SIZE - 100 - sizeof(long));
 	cr_assert(heapmetadata->next->flags == FREE);
 	cr_assert(heapmetadata->next->addr == (void *) ((size_t)heapdata + 100 + sizeof(long)));
 	cr_assert(heapmetadata->next->canary == 0xdeadbeef);
 	cr_assert(heapmetadata->next->next == NULL);
-	cr_assert(heapmetadata->next->prev == heapmetadata);
 }
 
 Test(simple, my_malloc_02)
@@ -260,7 +257,6 @@ Test(simple, my_malloc_05)
 	cr_assert(heapmetadata->next->addr == ptr2);
 	cr_assert(ptr2 != NULL);
 	cr_assert(heapmetadata->next->size == 4096);
-	cr_assert(heapmetadata->next->prev->addr == ptr1);
 	cr_assert(heapmetadata->next->next->addr == ptr3);
 	cr_assert(ptr3 != NULL);
 }
@@ -456,14 +452,12 @@ Test(simple, resize_02)
 
 Test(simple, resize_03)
 {
-	extern struct chunkmetadata *lastmetadata();
-	void *ptr = NULL;
+	void *ptr = my_malloc(100);
 	for (int i=0; i<100; i++)
 	{
 		ptr = my_malloc(3);
 	}
-	struct chunkmetadata *tmp = lastmetadata();
-	cr_assert(tmp->prev->addr == ptr);
+	cr_assert(ptr != NULL);
 }
 
 Test(simple, resize_06)
@@ -474,8 +468,9 @@ Test(simple, resize_06)
 	{
 		ptr = my_malloc(300);
 	}
+	cr_assert(ptr != NULL);
 	struct chunkmetadata *tmp = lastmetadata();
-	cr_assert(tmp->prev->addr == ptr);
+	cr_assert(tmp->flags == FREE);
 }
 
 Test(simple, resize_07)
@@ -488,8 +483,9 @@ Test(simple, resize_07)
 	{
 		ptr = my_malloc(300);
 	}
+	cr_assert(ptr != NULL);
 	struct chunkmetadata *tmp = lastmetadata();
-	cr_assert(tmp->prev->addr == ptr);
+	cr_assert(tmp->flags == FREE);
 }
 
 Test(simple, resize_05)

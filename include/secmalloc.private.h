@@ -23,7 +23,6 @@ struct chunkmetadata
 	void *addr;                    // Address of the chunk
 	long canary;                   // Canary value for detecting buffer overflows
 	struct chunkmetadata *next;    // Pointer to the next chunk in the linked list
-	struct chunkmetadata *prev;    // Pointer to the previous chunk in the linked list
 };
 
 // Struct to define a memory chunk

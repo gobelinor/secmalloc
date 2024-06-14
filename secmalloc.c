@@ -30,7 +30,7 @@ void *init_heapdata()
         // Check if the mmap operation was successful
         if (heapdata == MAP_FAILED) {
             perror("mmap");
-            log_message("Error: Failed to mmap memory for heap data.");
+            log_message("Error: Failed to mmap memory for heap data.\n");
             return NULL;
         }
     }
@@ -48,7 +48,7 @@ struct chunkmetadata *init_heapmetadata()
         // Check if the mmap operation was successful
         if (heapmetadata == MAP_FAILED) {
             perror("mmap");
-            log_message("Error: Failed to mmap memory for heap metadata.");
+            log_message("Error: Failed to mmap memory for heap metadata.\n");
             return NULL;
         }
 
@@ -58,7 +58,6 @@ struct chunkmetadata *init_heapmetadata()
         heapmetadata->addr = heapdata;
         heapmetadata->canary = 0xdeadbeef; // will be replaced by a random value during first malloc
         heapmetadata->next = NULL;
-        heapmetadata->prev = NULL;
 	}
 	return heapmetadata;
 }
@@ -73,7 +72,7 @@ long generate_canary()
     if (fd == -1)
     {
         perror("open");
-        log_message("Error: Failed to open /dev/urandom for canary generation.");
+        log_message("Error: Failed to open /dev/urandom for canary generation.\n");
         return -1;
     }
 
@@ -82,13 +81,13 @@ long generate_canary()
     if (result == -1)
     {
         perror("read");
-        log_message("Error: Failed to read from /dev/urandom for canary generation.");
+        log_message("Error: Failed to read from /dev/urandom for canary generation.\n");
         close(fd); // Close the file descriptor before returning
         return -1;
     }
     else if (result != sizeof(long))
     {
-        log_message("Error: Incomplete read from /dev/urandom. Expected %zu bytes but got %zd bytes.", sizeof(long), result);
+        log_message("Error: Incomplete read from /dev/urandom. Expected %zu bytes but got %zd bytes.\n", sizeof(long), result);
         close(fd); // Close the file descriptor before returning
         return -1;
     }
@@ -106,7 +105,7 @@ size_t get_allocated_heapmetadata_size()
 			item != NULL;
 			item = item->next)
 	{
-	    log_message("Traversing metadata block at %p with next at %p", item, item->next);
+	    log_message("Traversing metadata block at %p with next at %p\n", item, item->next);
 		size += sizeof(struct chunkmetadata);
 	}
 	return size;
@@ -147,7 +146,7 @@ void resizeheapmetadata()
 {
     // Ensure the current heap metadata size is valid
     if (heapmetadata == NULL) {
-        log_message("Heap metadata is not initialized.");
+        log_message("Heap metadata is not initialized.\n");
         return;
     }
 
@@ -160,7 +159,7 @@ void resizeheapmetadata()
     // Check if the remapping was successful
     if (new_heapmetadata == MAP_FAILED) {
         perror("mremap");
-        log_message("Failed to resize heap metadata.");
+        log_message("Failed to resize heap metadata.\n");
         return;
     }
 
@@ -174,7 +173,7 @@ void resizeheapdata(size_t new_size)
 {
     // Ensure the current heap data size is valid
     if (heapdata == NULL) {
-        log_message("Heap data is not initialized.");
+        log_message("Heap data is not initialized.\n");
         return;
     }
 
@@ -184,7 +183,7 @@ void resizeheapdata(size_t new_size)
     // Check if the remapping was successful
     if (new_heapdata == MAP_FAILED) {
         perror("mremap");
-        log_message("Failed to resize heap data.");
+        log_message("Failed to resize heap data.\n");
         return;
     }
 
@@ -197,7 +196,7 @@ void resizeheapdata(size_t new_size)
     if (last != NULL) {
         last->size = new_size;
     } else {
-        log_message("No metadata found to update the size.");
+        log_message("No metadata found to update the size.\n");
     }
 }
 
@@ -206,7 +205,7 @@ struct chunkmetadata *lookup(size_t size)
 {
     // Check if the heap metadata is initialized
     if (heapmetadata == NULL) {
-        log_message("Heap metadata is not initialized.");
+        log_message("Heap metadata is not initialized.\n");
         return NULL;
     }
 
@@ -216,12 +215,12 @@ struct chunkmetadata *lookup(size_t size)
         // Check if the current block is free and has enough size
         if (item->flags == FREE && item->size >= size + sizeof(long))
         {
-            log_message("Found suitable free block of size %zu bytes.", item->size);
+            log_message("Found suitable free block %p of size %zu bytes.\n", item->addr, item->size);
             return item; // Return the suitable free block
         }
     }
 
-    log_message("No suitable free block found for size %zu bytes.", size);
+    log_message("No suitable free block found for size %zu bytes.\n", size);
     return NULL; // Return NULL if no suitable block is found
 }
 
@@ -230,35 +229,35 @@ void split(struct chunkmetadata *bloc, size_t size)
 {
     // Check if the block to be split is valid
     if (bloc == NULL) {
-        log_message("Error: Attempted to split a NULL block.");
+        log_message("Error: Attempted to split a NULL block.\n");
         return;
     }
 
 	//create new metadata bloc for the second part
 	struct chunkmetadata *newbloc = (struct chunkmetadata*) ((size_t)lastmetadata()+sizeof(struct chunkmetadata));
 
-    // Check if the new block address is within the heap
+	// Check if the new block address is within the metadata heap 
     if ((size_t)newbloc >= (size_t)heapmetadata + heapmetadata_size) {
-        log_message("Error: New block address %p is out of heap bounds.", newbloc);
+        log_message("Error: New block address %p is out of the metadata heap bounds.\n", newbloc);
         return;
     }
-
-    // Set metadata for the new block
+	
+	// Check if the address pointed by newbloc is within the data heap
+	if ((size_t)(newbloc->addr) >= (size_t)heapdata + heapdata_size){
+		log_message("Error: New block address %p is out of the data heap bounds.\n", newbloc->addr);
+		return;
+	}
+	
+	// Set metadata for the new block
 	newbloc->size = bloc->size - size - sizeof(long);
 	newbloc->flags = FREE;
 	newbloc->addr = (void*)((size_t)bloc->addr + size + sizeof(long));
 	newbloc->canary = 0xdeadbeef;
 	newbloc->next = bloc->next;
-	newbloc->prev = bloc;
 
 	// Update first bloc metadata
 	bloc->size = size;
 	bloc->next = newbloc;
-
-    // Update the previous pointer of the next block if it exists
-    if (newbloc->next != NULL) {
-        newbloc->next->prev = newbloc;
-    }
 
 	return;
 }
@@ -270,7 +269,6 @@ void place_canary(struct chunkmetadata *bloc, long canary)
 
     // Place the canary value at the calculated address
 	*canary_ptr = canary;
-	/* printf("canary : %ld\n", *canary_ptr); */
 }
 
 // Function to allocate memory of the specified size
@@ -302,6 +300,7 @@ void* my_malloc(size_t size)
     }
 
     // Get the total size of allocated metadata heap and resize if needed
+	log_message("call get_allocated_heapmetadata_size\n");
     size_t allocated_heapmetadata_size = get_allocated_heapmetadata_size();
     if (PAGE_HEAP_SIZE - allocated_heapmetadata_size % PAGE_HEAP_SIZE < sizeof(struct chunkmetadata))
     {
@@ -336,12 +335,13 @@ void* my_malloc(size_t size)
     }
 
     // Split the block
+	log_message("call split(bloc : %p, size %ld)\n", bloc->addr, size);
     split(bloc, size);
 
     // Fill the block with metadata
     bloc->flags = BUSY;
     bloc->canary = canary;
-
+	
     // Place the canary at the end of the block data in heapdata
     place_canary(bloc, canary);
 
@@ -387,44 +387,40 @@ void clean_memory(struct chunkmetadata *item)
 // Function to merge consecutive free chunks
 void merge_chunks()
 {
-    log_message("Merging chunks\n");
+	log_message("Merging chunks\n");
 
-    // Iterate over the heapmetadata to merge free chunks
-    for (struct chunkmetadata *item = heapmetadata; item != NULL; item = item->next)
-    {
-        // If the chunk is free, attempt to merge it with the next free chunks
-        if (item->flags == FREE)
-        {
-            struct chunkmetadata *end = item;
-            size_t new_size = item->size;
-            int count = 0;
+	// Iterate over the heapmetadata to merge free chunks
+	struct chunkmetadata *item = heapmetadata;
+	while (item != NULL)
+	{
+		// If the chunk is free, attempt to merge it with the next free chunks
+		if (item->flags == FREE)
+		{
+			struct chunkmetadata *end = item;
+			size_t new_size = item->size;
+			int count = 0;
 
-            // Merge consecutive free chunks
-            while (end->flags == FREE && end->next != NULL)
-            {
-                end = end->next;
-                if (end->flags == FREE)
-                {
-                    new_size += end->size + sizeof(struct chunkmetadata);
-                    count++;
-                    item->size = new_size;
-                    item->next = end->next;
-                }
-            }
+			// Merge consecutive free chunks
+			while (end->next != NULL && end->next->flags == FREE)
+			{
+				struct chunkmetadata *next = end->next;
+				log_message("Merging chunk at %p with next chunk at %p\n", item->addr, next->addr);
+				new_size += next->size + sizeof(long); // add the size of the canary
+				count++;
+				end = next;
+			}
 
-            // Update the previous pointer of the next chunk
-            if (end->next != NULL)
-            {
-                end->next->prev = item;
-            }
-
-            // Log the number of chunks merged
-            if (count > 0)
-            {
-                log_message("%d chunks merged\n", count);
-            }
-        }
-    }
+			// Update the size of the merged chunk
+			// Log the number of chunks merged
+			if (count > 0)
+			{
+				item->size = new_size; 
+				item->next = end->next;
+				log_message("%d chunks merged\n", count);
+			}
+		}
+		item = item->next;
+	}
 }
 
 // Function to free a block of memory
@@ -471,11 +467,12 @@ void my_free(void *ptr)
             // Mark the chunk as free
             item->flags = FREE;
 
-            // Log the event
-            log_event(FREE_fn, END, ptr, item->size);
-
             // Merge consecutive free chunks
             merge_chunks();
+
+			// Log the event
+            log_event(FREE_fn, END, ptr, item->size);
+
             return;
 		}
 	}
