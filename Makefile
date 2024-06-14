@@ -8,11 +8,11 @@ test: ${OBJ} test.o
 	$(CC) -L./lib -lcriterion -I ./include -o test test.o log.o secmalloc.o
 	./test
 
-test_lucien: ${OBJ} test_lucien.o 
+test_lucien: ${OBJ} test_lucien.o
 	$(CC) -L./lib -lcriterion -I ./include -o test_lucien test_lucien.o log.o secmalloc.o
 	./test_lucien
 
-test2: 
+test2:
 	$(CC) -L./lib -lcriterion -I ./include --coverage -o test test.c secmalloc.c log.c
 	./test
 	gcovr .

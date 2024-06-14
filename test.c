@@ -6,119 +6,75 @@
 #include <stdint.h>
 #include <unistd.h>
 
-/* #<{(| ***** Begin of simples tests mmap ***** |)}># */
-/* Test(simple, simple_map_01) */
-/* { */
-/* 	// utilisation simple d'un mmap */
-/* 	char *ptr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); */
-/* 	cr_assert(ptr != NULL, "Failed to mmap"); */
-/* } */
-/*  */
-/* Test(simple, simple_map_07) */
-/* { */
-/*     // mmap avec une taille plus grande */
-/*     //printf("Testing mmap with larger size 8192 bytes\n"); */
-/*     char *ptr = mmap(NULL, 8192, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); */
-/*     cr_assert(ptr != MAP_FAILED, "Failed to mmap 8192 bytes"); */
-/*     //printf("Successfully mapped 8192 bytes, now unmapping...\n"); */
-/*     munmap(ptr, 8192); */
-/* } */
-/*  */
-/* Test(simple, simple_map_08) */
-/* { */
-/*     // mmap pour demander une page mémoire minimale */
-/*     //printf("Testing mmap with system page size\n"); */
-/*     char *ptr = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); */
-/*     cr_assert(ptr != MAP_FAILED, "Failed to mmap one system page size"); */
-/*     //printf("Successfully mapped one system page size, now unmapping...\n"); */
-/*     munmap(ptr, sysconf(_SC_PAGESIZE)); */
-/* } */
-/*  */
-/* Test(simple, simple_map_09) */
-/* { */
-/*     // mmap avec un alignement de mémoire spécifique */
-/*     size_t alignment = 16384; // 16KB alignment */
-/*     size_t size = 4096; */
-/*     //printf("Testing mmap with specific alignment: 16KB over 4KB size\n"); */
-/*     char *ptr = mmap(NULL, size + alignment, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); */
-/*     char *aligned_ptr = (char *)(((uintptr_t)ptr + alignment - 1) & ~(alignment - 1)); */
-/*     cr_assert(aligned_ptr >= ptr && aligned_ptr < ptr + alignment, "Failed to get aligned memory"); */
-/*     //printf("Alignment successful, ptr: %p, aligned_ptr: %p\n", ptr, aligned_ptr); */
-/*     munmap(ptr, size + alignment); */
-/* } */
-/*  */
-/* Test(simple, simple_map_10) */
-/* { */
-/*     // mmap avec protection en écriture uniquement */
-/*     //printf("Testing mmap with write-only protection\n"); */
-/*     char *ptr = mmap(NULL, 4096, PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); */
-/*     cr_assert(ptr != MAP_FAILED, "Failed to mmap with write-only protection"); */
-/*     //printf("Write-only mmap successful, now unmapping...\n"); */
-/*     munmap(ptr, 4096); */
-/* } */
-/*  */
-/* Test(simple, simple_map_11) */
-/* { */
-/*     // mmap avec un descripteur de fichier invalide */
-/*     //printf("Testing mmap with an invalid file descriptor\n"); */
-/*     char *ptr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE, -1, 0); */
-/*     cr_assert(ptr == MAP_FAILED, "mmap should fail with an invalid file descriptor"); */
-/*     if (ptr != MAP_FAILED) { */
-/*       //  printf("Unexpected success, now unmapping...\n"); */
-/*         munmap(ptr, 4096); */
-/*     } else { */
-/*         //printf("Failed as expected with invalid file descriptor\n"); */
-/*     } */
-/* } */
-/*  */
+/***** Begin of simples tests mmap *****/
+Test(simple, simple_map_01)
+{
+    // Simple use of mmap
+    char *ptr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    cr_assert(ptr != NULL, "Failed to mmap");
+}
+
+Test(simple, simple_map_02)
+{
+     // mmap with a larger size
+     //printf("Testing mmap with larger size 8192 bytes\n");
+     char *ptr = mmap(NULL, 8192, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+     cr_assert(ptr != MAP_FAILED, "Failed to mmap 8192 bytes");
+     //printf("Successfully mapped 8192 bytes, now unmapping...\n");
+     munmap(ptr, 8192);
+}
+
+Test(simple, simple_map_03)
+{
+     // mmap to request a minimal memory page
+     //printf("Testing mmap with system page size\n");
+     char *ptr = mmap(NULL, sysconf(_SC_PAGESIZE), PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+     cr_assert(ptr != MAP_FAILED, "Failed to mmap one system page size");
+     //printf("Successfully mapped one system page size, now unmapping...\n");
+     munmap(ptr, sysconf(_SC_PAGESIZE));
+}
+
+Test(simple, simple_map_04)
+{
+     // mmap with specific memory alignment
+     size_t alignment = 16384; // 16KB alignment
+     size_t size = 4096;
+     //printf("Testing mmap with specific alignment: 16KB over 4KB size\n");
+     char *ptr = mmap(NULL, size + alignment, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+     char *aligned_ptr = (char *)(((uintptr_t)ptr + alignment - 1) & ~(alignment - 1));
+     cr_assert(aligned_ptr >= ptr && aligned_ptr < ptr + alignment, "Failed to get aligned memory");
+     //printf("Alignment successful, ptr: %p, aligned_ptr: %p\n", ptr, aligned_ptr);
+     munmap(ptr, size + alignment);
+}
+
+Test(simple, simple_map_5)
+{
+     // mmap with write-only protection
+     //printf("Testing mmap with write-only protection\n");
+     char *ptr = mmap(NULL, 4096, PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+     cr_assert(ptr != MAP_FAILED, "Failed to mmap with write-only protection");
+     //printf("Write-only mmap successful, now unmapping...\n");
+     munmap(ptr, 4096);
+}
+
+Test(simple, simple_map_6)
+{
+     // mmap with an invalid file descriptor
+     //printf("Testing mmap with an invalid file descriptor\n");
+     char *ptr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE, -1, 0);
+     cr_assert(ptr == MAP_FAILED, "mmap should fail with an invalid file descriptor");
+     if (ptr != MAP_FAILED) {
+       //  printf("Unexpected success, now unmapping...\n");
+         munmap(ptr, 4096);
+     } else {
+         //printf("Failed as expected with invalid file descriptor\n");
+     }
+}
+
 /* ***** End of simples tests mmap ***** */
-/*  */
-/* ***** Begin of simples tests lookup ***** */
-/*  */
-/* Test(lookup_tests, lookup_empty_heap) */
-/* { */
-/*     init_heap();  // Initializes the heap */
-/*     struct chunk *result = lookup(100);  // Searches for a 100-byte block in an initialized empty heap */
-/*     cr_assert_not_null(result, "No block found in an initialized but empty heap."); */
-/*     cr_assert(result->size >= 100, "The found block is not large enough."); */
-/*     cr_assert(result->flags == FREE, "The found block is not free."); */
-/* } */
-/*  */
-/* // Test the lookup function after a block has been allocated */
-/* Test(lookup_tests, lookup_after_allocation) */
-/* { */
-/*     init_heap();  // Reinitializes the heap for this test */
-/*     void *ptr = my_alloc(200);  // Allocates a 200-byte block */
-/*     struct chunk *result = lookup(100);  // Searches for another 100-byte block */
-/*     cr_assert_not_null(result, "No block found after an allocation."); */
-/*     cr_assert(result->size >= 100, "The found block is not large enough after an allocation."); */
-/*     cr_assert(result->flags == FREE, "The found block is not free after an allocation."); */
-/*     clean(ptr);  // Cleans up to prevent memory leaks */
-/* } */
-/*  */
-/* // Test the lookup function when the heap is fully utilized */
-/* Test(lookup_tests, lookup_full_heap) */
-/* { */
-/*     init_heap();  // Reinitializes the heap for this test */
-/*     my_alloc(pageheap_size - sizeof(struct chunk));  // Attempts to allocate almost the entire heap */
-/*     struct chunk *result = lookup(100);  // Searches for a 100-byte block */
-/*     cr_assert_null(result, "A block was found while the heap should be full."); */
-/* } */
-/*  */
-/* // Test the lookup function for a size that does not exist in the heap */
-/* Test(lookup_tests, lookup_non_existent_size) */
-/* { */
-/*     init_heap();  // Reinitializes the heap for this test */
-/*     struct chunk *result = lookup(pageheap_size * 2);  // Searches for a block larger than the heap itself */
-/*     cr_assert_null(result, "A block was found even though no block of this size should exist."); */
-/* } */
-/*  */
-/* ***** End of simples tests lookup ***** */
 
 
-
-
-
+/* ***** Begin of simples tests log ***** */
 Test(simple, log_01)
 {
 //	printf("log_01\n");
@@ -150,6 +106,11 @@ Test(simple, log_03)
 	free(ptr);
 }
 
+/* ***** End of simples tests log ***** */
+
+
+/* ***** Begin of simples tests canary ***** */
+
 Test(simple, canary_01)
 {
 //	printf("canary_01\n");
@@ -174,6 +135,34 @@ Test(simple, canary_02) // not perfect but that should be enough for our purpuse
 	}
 }
 
+Test(simple, canary_03)
+{
+	/* printf("canary_03\n"); */
+	void *ptr1 = my_malloc(100);
+	cr_assert(ptr1 != NULL);
+	cr_assert(heapmetadata->canary == *((long *)((size_t)heapdata + 100)));
+
+	void *ptr2 = my_malloc(200);
+	cr_assert(ptr2 != NULL);
+	cr_assert(heapmetadata->next->canary == *((long *)((size_t)heapdata + 300 + sizeof(long))));
+	cr_assert(heapmetadata->canary == *((long *)((size_t)heapdata + 100)));
+}
+
+Test(simple, canary_04)
+{
+	/* printf("canary_04\n"); */
+	void *ptr1 = my_malloc(100);
+	cr_assert(ptr1 != NULL);
+	*((long *)((size_t)ptr1 + 100)) = 0xdeadbeef;
+	my_free(ptr1); // will not free because wrong canary
+	cr_assert(heapmetadata->flags == FREE);
+}
+
+/* ***** End of simples tests canary ***** */
+
+
+/* ***** Begin of simples tests heap ***** */
+
 Test(simple, init_heaps_01)
 {
 //	printf("init_heaps_01\n");
@@ -190,6 +179,11 @@ Test(simple, init_heaps_01)
 	cr_assert(heapmetadata->next == NULL);
 	cr_assert(heapmetadata->prev == NULL);
 }
+
+/* ***** End of simples tests heap ***** */
+
+
+/* ***** Begin of simples tests malloc ***** */
 
 Test(simple, my_malloc_01)
 {
@@ -212,7 +206,7 @@ Test(simple, my_malloc_01)
 	// verify the next metadata bloc
 	cr_assert(heapmetadata->next->size == pageheap_size - 100 - sizeof(long));
 	cr_assert(heapmetadata->next->flags == FREE);
-	cr_assert(heapmetadata->next->addr == (void *) ((size_t)heapdata + 100 + sizeof(long)));	
+	cr_assert(heapmetadata->next->addr == (void *) ((size_t)heapdata + 100 + sizeof(long)));
 	cr_assert(heapmetadata->next->canary == 0xdeadbeef);
 	cr_assert(heapmetadata->next->next == NULL);
 	cr_assert(heapmetadata->next->prev == heapmetadata);
@@ -271,38 +265,6 @@ Test(simple, my_malloc_05)
 	cr_assert(ptr3 != NULL);
 }
 
-Test(simple, my_malloc_07)
-{
-	/* printf("my_malloc_06\n"); */
-	void *ptr = my_malloc(4096-sizeof(long));
-	cr_assert(ptr != NULL);
-	void *ptr2 = my_malloc(666);
-	cr_assert(heapmetadata->next->addr == ptr2);
-}		
-
-Test(simple, canary_03)
-{
-	/* printf("canary_03\n"); */
-	void *ptr1 = my_malloc(100);
-	cr_assert(ptr1 != NULL);
-	cr_assert(heapmetadata->canary == *((long *)((size_t)heapdata + 100)));
-		
-	void *ptr2 = my_malloc(200);
-	cr_assert(ptr2 != NULL);
-	cr_assert(heapmetadata->next->canary == *((long *)((size_t)heapdata + 300 + sizeof(long))));
-	cr_assert(heapmetadata->canary == *((long *)((size_t)heapdata + 100)));
-}
-
-Test(simple, canary_04)
-{
-	/* printf("canary_04\n"); */
-	void *ptr1 = my_malloc(100);
-	cr_assert(ptr1 != NULL);
-	*((long *)((size_t)ptr1 + 100)) = 0xdeadbeef;
-	my_free(ptr1); // will not free because wrong canary
-	cr_assert(heapmetadata->flags == FREE);
-}
-
 Test(simple, my_malloc_06)
 {
 	/* printf("my_malloc_06\n"); */
@@ -311,12 +273,26 @@ Test(simple, my_malloc_06)
 	cr_assert(ptr1 != NULL);
 }
 
+Test(simple, my_malloc_07)
+{
+	/* printf("my_malloc_06\n"); */
+	void *ptr = my_malloc(4096-sizeof(long));
+	cr_assert(ptr != NULL);
+	void *ptr2 = my_malloc(666);
+	cr_assert(heapmetadata->next->addr == ptr2);
+}
+
+/* ***** End of simples tests malloc ***** */
+
+
+/* ***** Begin of simples tests free ***** */
+
 Test(simple, free_01)
 {
 	void *ptr = my_malloc(100);
 	cr_assert(ptr != NULL);
 	my_free(ptr);
-	cr_assert(heapmetadata->flags == FREE);	
+	cr_assert(heapmetadata->flags == FREE);
 }
 
 Test(simple, free_02)
@@ -338,7 +314,7 @@ Test(simple, free_04)
 {
 	void* ptr666 = my_malloc(100); //initialise heaps
 	void *ptr = (void*)0xdeadbeef;
-	my_free(ptr); 
+	my_free(ptr);
 	my_free(ptr666);
 	cr_assert(1==1);
 }
@@ -362,6 +338,11 @@ Test(simple, free_06)
 	my_free(ptr);
 	cr_assert(heapmetadata->flags == FREE);
 }
+
+/* ***** End of simples tests free ***** */
+
+
+/* ***** Begin of simples tests free / malloc ***** */
 
 Test(simple, malloc_free_01)
 {
@@ -430,7 +411,7 @@ Test(simple, malloc_free_04)
 	/* printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr); */
 	/* printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size); */
 	/* printf("heapmetadata->next->flags = %d\n", heapmetadata->next->flags); */
-	cr_assert(heapmetadata->addr == ptr1);	
+	cr_assert(heapmetadata->addr == ptr1);
 	cr_assert(heapmetadata->next->addr == ptr3);
 	my_free(ptr3);
 }
@@ -445,11 +426,16 @@ Test(simple, malloc_free_05)
 	cr_assert(ptr3 != NULL);
 	my_free(ptr1);
 	my_free(ptr2);
-	void* ptr4 = my_malloc(1000);	
+	void* ptr4 = my_malloc(1000);
 	cr_assert(ptr4 != NULL);
 	cr_assert(heapmetadata->addr == ptr4);
 	cr_assert(ptr4 == ptr1);
 }
+
+/* ***** End of simples tests free / malloc ***** */
+
+
+/* ***** Begin of simples tests resize ***** */
 
 Test(simple, resize_01)
 {
@@ -484,7 +470,7 @@ Test(simple, resize_06)
 {
 	extern struct chunkmetadata *lastmetadata();
 	void *ptr = NULL;
-	for (int i=0; i<100; i++) // 100 is ok but 1000 is not and i dont know why 
+	for (int i=0; i<100; i++) // 100 is ok but 1000 is not and i dont know why
 	{
 		ptr = my_malloc(300);
 	}
@@ -498,7 +484,7 @@ Test(simple, resize_07)
 	void *ptr = NULL;
 	ptr = malloc(10);
 	/* printf("HELLO (size_t*)(heapdata - heapmetadata) = %ld\n"), ((size_t)(heapdata) - (size_t)heapmetadata); */
-	for (int i=0; i<200; i++) // 200 is ok but 200 is not and i dont know why it is probably becaue there is not enough space beatween heapdata and heapmetadata 
+	for (int i=0; i<200; i++) // 200 is ok but 200 is not and i dont know why it is probably becaue there is not enough space beatween heapdata and heapmetadata
 	{
 		ptr = my_malloc(300);
 	}
@@ -519,6 +505,11 @@ Test(simple, resize_05)
 	my_free(ptr);
 	cr_assert(heapmetadata->flags == FREE);
 }
+
+/* ***** End of simples tests resize ***** */
+
+
+/* ***** Begin of simples tests calloc ***** */
 
 Test(simple, my_calloc_01)
 {
@@ -553,6 +544,11 @@ Test(simple, my_calloc_04)
 	my_free(ptr);
 	cr_assert(heapmetadata->flags == FREE);
 }
+
+/* ***** End of simples tests calloc ***** */
+
+
+/* ***** Begin of simples tests realloc ***** */
 
 Test(simple, my_realloc_01)
 {
@@ -592,3 +588,5 @@ Test(simple, my_realloc_05)
 	void *ptr2 = my_realloc(ptr, 10);
 	cr_assert(ptr2 != NULL);
 }
+
+/* ***** End of simples tests realloc ***** */
