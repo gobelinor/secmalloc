@@ -13,12 +13,14 @@ struct chunkmetadata *heapmetadata = NULL;
 size_t pageheap_size = 4096; // used as constant
 size_t heapdata_size = 4096; // will increase
 size_t heapmetadata_size = 4096; // will increase
+size_t max_metadata_size = 100000*sizeof(struct chunkmetadata);
+void* base_address = (void*)(4096*10000);
 
 void *init_heapdata()
 {
 	if (heapdata == NULL)
 	{
-		heapdata = mmap((void*)(4096*100000), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+		heapdata = mmap((void*)((size_t)base_address+max_metadata_size), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 	}
 	return heapdata;
 }
@@ -27,7 +29,7 @@ struct chunkmetadata *init_heapmetadata()
 {
 	if (heapmetadata == NULL)
 	{
-		heapmetadata = (struct chunkmetadata*) mmap((void*)(4096*1000), pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+		heapmetadata = (struct chunkmetadata*) mmap(base_address, pageheap_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 		heapmetadata->size = pageheap_size;
 		heapmetadata->flags = FREE;
 		heapmetadata->addr = heapdata;
@@ -162,6 +164,7 @@ void place_canary(struct chunkmetadata *bloc, long canary)
 // malloc
 void* my_malloc(size_t size)
 {
+	log_event(MALLOC, START, NULL, size);
 	// if requested size is 0, return NULL
 	if (size == 0)
 	{
@@ -182,6 +185,7 @@ void* my_malloc(size_t size)
 	/* printf("allocated_heapmetadata_size : %ld\n", allocated_heapmetadata_size); */
 	if (4096 - allocated_heapmetadata_size % 4096 < sizeof(struct chunkmetadata)) 
 	{
+		log_message("resizeheapmetadata\n");
 		/* printf("resizeheapmetadata\n"); */
 		resizeheapmetadata();
 	}
@@ -196,9 +200,10 @@ void* my_malloc(size_t size)
 		size_t new_size = allocated_heapdata_size + needed_size;
 		new_size = ((new_size/4096) + ((new_size % 4096 != 0) ? 1 : 0))*4096;
 		/* printf("new_size : %ld\n", new_size); */
+		log_message("resizeheapdata : newsize %ld\n", new_size);
 		resizeheapdata(new_size);
 	}
-	// get metadata bloc of free data bloc with large enough size 
+	// get metadata bloc of free data bloc with large enough size
 	struct chunkmetadata *bloc = lookup(size);
 	/* printf("post lookup\n"); */
 	/* printf("bloc->addr : %p\n", bloc->addr); */
@@ -233,6 +238,7 @@ void* my_malloc(size_t size)
 	place_canary(bloc, canary);
 	/* printf("post place canary\n"); */
 	// return the address of the data bloc in heapdata
+	log_event(MALLOC, END, bloc->addr, size);
 	return bloc->addr;
 }
 	
