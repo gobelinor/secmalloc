@@ -301,7 +301,7 @@ void my_split(struct chunkmetadata *bloc, size_t size, long canary)
 	bloc->size = size;
     bloc->flags = BUSY;
     bloc->canary = canary;
-	my_log_message("end split : newbloc %p pointing to %p, size = %zu, flags = %d, addr = %p, canary = %ld, next = %p\n", newbloc, newbloc->addr, newbloc->size, newbloc->flags, newbloc->addr, newbloc->canary, newbloc->next);
+	my_log_message("end split : newbloc %p pointing to %p, size = %zu, flags = %d, canary = %ld, next = %p\n", newbloc, newbloc->addr, newbloc->size, newbloc->flags, newbloc->canary, newbloc->next);
 	return;
 }
 
