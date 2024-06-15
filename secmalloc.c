@@ -8,11 +8,6 @@
 #include <string.h>
 #include "log.h"
 
-// Constants
-#define PAGE_HEAP_SIZE 4096
-#define MAX_METADATA_SIZE (100000 * sizeof(struct chunkmetadata))
-#define BASE_ADDRESS ((void*)(4096 * 1000))
-
 // Global variables
 void *heapdata = NULL; // Pointer to the heap data
 struct chunkmetadata *heapmetadata = NULL; // Pointer to the heap metadata
@@ -97,7 +92,7 @@ long generate_canary()
 }
 
 
-// Function to get the total size of the heap metadata
+// Function to get the total alocated size of the heap metadata
 size_t get_allocated_heapmetadata_size()
 {
 	size_t size = 0;
@@ -111,7 +106,7 @@ size_t get_allocated_heapmetadata_size()
 	return size;
 }
 
-// Function to get the total size of the heap data
+// Function to get the total alocated size of the heap data
 size_t get_allocated_heapdata_size()
 {
 	struct chunkmetadata *last_item = NULL;
@@ -177,8 +172,15 @@ void resizeheapdata(size_t new_size)
         return;
     }
 
+	void *old_heapdata = heapdata;
     // Attempt to resize the heap data using mremap
     void *new_heapdata = mremap(heapdata, heapdata_size, new_size, MREMAP_MAYMOVE);
+	
+	if (old_heapdata != new_heapdata){
+		printf("HITLER\n");
+		printf("old_heapdata : %p\n", old_heapdata);
+		printf("new_heapdata : %p\n", new_heapdata);
+	}
 
     // Check if the remapping was successful
     if (new_heapdata == MAP_FAILED) {
@@ -225,7 +227,7 @@ struct chunkmetadata *lookup(size_t size)
 }
 
 // Function to split a block into two, returning the new second block
-void split(struct chunkmetadata *bloc, size_t size)
+void split(struct chunkmetadata *bloc, size_t size, long canary)
 {
     // Check if the block to be split is valid
     if (bloc == NULL) {
@@ -235,30 +237,46 @@ void split(struct chunkmetadata *bloc, size_t size)
 
 	//create new metadata bloc for the second part
 	struct chunkmetadata *newbloc = (struct chunkmetadata*) ((size_t)lastmetadata()+sizeof(struct chunkmetadata));
-
-	// Check if the new block address is within the metadata heap 
-    if ((size_t)newbloc >= (size_t)heapmetadata + heapmetadata_size) {
-        log_message("Error: New block address %p is out of the metadata heap bounds.\n", newbloc);
-        return;
-    }
 	
-	// Check if the address pointed by newbloc is within the data heap
-	if ((size_t)(newbloc->addr) >= (size_t)heapdata + heapdata_size){
-		log_message("Error: New block address %p is out of the data heap bounds.\n", newbloc->addr);
+	// check if the newbloc is not out of the heapmetadata
+	if ((size_t)newbloc >= (size_t)heapmetadata + heapmetadata_size)
+	{
+		log_message("Error: Attempted to split a block out of the heapmetadata.\n");
 		return;
 	}
-	
+
+	//check if the newbloc is not out of the heapdata
+	if ((size_t)newbloc->addr >= (size_t)heapdata + heapdata_size)
+	{
+		log_message("Error: Attempted to split a block out of the heapdata.\n");
+		return;
+	}
+	/* memset(newbloc, 0, sizeof(struct chunkmetadata)); */
 	// Set metadata for the new block
 	newbloc->size = bloc->size - size - sizeof(long);
 	newbloc->flags = FREE;
 	newbloc->addr = (void*)((size_t)bloc->addr + size + sizeof(long));
 	newbloc->canary = 0xdeadbeef;
 	newbloc->next = bloc->next;
-
-	// Update first bloc metadata
+	
+	// Set the metadata for the first block	
+	// bloc == newbloc should really not happen 
+	if (bloc == newbloc)
+	{
+		log_message("CURSED : bloc == newbloc\n");
+		bloc->next = newbloc->next;
+		/* printf("bloc = %p, newbloc = %p\n", bloc, newbloc); */
+		/* printf("newbloc->next = %p\n", newbloc->next); */
+		/* printf("bloc->next = %p\n", bloc->next); */
+	}
+	else
+	{
+		// sould always be the case
+		bloc->next = newbloc;
+	}
 	bloc->size = size;
-	bloc->next = newbloc;
-
+    bloc->flags = BUSY;
+    bloc->canary = canary;
 	return;
 }
 
@@ -281,7 +299,7 @@ void* my_malloc(size_t size)
         return NULL;
     }
 
-    // Check if the heap is initialized
+    // Check if the heap data is initialized
     if (heapdata == NULL)
     {
         if (init_heapdata() == NULL)
@@ -299,7 +317,7 @@ void* my_malloc(size_t size)
         }
     }
 
-    // Get the total size of allocated metadata heap and resize if needed
+    // Get the total size of allocated heap metadata and resize if needed
 	log_message("call get_allocated_heapmetadata_size\n");
     size_t allocated_heapmetadata_size = get_allocated_heapmetadata_size();
     if (PAGE_HEAP_SIZE - allocated_heapmetadata_size % PAGE_HEAP_SIZE < sizeof(struct chunkmetadata))
@@ -336,12 +354,8 @@ void* my_malloc(size_t size)
 
     // Split the block
 	log_message("call split(bloc : %p, size %ld)\n", bloc->addr, size);
-    split(bloc, size);
+    split(bloc, size, canary);
 
-    // Fill the block with metadata
-    bloc->flags = BUSY;
-    bloc->canary = canary;
-	
     // Place the canary at the end of the block data in heapdata
     place_canary(bloc, canary);
 
@@ -379,7 +393,7 @@ void clean_memory(struct chunkmetadata *item)
     log_message("Cleaning memory\n");
 
     // Set the block's memory to zero
-    memset(item->addr, 0, item->size);
+    memset(item->addr, 0, item->size + sizeof(long));
 
     log_message("Memory cleaned\n");
 }
@@ -396,26 +410,33 @@ void merge_chunks()
 		// If the chunk is free, attempt to merge it with the next free chunks
 		if (item->flags == FREE)
 		{
-			struct chunkmetadata *end = item;
+			struct chunkmetadata *end = item->next;
 			size_t new_size = item->size;
 			int count = 0;
 
 			// Merge consecutive free chunks
-			while (end->next != NULL && end->next->flags == FREE)
+			while (end != NULL && end->flags == FREE)
 			{
-				struct chunkmetadata *next = end->next;
+				struct chunkmetadata *next = end;
 				log_message("Merging chunk at %p with next chunk at %p\n", item->addr, next->addr);
-				new_size += next->size + sizeof(long); // add the size of the canary
+				if (end->next != NULL)
+				{
+					new_size += next->size + sizeof(long); // add the size of the canary
+				}
+				else
+				{
+					new_size += next->size;
+				}
 				count++;
-				end = next;
+				end = next->next;
+				item->size = new_size; 
+				item->next = end;
 			}
 
 			// Update the size of the merged chunk
 			// Log the number of chunks merged
 			if (count > 0)
 			{
-				item->size = new_size; 
-				item->next = end->next;
 				log_message("%d chunks merged\n", count);
 			}
 		}
@@ -428,7 +449,7 @@ void my_free(void *ptr)
 {
     log_event(FREE_fn, START, ptr, 0);
 
-    // Check if the heap is initialized
+    // Check if the heaps is initialized
     if (heapdata == NULL || heapmetadata == NULL)
     {
         log_message("Heap not initialized\n");
@@ -485,7 +506,7 @@ void my_free(void *ptr)
 // Function to allocate and zero-initialize array
 void* my_calloc(size_t nmemb, size_t size)
 {
-    // Check if the heap is initialized
+    // Check if the heap data is initialized
     if (heapdata == NULL)
     {
         init_heapdata();
@@ -525,7 +546,7 @@ void* my_calloc(size_t nmemb, size_t size)
 // Function to reallocate memory
 void *my_realloc(void *ptr, size_t size)
 {
-    // Check if the heap is initialized
+    // Check if the heap data is initialized
     if (heapdata == NULL)
     {
         init_heapdata();
