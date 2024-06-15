@@ -31,43 +31,43 @@ struct chunkmetadata
 };
 
 // Function to initialize the heap data
-void *init_heapdata();
+void *my_init_heapdata();
 
 // Function to initialize the heap metadata
-struct chunkmetadata *init_heapmetadata();
+struct chunkmetadata *my_init_heapmetadata();
 
 // Function to generate a random canary value
-long generate_canary();
+long my_generate_canary();
 
 // Function to get the total alocated size of the heap metadata
-size_t get_allocated_heapmetadata_size();
+size_t my_get_allocated_heapmetadata_size();
 
 // Function to get the last metadata bloc
-struct chunkmetadata *lastmetadata();
+struct chunkmetadata *my_lastmetadata();
 
 // Function to resize the heap metadata
-void resizeheapmetadata();
+void my_resizeheapmetadata();
 
 // Function to resize the heap data
-void resizeheapdata();
+void my_resizeheapdata();
 
 // Function to look up a free block with enough size
-struct chunkmetadata *lookup(size_t size);
+struct chunkmetadata *my_lookup(size_t size);
 
 // Function to split a block into two blocks
-void split(struct chunkmetadata *bloc, size_t size, long canary);
+void my_split(struct chunkmetadata *bloc, size_t size, long canary);
 
 // Function to place a canary at the end of a block
-void place_canary(struct chunkmetadata *bloc, long canary);
+void my_place_canary(struct chunkmetadata *bloc, long canary);
 
 // Function to verify the canary value of a block
-int verify_canary(struct chunkmetadata *item);
+int my_verify_canary(struct chunkmetadata *item);
 
 // Function to clean the memory of a block
-void clean_memory(struct chunkmetadata *item);
+void my_clean_memory(struct chunkmetadata *item);
 
 // Function to merge consecutive free chunks
-void merge_chunks();
+void my_merge_chunks();
 
 #endif // __SECMALLOC_H__
 

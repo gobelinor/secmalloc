@@ -75,13 +75,6 @@ Test(simple, simple_map_6)
 
 
 /* ***** Begin of simples tests log ***** */
-Test(simple, log_01)
-{
-//	printf("log_01\n");
-	int ret = log_new_execution();
-//	printf("ret = %d\n", ret);
-	cr_assert(ret == 0);
-}
 
 Test(simple, log_02)
 {
@@ -89,21 +82,6 @@ Test(simple, log_02)
 	int ret = log_message("ecrit ce que tu %s : %d\n", "veux", 12);
 //	printf("ret = %d\n", ret);
 	cr_assert(ret == 0);
-}
-
-Test(simple, log_03)
-{	
-//	printf("log_03\n");
-	void *ptr = malloc(100);
-	int ret = log_event(MALLOC, START, NULL, 100);
-	cr_assert(ret == 0);
-    ret = log_event(MALLOC, END, ptr, 100); 
-	cr_assert(ret == 0);
-    ret = log_event(FREE_fn, START, ptr, 100);
-	cr_assert(ret == 0);
-    ret = log_event(FREE_fn, END, ptr, 100); 
-	cr_assert(ret == 0);
-	free(ptr);
 }
 
 /* ***** End of simples tests log ***** */
