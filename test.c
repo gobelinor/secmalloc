@@ -200,6 +200,8 @@ Test(simple, my_malloc_01)
 	/* printf("heapmetadata = %p\n", heapmetadata); */
 	/* printf("sizeof(struct chunkmetadata) = %ld\n", sizeof(struct chunkmetadata)); */
 	/* printf("heapmetadata + sizeof(struct chunkmetadata) = %p\n", (void*)((size_t)heapmetadata + sizeof(struct chunkmetadata))); */
+	/* printf("heapmetadata->next = %p\n", heapmetadata->next); */
+	/* printf("(void *) ((size_t)heapmetadata + sizeof(struct chunkmetadata))) = %p\n", (void *) ((size_t)heapmetadata + sizeof(struct chunkmetadata))); */
 	cr_assert(heapmetadata->next == (void *) ((size_t)heapmetadata + sizeof(struct chunkmetadata)));
 	// verify the next metadata bloc
 	cr_assert(heapmetadata->next->size == PAGE_HEAP_SIZE - 100 - sizeof(long));

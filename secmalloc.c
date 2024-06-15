@@ -96,12 +96,18 @@ long generate_canary()
 size_t get_allocated_heapmetadata_size()
 {
 	size_t size = 0;
-	for (struct chunkmetadata *item = heapmetadata;
-			item != NULL;
-			item = item->next)
+	/* for (struct chunkmetadata *item = heapmetadata; */
+	/* 		item != NULL; */
+	/* 		item = item->next) */
+	/* { */
+	/*     log_message("Traversing metadata block at %p with next at %p\n", item, item->next); */
+	/* 	size += sizeof(struct chunkmetadata); */
+	/* } */
+	void *item = heapmetadata;
+	while (((struct chunkmetadata*)item)->size != 0)	
 	{
-	    log_message("Traversing metadata block at %p with next at %p\n", item, item->next);
 		size += sizeof(struct chunkmetadata);
+		item = (void*)((size_t)item + sizeof(struct chunkmetadata));
 	}
 	return size;
 }
@@ -133,6 +139,7 @@ struct chunkmetadata *lastmetadata()
 	{
 		item = item->next;
 	}
+	log_message("Last metadata block at %p, size : %zu, flags : %d\n", item, item->size, item->flags);
 	return item;
 }
 
@@ -177,9 +184,9 @@ void resizeheapdata(size_t new_size)
     void *new_heapdata = mremap(heapdata, heapdata_size, new_size, MREMAP_MAYMOVE);
 	
 	if (old_heapdata != new_heapdata){
-		printf("HITLER\n");
-		printf("old_heapdata : %p\n", old_heapdata);
-		printf("new_heapdata : %p\n", new_heapdata);
+		log_message("old_heapdata != new_heapdata\n");
+		log_message("old_heapdata : %p\n", old_heapdata);
+		log_message("new_heapdata : %p\n", new_heapdata);
 	}
 
     // Check if the remapping was successful
@@ -195,9 +202,12 @@ void resizeheapdata(size_t new_size)
 
     // Get the last metadata block
     struct chunkmetadata *last = lastmetadata();
-    if (last != NULL) {
+    if (last != NULL) 
+	{
         last->size = new_size;
-    } else {
+    } 
+	else 
+	{
         log_message("No metadata found to update the size.\n");
     }
 }
@@ -229,15 +239,18 @@ struct chunkmetadata *lookup(size_t size)
 // Function to split a block into two, returning the new second block
 void split(struct chunkmetadata *bloc, size_t size, long canary)
 {
+	
+	log_message("Splitting block %p at %p of size %zu bytes into %zu bytes and %zu bytes.\n", bloc,  bloc->addr, bloc->size, size, bloc->size - size - sizeof(long));
     // Check if the block to be split is valid
     if (bloc == NULL) {
         log_message("Error: Attempted to split a NULL block.\n");
         return;
     }
-
+	log_message("bloc->next = %p\n", bloc->next);
+	log_message("call lastmetadata\n");
 	//create new metadata bloc for the second part
-	struct chunkmetadata *newbloc = (struct chunkmetadata*) ((size_t)lastmetadata()+sizeof(struct chunkmetadata));
-	
+	struct chunkmetadata *newbloc = (struct chunkmetadata*) ((size_t)heapmetadata+get_allocated_heapmetadata_size());
+	log_message("in split : new newbloc = %p, size = %zu, flags = %d\n", newbloc, newbloc->size, newbloc->flags);
 	// check if the newbloc is not out of the heapmetadata
 	if ((size_t)newbloc >= (size_t)heapmetadata + heapmetadata_size)
 	{
@@ -251,6 +264,7 @@ void split(struct chunkmetadata *bloc, size_t size, long canary)
 		log_message("Error: Attempted to split a block out of the heapdata.\n");
 		return;
 	}
+	
 	/* memset(newbloc, 0, sizeof(struct chunkmetadata)); */
 	// Set metadata for the new block
 	newbloc->size = bloc->size - size - sizeof(long);
@@ -258,16 +272,14 @@ void split(struct chunkmetadata *bloc, size_t size, long canary)
 	newbloc->addr = (void*)((size_t)bloc->addr + size + sizeof(long));
 	newbloc->canary = 0xdeadbeef;
 	newbloc->next = bloc->next;
+	log_message("in split : filled newbloc = %p, size = %zu, flags = %d, addr = %p, canary = %ld, next = %p\n", newbloc, newbloc->size, newbloc->flags, newbloc->addr, newbloc->canary, newbloc->next);
 	
 	// Set the metadata for the first block	
 	// bloc == newbloc should really not happen 
 	if (bloc == newbloc)
 	{
-		log_message("CURSED : bloc == newbloc\n");
+		log_message("CURSED : bloc %p == newbloc %p\n", bloc, newbloc);
 		bloc->next = newbloc->next;
-		/* printf("bloc = %p, newbloc = %p\n", bloc, newbloc); */
-		/* printf("newbloc->next = %p\n", newbloc->next); */
-		/* printf("bloc->next = %p\n", bloc->next); */
 	}
 	else
 	{
