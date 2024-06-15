@@ -79,7 +79,7 @@ Test(simple, simple_map_6)
 Test(simple, log_02)
 {
 //	printf("log_02\n");
-	int ret = log_message("ecrit ce que tu %s : %d\n", "veux", 12);
+	int ret = my_log_message("ecrit ce que tu %s : %d\n", "veux", 12);
 //	printf("ret = %d\n", ret);
 	cr_assert(ret == 0);
 }
@@ -92,7 +92,7 @@ Test(simple, log_02)
 Test(simple, canary_01)
 {
 //	printf("canary_01\n");
-	long ret = generate_canary();
+	long ret = my_generate_canary();
 //	printf("canary = %ld\n", ret);
 //	printf("sizeofcanary = %ld\n", sizeof(long));
 //	printf("sizeofaddr = %ld\n", sizeof(void *));
@@ -105,9 +105,9 @@ Test(simple, canary_02) // not perfect but that should be enough for our purpuse
 //	printf("canary_02\n");
 	for (int i = 0; i < 100; i++)
 	{	
-		long ret1 = generate_canary();
+		long ret1 = my_generate_canary();
 		cr_assert(ret1 != -1);		
-		long ret2 = generate_canary();
+		long ret2 = my_generate_canary();
 		cr_assert(ret2 != -1);
 		cr_assert(ret1 != ret2);
 	}
@@ -146,8 +146,8 @@ Test(simple, init_heaps_01)
 //	printf("init_heaps_01\n");
 	heapdata = NULL;
 	heapmetadata = NULL;
-	heapdata = init_heapdata();
-	heapmetadata = init_heapmetadata();
+	heapdata = my_init_heapdata();
+	heapmetadata = my_init_heapmetadata();
 	cr_assert(heapmetadata != NULL);
 	cr_assert(heapdata != NULL);
 	cr_assert(heapmetadata->size == PAGE_HEAP_SIZE);
@@ -442,20 +442,20 @@ Test(simple, resize_03)
 
 Test(simple, resize_06)
 {
-	extern struct chunkmetadata *lastmetadata();
+	extern struct chunkmetadata *my_lastmetadata();
 	void *ptr = NULL;
 	for (int i=0; i<100; i++) // 100 is ok but 1000 is not and i dont know why
 	{
 		ptr = my_malloc(300);
 	}
 	cr_assert(ptr != NULL);
-	struct chunkmetadata *tmp = lastmetadata();
+	struct chunkmetadata *tmp = my_lastmetadata();
 	cr_assert(tmp->flags == FREE);
 }
 
 Test(simple, resize_07)
 {
-	extern struct chunkmetadata *lastmetadata();
+	extern struct chunkmetadata *my_lastmetadata();
 	void *ptr = NULL;
 	ptr = malloc(10);
 	/* printf("HELLO (size_t*)(heapdata - heapmetadata) = %ld\n"), ((size_t)(heapdata) - (size_t)heapmetadata); */
@@ -464,7 +464,7 @@ Test(simple, resize_07)
 		ptr = my_malloc(300);
 	}
 	cr_assert(ptr != NULL);
-	struct chunkmetadata *tmp = lastmetadata();
+	struct chunkmetadata *tmp = my_lastmetadata();
 	cr_assert(tmp->flags == FREE);
 }
 

@@ -10,7 +10,6 @@
 
 int my_log_message(const char *format, ...)	 
 {
-	/* write(2, "logmessage\n", 11); */
 	// Check if the environment variable MSM_OUTPUT is set
 	if (getenv("MSM_OUTPUT") == NULL)
 		return 0;
