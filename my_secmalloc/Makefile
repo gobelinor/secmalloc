@@ -33,7 +33,7 @@ test_lucien: $(OBJ_FILES) $(OBJ_DIR)/test_lucien.o
 	$(CC) $(CFLAGS) -L$(LIB_DIR) -lcriterion -o $(OBJ_DIR)/test_lucien $(OBJ_DIR)/test_lucien.o $(OBJ_FILES)
 	$(OBJ_DIR)/test_lucien
 
-test2: $(OBJ_FILES)
+testcovr: $(OBJ_FILES)
 	$(CC) $(CFLAGS) -L$(LIB_DIR) -lcriterion --coverage -o $(OBJ_DIR)/test2 $(CFLAGS) $(TEST_DIR)/test.c $(SRC_DIR)/secmalloc.c $(SRC_DIR)/log.c
 	$(OBJ_DIR)/test2
 	gcovr .
