@@ -1,0 +1,1876 @@
+
+
+CALL MALLOC SIZE 60
+call init_heapdata
+return heapdata 0x7b8000
+call init_heapmetadata
+return heapmetadata 0x3e8000
+call get_allocated_heapmetadata_size
+return size 40
+call get_allocated_heapdata_size
+return size 8
+call lookup
+Found suitable free block 0x3e8000 pointing to 0x7b8000 of size 4096 bytes.
+call generate_canary
+return canary 6008582171198438230
+call split block 0x3e8000 pointing to 0x7b8000 of size 4096 bytes into 60 bytes and 4028 bytes.
+call get_allocated_heapmetadata_size
+return size 40
+in split : selected empty new newbloc 0x3e8028 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8028 pointing to 0x7b8044, size = 4028, flags = 0, addr = 0x7b8044, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b803c with value 6008582171198438230
+RETURN MALLOC: bloc 0x3e8000 bloc->addr 0x7b8000 bloc->size 60
+
+
+CALL FREE PTR 0x7b8000
+Found metadata block 0x3e8000 corresponding to ptr 0x7b8000
+Verifying canary
+Canary 6008582171198438230 verified
+Cleaning memory at 0x7b8000 of size 60 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8000 with next chunk at 0x7b8044
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 122
+call get_allocated_heapmetadata_size
+return size 80
+call get_allocated_heapdata_size
+return size 8
+call lookup
+Found suitable free block 0x3e8000 pointing to 0x7b8000 of size 4088 bytes.
+call generate_canary
+return canary 7300358291091146113
+call split block 0x3e8000 pointing to 0x7b8000 of size 4088 bytes into 122 bytes and 3958 bytes.
+call get_allocated_heapmetadata_size
+return size 80
+in split : selected empty new newbloc 0x3e8050 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8050 pointing to 0x7b8082, size = 3958, flags = 0, addr = 0x7b8082, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b807a with value 7300358291091146113
+RETURN MALLOC: bloc 0x3e8000 bloc->addr 0x7b8000 bloc->size 122
+
+
+CALL MALLOC SIZE 248
+call get_allocated_heapmetadata_size
+return size 120
+call get_allocated_heapdata_size
+return size 138
+call lookup
+Found suitable free block 0x3e8050 pointing to 0x7b8082 of size 3958 bytes.
+call generate_canary
+return canary 2881544750510046893
+call split block 0x3e8050 pointing to 0x7b8082 of size 3958 bytes into 248 bytes and 3702 bytes.
+call get_allocated_heapmetadata_size
+return size 120
+in split : selected empty new newbloc 0x3e8078 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8078 pointing to 0x7b8182, size = 3702, flags = 0, addr = 0x7b8182, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b817a with value 2881544750510046893
+RETURN MALLOC: bloc 0x3e8050 bloc->addr 0x7b8082 bloc->size 248
+
+
+CALL FREE PTR 0x7b8000
+Found metadata block 0x3e8000 corresponding to ptr 0x7b8000
+Verifying canary
+Canary 7300358291091146113 verified
+Cleaning memory at 0x7b8000 of size 122 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 250
+call get_allocated_heapmetadata_size
+return size 160
+call get_allocated_heapdata_size
+return size 394
+call lookup
+Found suitable free block 0x3e8078 pointing to 0x7b8182 of size 3702 bytes.
+call generate_canary
+return canary -6940952980390591936
+call split block 0x3e8078 pointing to 0x7b8182 of size 3702 bytes into 250 bytes and 3444 bytes.
+call get_allocated_heapmetadata_size
+return size 160
+in split : selected empty new newbloc 0x3e80a0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e80a0 pointing to 0x7b8284, size = 3444, flags = 0, addr = 0x7b8284, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b827c with value -6940952980390591936
+RETURN MALLOC: bloc 0x3e8078 bloc->addr 0x7b8182 bloc->size 250
+
+
+CALL MALLOC SIZE 239
+call get_allocated_heapmetadata_size
+return size 200
+call get_allocated_heapdata_size
+return size 652
+call lookup
+Found suitable free block 0x3e80a0 pointing to 0x7b8284 of size 3444 bytes.
+call generate_canary
+return canary 1110926736841679411
+call split block 0x3e80a0 pointing to 0x7b8284 of size 3444 bytes into 239 bytes and 3197 bytes.
+call get_allocated_heapmetadata_size
+return size 200
+in split : selected empty new newbloc 0x3e80c8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e80c8 pointing to 0x7b837b, size = 3197, flags = 0, addr = 0x7b837b, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8373 with value 1110926736841679411
+RETURN MALLOC: bloc 0x3e80a0 bloc->addr 0x7b8284 bloc->size 239
+
+
+CALL MALLOC SIZE 24
+call get_allocated_heapmetadata_size
+return size 240
+call get_allocated_heapdata_size
+return size 899
+call lookup
+Found suitable free block 0x3e8000 pointing to 0x7b8000 of size 122 bytes.
+call generate_canary
+return canary -8166725025062608266
+call split block 0x3e8000 pointing to 0x7b8000 of size 122 bytes into 24 bytes and 90 bytes.
+call get_allocated_heapmetadata_size
+return size 240
+in split : selected empty new newbloc 0x3e80f0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e80f0 pointing to 0x7b8020, size = 90, flags = 0, addr = 0x7b8020, canary = 3735928559, next = 0x3e8050
+call place_canary
+Canary placed at 0x7b8018 with value -8166725025062608266
+RETURN MALLOC: bloc 0x3e8000 bloc->addr 0x7b8000 bloc->size 24
+
+
+CALL MALLOC SIZE 182
+call get_allocated_heapmetadata_size
+return size 280
+call get_allocated_heapdata_size
+return size 899
+call lookup
+Found suitable free block 0x3e80c8 pointing to 0x7b837b of size 3197 bytes.
+call generate_canary
+return canary 1044873386854235307
+call split block 0x3e80c8 pointing to 0x7b837b of size 3197 bytes into 182 bytes and 3007 bytes.
+call get_allocated_heapmetadata_size
+return size 280
+in split : selected empty new newbloc 0x3e8118 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8118 pointing to 0x7b8439, size = 3007, flags = 0, addr = 0x7b8439, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8431 with value 1044873386854235307
+RETURN MALLOC: bloc 0x3e80c8 bloc->addr 0x7b837b bloc->size 182
+
+
+CALL MALLOC SIZE 10
+call get_allocated_heapmetadata_size
+return size 320
+call get_allocated_heapdata_size
+return size 1089
+call lookup
+Found suitable free block 0x3e80f0 pointing to 0x7b8020 of size 90 bytes.
+call generate_canary
+return canary -45264473453366614
+call split block 0x3e80f0 pointing to 0x7b8020 of size 90 bytes into 10 bytes and 72 bytes.
+call get_allocated_heapmetadata_size
+return size 320
+in split : selected empty new newbloc 0x3e8140 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8140 pointing to 0x7b8032, size = 72, flags = 0, addr = 0x7b8032, canary = 3735928559, next = 0x3e8050
+call place_canary
+Canary placed at 0x7b802a with value -45264473453366614
+RETURN MALLOC: bloc 0x3e80f0 bloc->addr 0x7b8020 bloc->size 10
+
+
+CALL MALLOC SIZE 74
+call get_allocated_heapmetadata_size
+return size 360
+call get_allocated_heapdata_size
+return size 1089
+call lookup
+Found suitable free block 0x3e8118 pointing to 0x7b8439 of size 3007 bytes.
+call generate_canary
+return canary -2310828167754466048
+call split block 0x3e8118 pointing to 0x7b8439 of size 3007 bytes into 74 bytes and 2925 bytes.
+call get_allocated_heapmetadata_size
+return size 360
+in split : selected empty new newbloc 0x3e8168 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8168 pointing to 0x7b848b, size = 2925, flags = 0, addr = 0x7b848b, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8483 with value -2310828167754466048
+RETURN MALLOC: bloc 0x3e8118 bloc->addr 0x7b8439 bloc->size 74
+
+
+CALL FREE PTR 0x7b8082
+Found metadata block 0x3e8050 corresponding to ptr 0x7b8082
+Verifying canary
+Canary 2881544750510046893 verified
+Cleaning memory at 0x7b8082 of size 248 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8032 with next chunk at 0x7b8082
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 255
+call get_allocated_heapmetadata_size
+return size 400
+call get_allocated_heapdata_size
+return size 1171
+call lookup
+Found suitable free block 0x3e8140 pointing to 0x7b8032 of size 328 bytes.
+call generate_canary
+return canary -38073706409662131
+call split block 0x3e8140 pointing to 0x7b8032 of size 328 bytes into 255 bytes and 65 bytes.
+call get_allocated_heapmetadata_size
+return size 400
+in split : selected empty new newbloc 0x3e8190 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8190 pointing to 0x7b8139, size = 65, flags = 0, addr = 0x7b8139, canary = 3735928559, next = 0x3e8078
+call place_canary
+Canary placed at 0x7b8131 with value -38073706409662131
+RETURN MALLOC: bloc 0x3e8140 bloc->addr 0x7b8032 bloc->size 255
+
+
+CALL FREE PTR 0x7b8000
+Found metadata block 0x3e8000 corresponding to ptr 0x7b8000
+Verifying canary
+Canary -8166725025062608266 verified
+Cleaning memory at 0x7b8000 of size 24 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL FREE PTR 0x7b8439
+Found metadata block 0x3e8118 corresponding to ptr 0x7b8439
+Verifying canary
+Canary -2310828167754466048 verified
+Cleaning memory at 0x7b8439 of size 74 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8439 with next chunk at 0x7b848b
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 21
+call get_allocated_heapmetadata_size
+return size 440
+call get_allocated_heapdata_size
+return size 1089
+call lookup
+Found suitable free block 0x3e8190 pointing to 0x7b8139 of size 65 bytes.
+call generate_canary
+return canary -5616105241663028573
+call split block 0x3e8190 pointing to 0x7b8139 of size 65 bytes into 21 bytes and 36 bytes.
+call get_allocated_heapmetadata_size
+return size 440
+in split : selected empty new newbloc 0x3e81b8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e81b8 pointing to 0x7b8156, size = 36, flags = 0, addr = 0x7b8156, canary = 3735928559, next = 0x3e8078
+call place_canary
+Canary placed at 0x7b814e with value -5616105241663028573
+RETURN MALLOC: bloc 0x3e8190 bloc->addr 0x7b8139 bloc->size 21
+
+
+CALL MALLOC SIZE 22
+call get_allocated_heapmetadata_size
+return size 480
+call get_allocated_heapdata_size
+return size 1089
+call lookup
+Found suitable free block 0x3e81b8 pointing to 0x7b8156 of size 36 bytes.
+call generate_canary
+return canary 1026532488825268090
+call split block 0x3e81b8 pointing to 0x7b8156 of size 36 bytes into 22 bytes and 6 bytes.
+call get_allocated_heapmetadata_size
+return size 480
+in split : selected empty new newbloc 0x3e81e0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e81e0 pointing to 0x7b8174, size = 6, flags = 0, addr = 0x7b8174, canary = 3735928559, next = 0x3e8078
+call place_canary
+Canary placed at 0x7b816c with value 1026532488825268090
+RETURN MALLOC: bloc 0x3e81b8 bloc->addr 0x7b8156 bloc->size 22
+
+
+CALL MALLOC SIZE 175
+call get_allocated_heapmetadata_size
+return size 520
+call get_allocated_heapdata_size
+return size 1089
+call lookup
+Found suitable free block 0x3e8118 pointing to 0x7b8439 of size 2999 bytes.
+call generate_canary
+return canary 3372784900600620682
+call split block 0x3e8118 pointing to 0x7b8439 of size 2999 bytes into 175 bytes and 2816 bytes.
+call get_allocated_heapmetadata_size
+return size 520
+in split : selected empty new newbloc 0x3e8208 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8208 pointing to 0x7b84f0, size = 2816, flags = 0, addr = 0x7b84f0, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b84e8 with value 3372784900600620682
+RETURN MALLOC: bloc 0x3e8118 bloc->addr 0x7b8439 bloc->size 175
+
+
+CALL FREE PTR 0x7b8439
+Found metadata block 0x3e8118 corresponding to ptr 0x7b8439
+Verifying canary
+Canary 3372784900600620682 verified
+Cleaning memory at 0x7b8439 of size 175 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8439 with next chunk at 0x7b84f0
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 88
+call get_allocated_heapmetadata_size
+return size 560
+call get_allocated_heapdata_size
+return size 1089
+call lookup
+Found suitable free block 0x3e8118 pointing to 0x7b8439 of size 2991 bytes.
+call generate_canary
+return canary 1385882212920888309
+call split block 0x3e8118 pointing to 0x7b8439 of size 2991 bytes into 88 bytes and 2895 bytes.
+call get_allocated_heapmetadata_size
+return size 560
+in split : selected empty new newbloc 0x3e8230 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8230 pointing to 0x7b8499, size = 2895, flags = 0, addr = 0x7b8499, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8491 with value 1385882212920888309
+RETURN MALLOC: bloc 0x3e8118 bloc->addr 0x7b8439 bloc->size 88
+
+
+CALL FREE PTR 0x7b837b
+Found metadata block 0x3e80c8 corresponding to ptr 0x7b837b
+Verifying canary
+Canary 1044873386854235307 verified
+Cleaning memory at 0x7b837b of size 182 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 224
+call get_allocated_heapmetadata_size
+return size 600
+call get_allocated_heapdata_size
+return size 1185
+call lookup
+Found suitable free block 0x3e8230 pointing to 0x7b8499 of size 2895 bytes.
+call generate_canary
+return canary 2895074238318957770
+call split block 0x3e8230 pointing to 0x7b8499 of size 2895 bytes into 224 bytes and 2663 bytes.
+call get_allocated_heapmetadata_size
+return size 600
+in split : selected empty new newbloc 0x3e8258 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8258 pointing to 0x7b8581, size = 2663, flags = 0, addr = 0x7b8581, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8579 with value 2895074238318957770
+RETURN MALLOC: bloc 0x3e8230 bloc->addr 0x7b8499 bloc->size 224
+
+
+CALL MALLOC SIZE 193
+call get_allocated_heapmetadata_size
+return size 640
+call get_allocated_heapdata_size
+return size 1417
+call lookup
+Found suitable free block 0x3e8258 pointing to 0x7b8581 of size 2663 bytes.
+call generate_canary
+return canary -1919760168255381402
+call split block 0x3e8258 pointing to 0x7b8581 of size 2663 bytes into 193 bytes and 2462 bytes.
+call get_allocated_heapmetadata_size
+return size 640
+in split : selected empty new newbloc 0x3e8280 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8280 pointing to 0x7b864a, size = 2462, flags = 0, addr = 0x7b864a, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8642 with value -1919760168255381402
+RETURN MALLOC: bloc 0x3e8258 bloc->addr 0x7b8581 bloc->size 193
+
+
+CALL REALLOC PTR 0x7b8156, SIZE 56
+Verifying canary
+Canary 1026532488825268090 verified
+
+
+CALL MALLOC SIZE 56
+call get_allocated_heapmetadata_size
+return size 680
+call get_allocated_heapdata_size
+return size 1618
+call lookup
+Found suitable free block 0x3e80c8 pointing to 0x7b837b of size 182 bytes.
+call generate_canary
+return canary 2238558441613550379
+call split block 0x3e80c8 pointing to 0x7b837b of size 182 bytes into 56 bytes and 118 bytes.
+call get_allocated_heapmetadata_size
+return size 680
+in split : selected empty new newbloc 0x3e82a8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e82a8 pointing to 0x7b83bb, size = 118, flags = 0, addr = 0x7b83bb, canary = 3735928559, next = 0x3e8118
+call place_canary
+Canary placed at 0x7b83b3 with value 2238558441613550379
+RETURN MALLOC: bloc 0x3e80c8 bloc->addr 0x7b837b bloc->size 56
+
+
+CALL FREE PTR 0x7b8156
+Found metadata block 0x3e81b8 corresponding to ptr 0x7b8156
+Verifying canary
+Canary 1026532488825268090 verified
+Cleaning memory at 0x7b8156 of size 22 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8156 with next chunk at 0x7b8174
+1 chunks merged
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b837b
+
+
+CALL MALLOC SIZE 138
+call get_allocated_heapmetadata_size
+return size 720
+call get_allocated_heapdata_size
+return size 1618
+call lookup
+Found suitable free block 0x3e8280 pointing to 0x7b864a of size 2462 bytes.
+call generate_canary
+return canary 3466869946278123513
+call split block 0x3e8280 pointing to 0x7b864a of size 2462 bytes into 138 bytes and 2316 bytes.
+call get_allocated_heapmetadata_size
+return size 720
+in split : selected empty new newbloc 0x3e82d0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e82d0 pointing to 0x7b86dc, size = 2316, flags = 0, addr = 0x7b86dc, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b86d4 with value 3466869946278123513
+RETURN MALLOC: bloc 0x3e8280 bloc->addr 0x7b864a bloc->size 138
+
+
+CALL MALLOC SIZE 37
+call get_allocated_heapmetadata_size
+return size 760
+call get_allocated_heapdata_size
+return size 1764
+call lookup
+Found suitable free block 0x3e82a8 pointing to 0x7b83bb of size 118 bytes.
+call generate_canary
+return canary -22359641928919666
+call split block 0x3e82a8 pointing to 0x7b83bb of size 118 bytes into 37 bytes and 73 bytes.
+call get_allocated_heapmetadata_size
+return size 760
+in split : selected empty new newbloc 0x3e82f8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e82f8 pointing to 0x7b83e8, size = 73, flags = 0, addr = 0x7b83e8, canary = 3735928559, next = 0x3e8118
+call place_canary
+Canary placed at 0x7b83e0 with value -22359641928919666
+RETURN MALLOC: bloc 0x3e82a8 bloc->addr 0x7b83bb bloc->size 37
+
+
+CALL FREE PTR 0x7b8032
+Found metadata block 0x3e8140 corresponding to ptr 0x7b8032
+Verifying canary
+Canary -38073706409662131 verified
+Cleaning memory at 0x7b8032 of size 255 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 45
+call get_allocated_heapmetadata_size
+return size 800
+call get_allocated_heapdata_size
+return size 1764
+call lookup
+Found suitable free block 0x3e8140 pointing to 0x7b8032 of size 255 bytes.
+call generate_canary
+return canary 2558826639300205503
+call split block 0x3e8140 pointing to 0x7b8032 of size 255 bytes into 45 bytes and 202 bytes.
+call get_allocated_heapmetadata_size
+return size 800
+in split : selected empty new newbloc 0x3e8320 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8320 pointing to 0x7b8067, size = 202, flags = 0, addr = 0x7b8067, canary = 3735928559, next = 0x3e8190
+call place_canary
+Canary placed at 0x7b805f with value 2558826639300205503
+RETURN MALLOC: bloc 0x3e8140 bloc->addr 0x7b8032 bloc->size 45
+
+
+CALL MALLOC SIZE 34
+call get_allocated_heapmetadata_size
+return size 840
+call get_allocated_heapdata_size
+return size 1764
+call lookup
+Found suitable free block 0x3e8320 pointing to 0x7b8067 of size 202 bytes.
+call generate_canary
+return canary -4991790831939531685
+call split block 0x3e8320 pointing to 0x7b8067 of size 202 bytes into 34 bytes and 160 bytes.
+call get_allocated_heapmetadata_size
+return size 840
+in split : selected empty new newbloc 0x3e8348 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8348 pointing to 0x7b8091, size = 160, flags = 0, addr = 0x7b8091, canary = 3735928559, next = 0x3e8190
+call place_canary
+Canary placed at 0x7b8089 with value -4991790831939531685
+RETURN MALLOC: bloc 0x3e8320 bloc->addr 0x7b8067 bloc->size 34
+
+
+CALL MALLOC SIZE 104
+call get_allocated_heapmetadata_size
+return size 880
+call get_allocated_heapdata_size
+return size 1764
+call lookup
+Found suitable free block 0x3e8348 pointing to 0x7b8091 of size 160 bytes.
+call generate_canary
+return canary -7486701640443036309
+call split block 0x3e8348 pointing to 0x7b8091 of size 160 bytes into 104 bytes and 48 bytes.
+call get_allocated_heapmetadata_size
+return size 880
+in split : selected empty new newbloc 0x3e8370 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8370 pointing to 0x7b8101, size = 48, flags = 0, addr = 0x7b8101, canary = 3735928559, next = 0x3e8190
+call place_canary
+Canary placed at 0x7b80f9 with value -7486701640443036309
+RETURN MALLOC: bloc 0x3e8348 bloc->addr 0x7b8091 bloc->size 104
+
+
+CALL MALLOC SIZE 121
+call get_allocated_heapmetadata_size
+return size 920
+call get_allocated_heapdata_size
+return size 1764
+call lookup
+Found suitable free block 0x3e82d0 pointing to 0x7b86dc of size 2316 bytes.
+call generate_canary
+return canary -312073035455707880
+call split block 0x3e82d0 pointing to 0x7b86dc of size 2316 bytes into 121 bytes and 2187 bytes.
+call get_allocated_heapmetadata_size
+return size 920
+in split : selected empty new newbloc 0x3e8398 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8398 pointing to 0x7b875d, size = 2187, flags = 0, addr = 0x7b875d, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8755 with value -312073035455707880
+RETURN MALLOC: bloc 0x3e82d0 bloc->addr 0x7b86dc bloc->size 121
+
+
+CALL MALLOC SIZE 216
+call get_allocated_heapmetadata_size
+return size 960
+call get_allocated_heapdata_size
+return size 1893
+call lookup
+Found suitable free block 0x3e8398 pointing to 0x7b875d of size 2187 bytes.
+call generate_canary
+return canary -6421129617566119073
+call split block 0x3e8398 pointing to 0x7b875d of size 2187 bytes into 216 bytes and 1963 bytes.
+call get_allocated_heapmetadata_size
+return size 960
+in split : selected empty new newbloc 0x3e83c0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e83c0 pointing to 0x7b883d, size = 1963, flags = 0, addr = 0x7b883d, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8835 with value -6421129617566119073
+RETURN MALLOC: bloc 0x3e8398 bloc->addr 0x7b875d bloc->size 216
+
+
+CALL FREE PTR 0x7b875d
+Found metadata block 0x3e8398 corresponding to ptr 0x7b875d
+Verifying canary
+Canary -6421129617566119073 verified
+Cleaning memory at 0x7b875d of size 216 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b875d with next chunk at 0x7b883d
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 79
+call get_allocated_heapmetadata_size
+return size 1000
+call get_allocated_heapdata_size
+return size 1893
+call lookup
+Found suitable free block 0x3e8398 pointing to 0x7b875d of size 2179 bytes.
+call generate_canary
+return canary -7810188120474942782
+call split block 0x3e8398 pointing to 0x7b875d of size 2179 bytes into 79 bytes and 2092 bytes.
+call get_allocated_heapmetadata_size
+return size 1000
+in split : selected empty new newbloc 0x3e83e8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e83e8 pointing to 0x7b87b4, size = 2092, flags = 0, addr = 0x7b87b4, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b87ac with value -7810188120474942782
+RETURN MALLOC: bloc 0x3e8398 bloc->addr 0x7b875d bloc->size 79
+
+
+CALL MALLOC SIZE 72
+call get_allocated_heapmetadata_size
+return size 1040
+call get_allocated_heapdata_size
+return size 1980
+call lookup
+Found suitable free block 0x3e83e8 pointing to 0x7b87b4 of size 2092 bytes.
+call generate_canary
+return canary 2641745527946040754
+call split block 0x3e83e8 pointing to 0x7b87b4 of size 2092 bytes into 72 bytes and 2012 bytes.
+call get_allocated_heapmetadata_size
+return size 1040
+in split : selected empty new newbloc 0x3e8410 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8410 pointing to 0x7b8804, size = 2012, flags = 0, addr = 0x7b8804, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b87fc with value 2641745527946040754
+RETURN MALLOC: bloc 0x3e83e8 bloc->addr 0x7b87b4 bloc->size 72
+
+
+CALL MALLOC SIZE 36
+call get_allocated_heapmetadata_size
+return size 1080
+call get_allocated_heapdata_size
+return size 2060
+call lookup
+Found suitable free block 0x3e8370 pointing to 0x7b8101 of size 48 bytes.
+call generate_canary
+return canary -5234574332587112783
+call split block 0x3e8370 pointing to 0x7b8101 of size 48 bytes into 36 bytes and 4 bytes.
+call get_allocated_heapmetadata_size
+return size 1080
+in split : selected empty new newbloc 0x3e8438 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8438 pointing to 0x7b812d, size = 4, flags = 0, addr = 0x7b812d, canary = 3735928559, next = 0x3e8190
+call place_canary
+Canary placed at 0x7b8125 with value -5234574332587112783
+RETURN MALLOC: bloc 0x3e8370 bloc->addr 0x7b8101 bloc->size 36
+
+
+CALL FREE PTR 0x7b8020
+Found metadata block 0x3e80f0 corresponding to ptr 0x7b8020
+Verifying canary
+Canary -45264473453366614 verified
+Cleaning memory at 0x7b8020 of size 10 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8000 with next chunk at 0x7b8020
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL REALLOC PTR 0x7b8182, SIZE 222
+Verifying canary
+Canary -6940952980390591936 verified
+
+
+CALL MALLOC SIZE 222
+call get_allocated_heapmetadata_size
+return size 1120
+call get_allocated_heapdata_size
+return size 2060
+call lookup
+Found suitable free block 0x3e8410 pointing to 0x7b8804 of size 2012 bytes.
+call generate_canary
+return canary 6731860546979153936
+call split block 0x3e8410 pointing to 0x7b8804 of size 2012 bytes into 222 bytes and 1782 bytes.
+call get_allocated_heapmetadata_size
+return size 1120
+in split : selected empty new newbloc 0x3e8460 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8460 pointing to 0x7b88ea, size = 1782, flags = 0, addr = 0x7b88ea, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b88e2 with value 6731860546979153936
+RETURN MALLOC: bloc 0x3e8410 bloc->addr 0x7b8804 bloc->size 222
+
+
+CALL FREE PTR 0x7b8182
+Found metadata block 0x3e8078 corresponding to ptr 0x7b8182
+Verifying canary
+Canary -6940952980390591936 verified
+Cleaning memory at 0x7b8182 of size 250 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8156 with next chunk at 0x7b8182
+1 chunks merged
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b8804
+
+
+CALL MALLOC SIZE 167
+call get_allocated_heapmetadata_size
+return size 1160
+call get_allocated_heapdata_size
+return size 2290
+call lookup
+Found suitable free block 0x3e81b8 pointing to 0x7b8156 of size 294 bytes.
+call generate_canary
+return canary -4236219724043967912
+call split block 0x3e81b8 pointing to 0x7b8156 of size 294 bytes into 167 bytes and 119 bytes.
+call get_allocated_heapmetadata_size
+return size 1160
+in split : selected empty new newbloc 0x3e8488 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8488 pointing to 0x7b8205, size = 119, flags = 0, addr = 0x7b8205, canary = 3735928559, next = 0x3e80a0
+call place_canary
+Canary placed at 0x7b81fd with value -4236219724043967912
+RETURN MALLOC: bloc 0x3e81b8 bloc->addr 0x7b8156 bloc->size 167
+
+
+CALL MALLOC SIZE 156
+call get_allocated_heapmetadata_size
+return size 1200
+call get_allocated_heapdata_size
+return size 2290
+call lookup
+Found suitable free block 0x3e8460 pointing to 0x7b88ea of size 1782 bytes.
+call generate_canary
+return canary 1863901529175090042
+call split block 0x3e8460 pointing to 0x7b88ea of size 1782 bytes into 156 bytes and 1618 bytes.
+call get_allocated_heapmetadata_size
+return size 1200
+in split : selected empty new newbloc 0x3e84b0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e84b0 pointing to 0x7b898e, size = 1618, flags = 0, addr = 0x7b898e, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8986 with value 1863901529175090042
+RETURN MALLOC: bloc 0x3e8460 bloc->addr 0x7b88ea bloc->size 156
+
+
+CALL MALLOC SIZE 48
+call get_allocated_heapmetadata_size
+return size 1240
+call get_allocated_heapdata_size
+return size 2454
+call lookup
+Found suitable free block 0x3e8488 pointing to 0x7b8205 of size 119 bytes.
+call generate_canary
+return canary 6218179309785109621
+call split block 0x3e8488 pointing to 0x7b8205 of size 119 bytes into 48 bytes and 63 bytes.
+call get_allocated_heapmetadata_size
+return size 1240
+in split : selected empty new newbloc 0x3e84d8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e84d8 pointing to 0x7b823d, size = 63, flags = 0, addr = 0x7b823d, canary = 3735928559, next = 0x3e80a0
+call place_canary
+Canary placed at 0x7b8235 with value 6218179309785109621
+RETURN MALLOC: bloc 0x3e8488 bloc->addr 0x7b8205 bloc->size 48
+
+
+CALL MALLOC SIZE 142
+call get_allocated_heapmetadata_size
+return size 1280
+call get_allocated_heapdata_size
+return size 2454
+call lookup
+Found suitable free block 0x3e84b0 pointing to 0x7b898e of size 1618 bytes.
+call generate_canary
+return canary 7986658230760414370
+call split block 0x3e84b0 pointing to 0x7b898e of size 1618 bytes into 142 bytes and 1468 bytes.
+call get_allocated_heapmetadata_size
+return size 1280
+in split : selected empty new newbloc 0x3e8500 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8500 pointing to 0x7b8a24, size = 1468, flags = 0, addr = 0x7b8a24, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8a1c with value 7986658230760414370
+RETURN MALLOC: bloc 0x3e84b0 bloc->addr 0x7b898e bloc->size 142
+
+
+CALL REALLOC PTR 0x7b8091, SIZE 204
+Verifying canary
+Canary -7486701640443036309 verified
+
+
+CALL MALLOC SIZE 204
+call get_allocated_heapmetadata_size
+return size 1320
+call get_allocated_heapdata_size
+return size 2604
+call lookup
+Found suitable free block 0x3e8500 pointing to 0x7b8a24 of size 1468 bytes.
+call generate_canary
+return canary -1548055189999619621
+call split block 0x3e8500 pointing to 0x7b8a24 of size 1468 bytes into 204 bytes and 1256 bytes.
+call get_allocated_heapmetadata_size
+return size 1320
+in split : selected empty new newbloc 0x3e8528 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8528 pointing to 0x7b8af8, size = 1256, flags = 0, addr = 0x7b8af8, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8af0 with value -1548055189999619621
+RETURN MALLOC: bloc 0x3e8500 bloc->addr 0x7b8a24 bloc->size 204
+
+
+CALL FREE PTR 0x7b8091
+Found metadata block 0x3e8348 corresponding to ptr 0x7b8091
+Verifying canary
+Canary -7486701640443036309 verified
+Cleaning memory at 0x7b8091 of size 104 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b8a24
+
+
+CALL FREE PTR 0x7b87b4
+Found metadata block 0x3e83e8 corresponding to ptr 0x7b87b4
+Verifying canary
+Canary 2641745527946040754 verified
+Cleaning memory at 0x7b87b4 of size 72 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 120
+call get_allocated_heapmetadata_size
+return size 1360
+call get_allocated_heapdata_size
+return size 2816
+call lookup
+Found suitable free block 0x3e8528 pointing to 0x7b8af8 of size 1256 bytes.
+call generate_canary
+return canary -5230061367686329190
+call split block 0x3e8528 pointing to 0x7b8af8 of size 1256 bytes into 120 bytes and 1128 bytes.
+call get_allocated_heapmetadata_size
+return size 1360
+in split : selected empty new newbloc 0x3e8550 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8550 pointing to 0x7b8b78, size = 1128, flags = 0, addr = 0x7b8b78, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8b70 with value -5230061367686329190
+RETURN MALLOC: bloc 0x3e8528 bloc->addr 0x7b8af8 bloc->size 120
+
+
+CALL FREE PTR 0x7b8439
+Found metadata block 0x3e8118 corresponding to ptr 0x7b8439
+Verifying canary
+Canary 1385882212920888309 verified
+Cleaning memory at 0x7b8439 of size 88 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b83e8 with next chunk at 0x7b8439
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 203
+call get_allocated_heapmetadata_size
+return size 1400
+call get_allocated_heapdata_size
+return size 2944
+call lookup
+Found suitable free block 0x3e8550 pointing to 0x7b8b78 of size 1128 bytes.
+call generate_canary
+return canary -8779061893596588416
+call split block 0x3e8550 pointing to 0x7b8b78 of size 1128 bytes into 203 bytes and 917 bytes.
+call get_allocated_heapmetadata_size
+return size 1400
+in split : selected empty new newbloc 0x3e8578 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8578 pointing to 0x7b8c4b, size = 917, flags = 0, addr = 0x7b8c4b, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8c43 with value -8779061893596588416
+RETURN MALLOC: bloc 0x3e8550 bloc->addr 0x7b8b78 bloc->size 203
+
+
+CALL MALLOC SIZE 245
+call get_allocated_heapmetadata_size
+return size 1440
+call get_allocated_heapdata_size
+return size 3155
+call lookup
+Found suitable free block 0x3e8578 pointing to 0x7b8c4b of size 917 bytes.
+call generate_canary
+return canary -6815722794633042280
+call split block 0x3e8578 pointing to 0x7b8c4b of size 917 bytes into 245 bytes and 664 bytes.
+call get_allocated_heapmetadata_size
+return size 1440
+in split : selected empty new newbloc 0x3e85a0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e85a0 pointing to 0x7b8d48, size = 664, flags = 0, addr = 0x7b8d48, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8d40 with value -6815722794633042280
+RETURN MALLOC: bloc 0x3e8578 bloc->addr 0x7b8c4b bloc->size 245
+
+
+CALL MALLOC SIZE 178
+call get_allocated_heapmetadata_size
+return size 1480
+call get_allocated_heapdata_size
+return size 3408
+call lookup
+Found suitable free block 0x3e85a0 pointing to 0x7b8d48 of size 664 bytes.
+call generate_canary
+return canary 7411280344664595232
+call split block 0x3e85a0 pointing to 0x7b8d48 of size 664 bytes into 178 bytes and 478 bytes.
+call get_allocated_heapmetadata_size
+return size 1480
+in split : selected empty new newbloc 0x3e85c8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e85c8 pointing to 0x7b8e02, size = 478, flags = 0, addr = 0x7b8e02, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8dfa with value 7411280344664595232
+RETURN MALLOC: bloc 0x3e85a0 bloc->addr 0x7b8d48 bloc->size 178
+
+
+CALL MALLOC SIZE 15
+call get_allocated_heapmetadata_size
+return size 1520
+call get_allocated_heapdata_size
+return size 3594
+call lookup
+Found suitable free block 0x3e8000 pointing to 0x7b8000 of size 42 bytes.
+call generate_canary
+return canary -7974014614669787946
+call split block 0x3e8000 pointing to 0x7b8000 of size 42 bytes into 15 bytes and 19 bytes.
+call get_allocated_heapmetadata_size
+return size 1520
+in split : selected empty new newbloc 0x3e85f0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e85f0 pointing to 0x7b8017, size = 19, flags = 0, addr = 0x7b8017, canary = 3735928559, next = 0x3e8140
+call place_canary
+Canary placed at 0x7b800f with value -7974014614669787946
+RETURN MALLOC: bloc 0x3e8000 bloc->addr 0x7b8000 bloc->size 15
+
+
+CALL FREE PTR 0x7b8284
+Found metadata block 0x3e80a0 corresponding to ptr 0x7b8284
+Verifying canary
+Canary 1110926736841679411 verified
+Cleaning memory at 0x7b8284 of size 239 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b823d with next chunk at 0x7b8284
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 244
+call get_allocated_heapmetadata_size
+return size 1560
+call get_allocated_heapdata_size
+return size 3594
+call lookup
+Found suitable free block 0x3e84d8 pointing to 0x7b823d of size 310 bytes.
+call generate_canary
+return canary 55363877850473351
+call split block 0x3e84d8 pointing to 0x7b823d of size 310 bytes into 244 bytes and 58 bytes.
+call get_allocated_heapmetadata_size
+return size 1560
+in split : selected empty new newbloc 0x3e8618 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8618 pointing to 0x7b8339, size = 58, flags = 0, addr = 0x7b8339, canary = 3735928559, next = 0x3e80c8
+call place_canary
+Canary placed at 0x7b8331 with value 55363877850473351
+RETURN MALLOC: bloc 0x3e84d8 bloc->addr 0x7b823d bloc->size 244
+
+
+CALL MALLOC SIZE 149
+call get_allocated_heapmetadata_size
+return size 1600
+call get_allocated_heapdata_size
+return size 3594
+call lookup
+Found suitable free block 0x3e82f8 pointing to 0x7b83e8 of size 169 bytes.
+call generate_canary
+return canary 6442021806948917948
+call split block 0x3e82f8 pointing to 0x7b83e8 of size 169 bytes into 149 bytes and 12 bytes.
+call get_allocated_heapmetadata_size
+return size 1600
+in split : selected empty new newbloc 0x3e8640 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8640 pointing to 0x7b8485, size = 12, flags = 0, addr = 0x7b8485, canary = 3735928559, next = 0x3e8230
+call place_canary
+Canary placed at 0x7b847d with value 6442021806948917948
+RETURN MALLOC: bloc 0x3e82f8 bloc->addr 0x7b83e8 bloc->size 149
+
+
+CALL MALLOC SIZE 151
+call get_allocated_heapmetadata_size
+return size 1640
+call get_allocated_heapdata_size
+return size 3594
+call lookup
+Found suitable free block 0x3e85c8 pointing to 0x7b8e02 of size 478 bytes.
+call generate_canary
+return canary -3682944193350059039
+call split block 0x3e85c8 pointing to 0x7b8e02 of size 478 bytes into 151 bytes and 319 bytes.
+call get_allocated_heapmetadata_size
+return size 1640
+in split : selected empty new newbloc 0x3e8668 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8668 pointing to 0x7b8ea1, size = 319, flags = 0, addr = 0x7b8ea1, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8e99 with value -3682944193350059039
+RETURN MALLOC: bloc 0x3e85c8 bloc->addr 0x7b8e02 bloc->size 151
+
+
+CALL FREE PTR 0x7b8d48
+Found metadata block 0x3e85a0 corresponding to ptr 0x7b8d48
+Verifying canary
+Canary 7411280344664595232 verified
+Cleaning memory at 0x7b8d48 of size 178 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 105
+call get_allocated_heapmetadata_size
+return size 1680
+call get_allocated_heapdata_size
+return size 3753
+call lookup
+Found suitable free block 0x3e85a0 pointing to 0x7b8d48 of size 178 bytes.
+call generate_canary
+return canary 4460276168857950462
+call split block 0x3e85a0 pointing to 0x7b8d48 of size 178 bytes into 105 bytes and 65 bytes.
+call get_allocated_heapmetadata_size
+return size 1680
+in split : selected empty new newbloc 0x3e8690 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8690 pointing to 0x7b8db9, size = 65, flags = 0, addr = 0x7b8db9, canary = 3735928559, next = 0x3e85c8
+call place_canary
+Canary placed at 0x7b8db1 with value 4460276168857950462
+RETURN MALLOC: bloc 0x3e85a0 bloc->addr 0x7b8d48 bloc->size 105
+
+
+CALL MALLOC SIZE 137
+call get_allocated_heapmetadata_size
+return size 1720
+call get_allocated_heapdata_size
+return size 3753
+call lookup
+Found suitable free block 0x3e8668 pointing to 0x7b8ea1 of size 319 bytes.
+call generate_canary
+return canary -4976526903711749141
+call split block 0x3e8668 pointing to 0x7b8ea1 of size 319 bytes into 137 bytes and 174 bytes.
+call get_allocated_heapmetadata_size
+return size 1720
+in split : selected empty new newbloc 0x3e86b8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e86b8 pointing to 0x7b8f32, size = 174, flags = 0, addr = 0x7b8f32, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8f2a with value -4976526903711749141
+RETURN MALLOC: bloc 0x3e8668 bloc->addr 0x7b8ea1 bloc->size 137
+
+
+CALL REALLOC PTR 0x7b875d, SIZE 191
+Verifying canary
+Canary -7810188120474942782 verified
+
+
+CALL MALLOC SIZE 191
+call get_allocated_heapmetadata_size
+return size 1760
+call get_allocated_heapdata_size
+return size 3898
+call resizeheapdata
+call lastmetadata
+Last metadata block at 0x3e86b8, size : 174, flags : 0
+new heapdata size 8192
+call lookup
+Found suitable free block 0x3e86b8 pointing to 0x7b8f32 of size 8192 bytes.
+call generate_canary
+return canary 661526596034924880
+call split block 0x3e86b8 pointing to 0x7b8f32 of size 8192 bytes into 191 bytes and 7993 bytes.
+call get_allocated_heapmetadata_size
+return size 1760
+in split : selected empty new newbloc 0x3e86e0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e86e0 pointing to 0x7b8ff9, size = 7993, flags = 0, addr = 0x7b8ff9, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b8ff1 with value 661526596034924880
+RETURN MALLOC: bloc 0x3e86b8 bloc->addr 0x7b8f32 bloc->size 191
+
+
+CALL FREE PTR 0x7b875d
+Found metadata block 0x3e8398 corresponding to ptr 0x7b875d
+Verifying canary
+Canary -7810188120474942782 verified
+Cleaning memory at 0x7b875d of size 79 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b875d with next chunk at 0x7b87b4
+1 chunks merged
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b8f32
+
+
+CALL FREE PTR 0x7b898e
+Found metadata block 0x3e84b0 corresponding to ptr 0x7b898e
+Verifying canary
+Canary 7986658230760414370 verified
+Cleaning memory at 0x7b898e of size 142 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL FREE PTR 0x7b8499
+Found metadata block 0x3e8230 corresponding to ptr 0x7b8499
+Verifying canary
+Canary 2895074238318957770 verified
+Cleaning memory at 0x7b8499 of size 224 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8485 with next chunk at 0x7b8499
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL REALLOC PTR 0x7b8032, SIZE 161
+Verifying canary
+Canary 2558826639300205503 verified
+
+
+CALL MALLOC SIZE 161
+call get_allocated_heapmetadata_size
+return size 1800
+call get_allocated_heapdata_size
+return size 4097
+call lookup
+Found suitable free block 0x3e8640 pointing to 0x7b8485 of size 244 bytes.
+call generate_canary
+return canary 7996567384795748784
+call split block 0x3e8640 pointing to 0x7b8485 of size 244 bytes into 161 bytes and 75 bytes.
+call get_allocated_heapmetadata_size
+return size 1800
+in split : selected empty new newbloc 0x3e8708 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8708 pointing to 0x7b852e, size = 75, flags = 0, addr = 0x7b852e, canary = 3735928559, next = 0x3e8258
+call place_canary
+Canary placed at 0x7b8526 with value 7996567384795748784
+RETURN MALLOC: bloc 0x3e8640 bloc->addr 0x7b8485 bloc->size 161
+
+
+CALL FREE PTR 0x7b8032
+Found metadata block 0x3e8140 corresponding to ptr 0x7b8032
+Verifying canary
+Canary 2558826639300205503 verified
+Cleaning memory at 0x7b8032 of size 45 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8017 with next chunk at 0x7b8032
+1 chunks merged
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b8485
+
+
+CALL MALLOC SIZE 182
+call get_allocated_heapmetadata_size
+return size 1840
+call get_allocated_heapdata_size
+return size 4097
+call lookup
+Found suitable free block 0x3e86e0 pointing to 0x7b8ff9 of size 7993 bytes.
+call generate_canary
+return canary 7947552407156331951
+call split block 0x3e86e0 pointing to 0x7b8ff9 of size 7993 bytes into 182 bytes and 7803 bytes.
+call get_allocated_heapmetadata_size
+return size 1840
+in split : selected empty new newbloc 0x3e8730 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8730 pointing to 0x7b90b7, size = 7803, flags = 0, addr = 0x7b90b7, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b90af with value 7947552407156331951
+RETURN MALLOC: bloc 0x3e86e0 bloc->addr 0x7b8ff9 bloc->size 182
+
+
+CALL MALLOC SIZE 113
+call get_allocated_heapmetadata_size
+return size 1880
+call get_allocated_heapdata_size
+return size 4287
+call lookup
+Found suitable free block 0x3e8398 pointing to 0x7b875d of size 159 bytes.
+call generate_canary
+return canary -2838190444167183575
+call split block 0x3e8398 pointing to 0x7b875d of size 159 bytes into 113 bytes and 38 bytes.
+call get_allocated_heapmetadata_size
+return size 1880
+in split : selected empty new newbloc 0x3e8758 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8758 pointing to 0x7b87d6, size = 38, flags = 0, addr = 0x7b87d6, canary = 3735928559, next = 0x3e8410
+call place_canary
+Canary placed at 0x7b87ce with value -2838190444167183575
+RETURN MALLOC: bloc 0x3e8398 bloc->addr 0x7b875d bloc->size 113
+
+
+CALL MALLOC SIZE 170
+call get_allocated_heapmetadata_size
+return size 1920
+call get_allocated_heapdata_size
+return size 4287
+call lookup
+Found suitable free block 0x3e8730 pointing to 0x7b90b7 of size 7803 bytes.
+call generate_canary
+return canary -3389220594581168399
+call split block 0x3e8730 pointing to 0x7b90b7 of size 7803 bytes into 170 bytes and 7625 bytes.
+call get_allocated_heapmetadata_size
+return size 1920
+in split : selected empty new newbloc 0x3e8780 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8780 pointing to 0x7b9169, size = 7625, flags = 0, addr = 0x7b9169, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b9161 with value -3389220594581168399
+RETURN MALLOC: bloc 0x3e8730 bloc->addr 0x7b90b7 bloc->size 170
+
+
+CALL MALLOC SIZE 256
+call get_allocated_heapmetadata_size
+return size 1960
+call get_allocated_heapdata_size
+return size 4465
+call lookup
+Found suitable free block 0x3e8780 pointing to 0x7b9169 of size 7625 bytes.
+call generate_canary
+return canary 2250964711120729053
+call split block 0x3e8780 pointing to 0x7b9169 of size 7625 bytes into 256 bytes and 7361 bytes.
+call get_allocated_heapmetadata_size
+return size 1960
+in split : selected empty new newbloc 0x3e87a8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e87a8 pointing to 0x7b9271, size = 7361, flags = 0, addr = 0x7b9271, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b9269 with value 2250964711120729053
+RETURN MALLOC: bloc 0x3e8780 bloc->addr 0x7b9169 bloc->size 256
+
+
+CALL MALLOC SIZE 35
+call get_allocated_heapmetadata_size
+return size 2000
+call get_allocated_heapdata_size
+return size 4729
+call lookup
+Found suitable free block 0x3e85f0 pointing to 0x7b8017 of size 72 bytes.
+call generate_canary
+return canary -8188105047055844038
+call split block 0x3e85f0 pointing to 0x7b8017 of size 72 bytes into 35 bytes and 29 bytes.
+call get_allocated_heapmetadata_size
+return size 2000
+in split : selected empty new newbloc 0x3e87d0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e87d0 pointing to 0x7b8042, size = 29, flags = 0, addr = 0x7b8042, canary = 3735928559, next = 0x3e8320
+call place_canary
+Canary placed at 0x7b803a with value -8188105047055844038
+RETURN MALLOC: bloc 0x3e85f0 bloc->addr 0x7b8017 bloc->size 35
+
+
+CALL MALLOC SIZE 202
+call get_allocated_heapmetadata_size
+return size 2040
+call get_allocated_heapdata_size
+return size 4729
+call lookup
+Found suitable free block 0x3e87a8 pointing to 0x7b9271 of size 7361 bytes.
+call generate_canary
+return canary 2723519127606448227
+call split block 0x3e87a8 pointing to 0x7b9271 of size 7361 bytes into 202 bytes and 7151 bytes.
+call get_allocated_heapmetadata_size
+return size 2040
+in split : selected empty new newbloc 0x3e87f8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e87f8 pointing to 0x7b9343, size = 7151, flags = 0, addr = 0x7b9343, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b933b with value 2723519127606448227
+RETURN MALLOC: bloc 0x3e87a8 bloc->addr 0x7b9271 bloc->size 202
+
+
+CALL MALLOC SIZE 229
+call get_allocated_heapmetadata_size
+return size 2080
+call get_allocated_heapdata_size
+return size 4939
+call lookup
+Found suitable free block 0x3e87f8 pointing to 0x7b9343 of size 7151 bytes.
+call generate_canary
+return canary 8894791047301750412
+call split block 0x3e87f8 pointing to 0x7b9343 of size 7151 bytes into 229 bytes and 6914 bytes.
+call get_allocated_heapmetadata_size
+return size 2080
+in split : selected empty new newbloc 0x3e8820 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8820 pointing to 0x7b9430, size = 6914, flags = 0, addr = 0x7b9430, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b9428 with value 8894791047301750412
+RETURN MALLOC: bloc 0x3e87f8 bloc->addr 0x7b9343 bloc->size 229
+
+
+CALL MALLOC SIZE 23
+call get_allocated_heapmetadata_size
+return size 2120
+call get_allocated_heapdata_size
+return size 5176
+call lookup
+Found suitable free block 0x3e8348 pointing to 0x7b8091 of size 104 bytes.
+call generate_canary
+return canary 5878540216490956002
+call split block 0x3e8348 pointing to 0x7b8091 of size 104 bytes into 23 bytes and 73 bytes.
+call get_allocated_heapmetadata_size
+return size 2120
+in split : selected empty new newbloc 0x3e8848 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8848 pointing to 0x7b80b0, size = 73, flags = 0, addr = 0x7b80b0, canary = 3735928559, next = 0x3e8370
+call place_canary
+Canary placed at 0x7b80a8 with value 5878540216490956002
+RETURN MALLOC: bloc 0x3e8348 bloc->addr 0x7b8091 bloc->size 23
+
+
+CALL REALLOC PTR 0x7b8ff9, SIZE 102
+Verifying canary
+Canary 7947552407156331951 verified
+
+
+CALL MALLOC SIZE 102
+call get_allocated_heapmetadata_size
+return size 2160
+call get_allocated_heapdata_size
+return size 5176
+call lookup
+Found suitable free block 0x3e84b0 pointing to 0x7b898e of size 142 bytes.
+call generate_canary
+return canary 2119883006974175336
+call split block 0x3e84b0 pointing to 0x7b898e of size 142 bytes into 102 bytes and 32 bytes.
+call get_allocated_heapmetadata_size
+return size 2160
+in split : selected empty new newbloc 0x3e8870 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8870 pointing to 0x7b89fc, size = 32, flags = 0, addr = 0x7b89fc, canary = 3735928559, next = 0x3e8500
+call place_canary
+Canary placed at 0x7b89f4 with value 2119883006974175336
+RETURN MALLOC: bloc 0x3e84b0 bloc->addr 0x7b898e bloc->size 102
+
+
+CALL FREE PTR 0x7b8ff9
+Found metadata block 0x3e86e0 corresponding to ptr 0x7b8ff9
+Verifying canary
+Canary 7947552407156331951 verified
+Cleaning memory at 0x7b8ff9 of size 182 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b898e
+
+
+CALL MALLOC SIZE 195
+call get_allocated_heapmetadata_size
+return size 2200
+call get_allocated_heapdata_size
+return size 5176
+call lookup
+Found suitable free block 0x3e8820 pointing to 0x7b9430 of size 6914 bytes.
+call generate_canary
+return canary 3126918787710348230
+call split block 0x3e8820 pointing to 0x7b9430 of size 6914 bytes into 195 bytes and 6711 bytes.
+call get_allocated_heapmetadata_size
+return size 2200
+in split : selected empty new newbloc 0x3e8898 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8898 pointing to 0x7b94fb, size = 6711, flags = 0, addr = 0x7b94fb, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b94f3 with value 3126918787710348230
+RETURN MALLOC: bloc 0x3e8820 bloc->addr 0x7b9430 bloc->size 195
+
+
+CALL FREE PTR 0x7b823d
+Found metadata block 0x3e84d8 corresponding to ptr 0x7b823d
+Verifying canary
+Canary 55363877850473351 verified
+Cleaning memory at 0x7b823d of size 244 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b823d with next chunk at 0x7b8339
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL FREE PTR 0x7b8205
+Found metadata block 0x3e8488 corresponding to ptr 0x7b8205
+Verifying canary
+Canary 6218179309785109621 verified
+Cleaning memory at 0x7b8205 of size 48 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8205 with next chunk at 0x7b823d
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 175
+call get_allocated_heapmetadata_size
+return size 2240
+call get_allocated_heapdata_size
+return size 5379
+call lookup
+Found suitable free block 0x3e8488 pointing to 0x7b8205 of size 366 bytes.
+call generate_canary
+return canary 3844829333654458520
+call split block 0x3e8488 pointing to 0x7b8205 of size 366 bytes into 175 bytes and 183 bytes.
+call get_allocated_heapmetadata_size
+return size 2240
+in split : selected empty new newbloc 0x3e88c0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e88c0 pointing to 0x7b82bc, size = 183, flags = 0, addr = 0x7b82bc, canary = 3735928559, next = 0x3e80c8
+call place_canary
+Canary placed at 0x7b82b4 with value 3844829333654458520
+RETURN MALLOC: bloc 0x3e8488 bloc->addr 0x7b8205 bloc->size 175
+
+
+CALL FREE PTR 0x7b8091
+Found metadata block 0x3e8348 corresponding to ptr 0x7b8091
+Verifying canary
+Canary 5878540216490956002 verified
+Cleaning memory at 0x7b8091 of size 23 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8091 with next chunk at 0x7b80b0
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 191
+call get_allocated_heapmetadata_size
+return size 2280
+call get_allocated_heapdata_size
+return size 5379
+call lookup
+Found suitable free block 0x3e8898 pointing to 0x7b94fb of size 6711 bytes.
+call generate_canary
+return canary -3943539552221351346
+call split block 0x3e8898 pointing to 0x7b94fb of size 6711 bytes into 191 bytes and 6512 bytes.
+call get_allocated_heapmetadata_size
+return size 2280
+in split : selected empty new newbloc 0x3e88e8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e88e8 pointing to 0x7b95c2, size = 6512, flags = 0, addr = 0x7b95c2, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b95ba with value -3943539552221351346
+RETURN MALLOC: bloc 0x3e8898 bloc->addr 0x7b94fb bloc->size 191
+
+
+CALL REALLOC PTR 0x7b8205, SIZE 101
+Verifying canary
+Canary 3844829333654458520 verified
+
+
+CALL MALLOC SIZE 101
+call get_allocated_heapmetadata_size
+return size 2320
+call get_allocated_heapdata_size
+return size 5578
+call lookup
+Found suitable free block 0x3e88c0 pointing to 0x7b82bc of size 183 bytes.
+call generate_canary
+return canary 3553590820535404799
+call split block 0x3e88c0 pointing to 0x7b82bc of size 183 bytes into 101 bytes and 74 bytes.
+call get_allocated_heapmetadata_size
+return size 2320
+in split : selected empty new newbloc 0x3e8910 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8910 pointing to 0x7b8329, size = 74, flags = 0, addr = 0x7b8329, canary = 3735928559, next = 0x3e80c8
+call place_canary
+Canary placed at 0x7b8321 with value 3553590820535404799
+RETURN MALLOC: bloc 0x3e88c0 bloc->addr 0x7b82bc bloc->size 101
+
+
+CALL FREE PTR 0x7b8205
+Found metadata block 0x3e8488 corresponding to ptr 0x7b8205
+Verifying canary
+Canary 3844829333654458520 verified
+Cleaning memory at 0x7b8205 of size 175 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b82bc
+
+
+CALL MALLOC SIZE 73
+call get_allocated_heapmetadata_size
+return size 2360
+call get_allocated_heapdata_size
+return size 5578
+call lookup
+Found suitable free block 0x3e8348 pointing to 0x7b8091 of size 104 bytes.
+call generate_canary
+return canary 4795978898166897973
+call split block 0x3e8348 pointing to 0x7b8091 of size 104 bytes into 73 bytes and 23 bytes.
+call get_allocated_heapmetadata_size
+return size 2360
+in split : selected empty new newbloc 0x3e8938 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8938 pointing to 0x7b80e2, size = 23, flags = 0, addr = 0x7b80e2, canary = 3735928559, next = 0x3e8370
+call place_canary
+Canary placed at 0x7b80da with value 4795978898166897973
+RETURN MALLOC: bloc 0x3e8348 bloc->addr 0x7b8091 bloc->size 73
+
+
+CALL FREE PTR 0x7b9169
+Found metadata block 0x3e8780 corresponding to ptr 0x7b9169
+Verifying canary
+Canary 2250964711120729053 verified
+Cleaning memory at 0x7b9169 of size 256 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 186
+call get_allocated_heapmetadata_size
+return size 2400
+call get_allocated_heapdata_size
+return size 5578
+call lookup
+Found suitable free block 0x3e8780 pointing to 0x7b9169 of size 256 bytes.
+call generate_canary
+return canary -5881603483468495931
+call split block 0x3e8780 pointing to 0x7b9169 of size 256 bytes into 186 bytes and 62 bytes.
+call get_allocated_heapmetadata_size
+return size 2400
+in split : selected empty new newbloc 0x3e8960 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8960 pointing to 0x7b922b, size = 62, flags = 0, addr = 0x7b922b, canary = 3735928559, next = 0x3e87a8
+call place_canary
+Canary placed at 0x7b9223 with value -5881603483468495931
+RETURN MALLOC: bloc 0x3e8780 bloc->addr 0x7b9169 bloc->size 186
+
+
+CALL MALLOC SIZE 209
+call get_allocated_heapmetadata_size
+return size 2440
+call get_allocated_heapdata_size
+return size 5578
+call lookup
+Found suitable free block 0x3e88e8 pointing to 0x7b95c2 of size 6512 bytes.
+call generate_canary
+return canary 1587571749679939145
+call split block 0x3e88e8 pointing to 0x7b95c2 of size 6512 bytes into 209 bytes and 6295 bytes.
+call get_allocated_heapmetadata_size
+return size 2440
+in split : selected empty new newbloc 0x3e8988 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8988 pointing to 0x7b969b, size = 6295, flags = 0, addr = 0x7b969b, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b9693 with value 1587571749679939145
+RETURN MALLOC: bloc 0x3e88e8 bloc->addr 0x7b95c2 bloc->size 209
+
+
+CALL FREE PTR 0x7b8b78
+Found metadata block 0x3e8550 corresponding to ptr 0x7b8b78
+Verifying canary
+Canary -8779061893596588416 verified
+Cleaning memory at 0x7b8b78 of size 203 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 137
+call get_allocated_heapmetadata_size
+return size 2480
+call get_allocated_heapdata_size
+return size 5795
+call lookup
+Found suitable free block 0x3e8488 pointing to 0x7b8205 of size 175 bytes.
+call generate_canary
+return canary 2612266251358394815
+call split block 0x3e8488 pointing to 0x7b8205 of size 175 bytes into 137 bytes and 30 bytes.
+call get_allocated_heapmetadata_size
+return size 2480
+in split : selected empty new newbloc 0x3e89b0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e89b0 pointing to 0x7b8296, size = 30, flags = 0, addr = 0x7b8296, canary = 3735928559, next = 0x3e88c0
+call place_canary
+Canary placed at 0x7b828e with value 2612266251358394815
+RETURN MALLOC: bloc 0x3e8488 bloc->addr 0x7b8205 bloc->size 137
+
+
+CALL REALLOC PTR 0x7b90b7, SIZE 190
+Verifying canary
+Canary -3389220594581168399 verified
+
+
+CALL MALLOC SIZE 190
+call get_allocated_heapmetadata_size
+return size 2520
+call get_allocated_heapdata_size
+return size 5795
+call lookup
+Found suitable free block 0x3e8550 pointing to 0x7b8b78 of size 203 bytes.
+call generate_canary
+return canary -3692299880339846314
+call split block 0x3e8550 pointing to 0x7b8b78 of size 203 bytes into 190 bytes and 5 bytes.
+call get_allocated_heapmetadata_size
+return size 2520
+in split : selected empty new newbloc 0x3e89d8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e89d8 pointing to 0x7b8c3e, size = 5, flags = 0, addr = 0x7b8c3e, canary = 3735928559, next = 0x3e8578
+call place_canary
+Canary placed at 0x7b8c36 with value -3692299880339846314
+RETURN MALLOC: bloc 0x3e8550 bloc->addr 0x7b8b78 bloc->size 190
+
+
+CALL FREE PTR 0x7b90b7
+Found metadata block 0x3e8730 corresponding to ptr 0x7b90b7
+Verifying canary
+Canary -3389220594581168399 verified
+Cleaning memory at 0x7b90b7 of size 170 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8ff9 with next chunk at 0x7b90b7
+1 chunks merged
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b8b78
+
+
+CALL MALLOC SIZE 95
+call get_allocated_heapmetadata_size
+return size 2560
+call get_allocated_heapdata_size
+return size 5795
+call lookup
+Found suitable free block 0x3e86e0 pointing to 0x7b8ff9 of size 360 bytes.
+call generate_canary
+return canary 473357449965618256
+call split block 0x3e86e0 pointing to 0x7b8ff9 of size 360 bytes into 95 bytes and 257 bytes.
+call get_allocated_heapmetadata_size
+return size 2560
+in split : selected empty new newbloc 0x3e8a00 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8a00 pointing to 0x7b9060, size = 257, flags = 0, addr = 0x7b9060, canary = 3735928559, next = 0x3e8780
+call place_canary
+Canary placed at 0x7b9058 with value 473357449965618256
+RETURN MALLOC: bloc 0x3e86e0 bloc->addr 0x7b8ff9 bloc->size 95
+
+
+CALL MALLOC SIZE 87
+call get_allocated_heapmetadata_size
+return size 2600
+call get_allocated_heapdata_size
+return size 5795
+call lookup
+Found suitable free block 0x3e8a00 pointing to 0x7b9060 of size 257 bytes.
+call generate_canary
+return canary 5878122887878948199
+call split block 0x3e8a00 pointing to 0x7b9060 of size 257 bytes into 87 bytes and 162 bytes.
+call get_allocated_heapmetadata_size
+return size 2600
+in split : selected empty new newbloc 0x3e8a28 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8a28 pointing to 0x7b90bf, size = 162, flags = 0, addr = 0x7b90bf, canary = 3735928559, next = 0x3e8780
+call place_canary
+Canary placed at 0x7b90b7 with value 5878122887878948199
+RETURN MALLOC: bloc 0x3e8a00 bloc->addr 0x7b9060 bloc->size 87
+
+
+CALL REALLOC PTR 0x7b8101, SIZE 228
+Verifying canary
+Canary -5234574332587112783 verified
+
+
+CALL MALLOC SIZE 228
+call get_allocated_heapmetadata_size
+return size 2640
+call get_allocated_heapdata_size
+return size 5795
+call lookup
+Found suitable free block 0x3e8988 pointing to 0x7b969b of size 6295 bytes.
+call generate_canary
+return canary 5632267807110758157
+call split block 0x3e8988 pointing to 0x7b969b of size 6295 bytes into 228 bytes and 6059 bytes.
+call get_allocated_heapmetadata_size
+return size 2640
+in split : selected empty new newbloc 0x3e8a50 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8a50 pointing to 0x7b9787, size = 6059, flags = 0, addr = 0x7b9787, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b977f with value 5632267807110758157
+RETURN MALLOC: bloc 0x3e8988 bloc->addr 0x7b969b bloc->size 228
+
+
+CALL FREE PTR 0x7b8101
+Found metadata block 0x3e8370 corresponding to ptr 0x7b8101
+Verifying canary
+Canary -5234574332587112783 verified
+Cleaning memory at 0x7b8101 of size 36 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b80e2 with next chunk at 0x7b8101
+Merging chunk at 0x7b80e2 with next chunk at 0x7b812d
+2 chunks merged
+return merge chunk
+RETURN FREE
+RETURN REALLOC : 0x7b969b
+
+
+CALL MALLOC SIZE 210
+call get_allocated_heapmetadata_size
+return size 2680
+call get_allocated_heapdata_size
+return size 6031
+call lookup
+Found suitable free block 0x3e8a50 pointing to 0x7b9787 of size 6059 bytes.
+call generate_canary
+return canary -4725438986130445362
+call split block 0x3e8a50 pointing to 0x7b9787 of size 6059 bytes into 210 bytes and 5841 bytes.
+call get_allocated_heapmetadata_size
+return size 2680
+in split : selected empty new newbloc 0x3e8a78 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8a78 pointing to 0x7b9861, size = 5841, flags = 0, addr = 0x7b9861, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b9859 with value -4725438986130445362
+RETURN MALLOC: bloc 0x3e8a50 bloc->addr 0x7b9787 bloc->size 210
+
+
+CALL MALLOC SIZE 228
+call get_allocated_heapmetadata_size
+return size 2720
+call get_allocated_heapdata_size
+return size 6249
+call lookup
+Found suitable free block 0x3e8a78 pointing to 0x7b9861 of size 5841 bytes.
+call generate_canary
+return canary 7773828638560455712
+call split block 0x3e8a78 pointing to 0x7b9861 of size 5841 bytes into 228 bytes and 5605 bytes.
+call get_allocated_heapmetadata_size
+return size 2720
+in split : selected empty new newbloc 0x3e8aa0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8aa0 pointing to 0x7b994d, size = 5605, flags = 0, addr = 0x7b994d, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b9945 with value 7773828638560455712
+RETURN MALLOC: bloc 0x3e8a78 bloc->addr 0x7b9861 bloc->size 228
+
+
+CALL MALLOC SIZE 53
+call get_allocated_heapmetadata_size
+return size 2760
+call get_allocated_heapdata_size
+return size 6485
+call lookup
+Found suitable free block 0x3e8938 pointing to 0x7b80e2 of size 79 bytes.
+call generate_canary
+return canary -1457645688507833080
+call split block 0x3e8938 pointing to 0x7b80e2 of size 79 bytes into 53 bytes and 18 bytes.
+call get_allocated_heapmetadata_size
+return size 2760
+in split : selected empty new newbloc 0x3e8ac8 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8ac8 pointing to 0x7b811f, size = 18, flags = 0, addr = 0x7b811f, canary = 3735928559, next = 0x3e8190
+call place_canary
+Canary placed at 0x7b8117 with value -1457645688507833080
+RETURN MALLOC: bloc 0x3e8938 bloc->addr 0x7b80e2 bloc->size 53
+
+
+CALL MALLOC SIZE 66
+call get_allocated_heapmetadata_size
+return size 2800
+call get_allocated_heapdata_size
+return size 6485
+call lookup
+Found suitable free block 0x3e8910 pointing to 0x7b8329 of size 74 bytes.
+call generate_canary
+return canary 620479310277040731
+call split block 0x3e8910 pointing to 0x7b8329 of size 74 bytes into 66 bytes and 0 bytes.
+call get_allocated_heapmetadata_size
+return size 2800
+in split : selected empty new newbloc 0x3e8af0 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8af0 pointing to 0x7b8373, size = 0, flags = 0, addr = 0x7b8373, canary = 3735928559, next = 0x3e80c8
+call place_canary
+Canary placed at 0x7b836b with value 620479310277040731
+RETURN MALLOC: bloc 0x3e8910 bloc->addr 0x7b8329 bloc->size 66
+
+
+CALL FREE PTR 0x7b9271
+Found metadata block 0x3e87a8 corresponding to ptr 0x7b9271
+Verifying canary
+Canary 2723519127606448227 verified
+Cleaning memory at 0x7b9271 of size 202 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b922b with next chunk at 0x7b9271
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 68
+call get_allocated_heapmetadata_size
+return size 2800
+call get_allocated_heapdata_size
+return size 6485
+call lookup
+Found suitable free block 0x3e8a28 pointing to 0x7b90bf of size 162 bytes.
+call generate_canary
+return canary -8626214831513147759
+call split block 0x3e8a28 pointing to 0x7b90bf of size 162 bytes into 68 bytes and 86 bytes.
+call get_allocated_heapmetadata_size
+return size 2800
+in split : selected empty new newbloc 0x3e8af0 pointing to 0x7b8373, size = 0, flags = 0
+end split : newbloc 0x3e8af0 pointing to 0x7b910b, size = 86, flags = 0, addr = 0x7b910b, canary = 3735928559, next = 0x3e8780
+call place_canary
+Canary placed at 0x7b9103 with value -8626214831513147759
+RETURN MALLOC: bloc 0x3e8a28 bloc->addr 0x7b90bf bloc->size 68
+
+
+CALL FREE PTR 0x7b8000
+Found metadata block 0x3e8000 corresponding to ptr 0x7b8000
+Verifying canary
+Canary -7974014614669787946 verified
+Cleaning memory at 0x7b8000 of size 15 bytes
+Memory cleaned
+Call merge chunks
+return merge chunk
+RETURN FREE
+
+
+CALL MALLOC SIZE 151
+call get_allocated_heapmetadata_size
+return size 2840
+call get_allocated_heapdata_size
+return size 3005
+call lookup
+Found suitable free block 0x3e8960 pointing to 0x7b922b of size 272 bytes.
+call generate_canary
+return canary 8927175294127671973
+call split block 0x3e8960 pointing to 0x7b922b of size 272 bytes into 151 bytes and 113 bytes.
+call get_allocated_heapmetadata_size
+return size 2840
+in split : selected empty new newbloc 0x3e8b18 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8b18 pointing to 0x7b92ca, size = 113, flags = 0, addr = 0x7b92ca, canary = 3735928559, next = 0x3e87f8
+call place_canary
+Canary placed at 0x7b92c2 with value 8927175294127671973
+RETURN MALLOC: bloc 0x3e8960 bloc->addr 0x7b922b bloc->size 151
+
+
+CALL MALLOC SIZE 97
+call get_allocated_heapmetadata_size
+return size 2880
+call get_allocated_heapdata_size
+return size 3005
+call lookup
+Found suitable free block 0x3e8b18 pointing to 0x7b92ca of size 113 bytes.
+call generate_canary
+return canary 3882420025810248793
+call split block 0x3e8b18 pointing to 0x7b92ca of size 113 bytes into 97 bytes and 8 bytes.
+call get_allocated_heapmetadata_size
+return size 2880
+in split : selected empty new newbloc 0x3e8b40 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8b40 pointing to 0x7b9333, size = 8, flags = 0, addr = 0x7b9333, canary = 3735928559, next = 0x3e87f8
+call place_canary
+Canary placed at 0x7b932b with value 3882420025810248793
+RETURN MALLOC: bloc 0x3e8b18 bloc->addr 0x7b92ca bloc->size 97
+
+
+CALL MALLOC SIZE 227
+call get_allocated_heapmetadata_size
+return size 2920
+call get_allocated_heapdata_size
+return size 3005
+call lookup
+Found suitable free block 0x3e8aa0 pointing to 0x7b994d of size 5605 bytes.
+call generate_canary
+return canary -8196846521059826507
+call split block 0x3e8aa0 pointing to 0x7b994d of size 5605 bytes into 227 bytes and 5370 bytes.
+call get_allocated_heapmetadata_size
+return size 2920
+in split : selected empty new newbloc 0x3e8b68 pointing to (nil), size = 0, flags = 0
+end split : newbloc 0x3e8b68 pointing to 0x7b9a38, size = 5370, flags = 0, addr = 0x7b9a38, canary = 3735928559, next = (nil)
+call place_canary
+Canary placed at 0x7b9a30 with value -8196846521059826507
+RETURN MALLOC: bloc 0x3e8aa0 bloc->addr 0x7b994d bloc->size 227
+
+
+CALL FREE PTR 0x7b8067
+Found metadata block 0x3e8320 corresponding to ptr 0x7b8067
+Verifying canary
+Canary -4991790831939531685 verified
+Cleaning memory at 0x7b8067 of size 34 bytes
+Memory cleaned
+Call merge chunks
+Merging chunk at 0x7b8042 with next chunk at 0x7b8067
+1 chunks merged
+return merge chunk
+RETURN FREE
+
+
+CALL REALLOC PTR 0x7b8d48, SIZE 172
+Error: Invalid pointer to realloc: not in the heap
