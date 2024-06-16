@@ -36,24 +36,24 @@ int my_log_message(const char *format, ...)
 
     // Determine the required buffer size for the formatted string
     va_copy(args_copy, args);
-    size_t size = vsnprintf(NULL, 0, format, args_copy) + 1; // +1 for the null terminator
+    size_t    size = vsnprintf(NULL, 0, format, args_copy) + 1; // +1 for the null terminator
     va_end(args_copy);
 
     // Allocate buffer on the stack
-    char *buffer = (char *)alloca(size);
+    char    *buffer = (char *)alloca(size);
 
     // Write formatted data to the buffer
     vsnprintf(buffer, size, format, args);
     va_end(args);
 
     // Open log file with appropriate flags and permissions
-	int fd = open(getenv("MSM_OUTPUT"), O_CREAT | O_APPEND | O_WRONLY, 0600); // 600 - rw for owner
+	int    fd = open(getenv("MSM_OUTPUT"), O_CREAT | O_APPEND | O_WRONLY, 0600); // 600 - rw for owner
     if (fd == -1) {
         return -1;
     }
 
     // Write log message to log file
-    int ret = write(fd, buffer, strlen(buffer));
+    int    ret = write(fd, buffer, strlen(buffer));
     close(fd);
 
     return ret == -1 ? -1 : 0;

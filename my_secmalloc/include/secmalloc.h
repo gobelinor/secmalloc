@@ -20,7 +20,7 @@
  * @param size The size of the memory block to allocate.
  * @return void* A pointer to the allocated memory, or NULL if the allocation fails.
  */
-void* my_malloc(size_t size);
+void    *my_malloc(size_t size);
 
 /**
  * @brief Frees allocated memory.
@@ -29,7 +29,7 @@ void* my_malloc(size_t size);
  *
  * @param ptr A pointer to the memory block to free.
  */
-void my_free(void* ptr);
+void    my_free(void* ptr);
 
 /**
  * @brief Allocates memory for an array securely.
@@ -40,7 +40,7 @@ void my_free(void* ptr);
  * @param size The size of each element.
  * @return void* A pointer to the allocated memory, or NULL if the allocation fails.
  */
-void* my_calloc(size_t nmemb, size_t size);
+void    *my_calloc(size_t nmemb, size_t size);
 
 /**
  * @brief Reallocates memory securely.
@@ -51,7 +51,7 @@ void* my_calloc(size_t nmemb, size_t size);
  * @param size The new size of the memory block.
  * @return void* A pointer to the reallocated memory, or NULL if the reallocation fails.
  */
-void* my_realloc(void* ptr, size_t size);
+void    *my_realloc(void* ptr, size_t size);
 
 /**
  * @brief Allocates memory.
@@ -61,7 +61,7 @@ void* my_realloc(void* ptr, size_t size);
  * @param size The size of the memory block to allocate.
  * @return void* A pointer to the allocated memory, or NULL if the allocation fails.
  */
-void* malloc(size_t size);
+void    *malloc(size_t size);
 
 /**
  * @brief Frees allocated memory.
@@ -70,7 +70,7 @@ void* malloc(size_t size);
  *
  * @param ptr A pointer to the memory block to free.
  */
-void free(void* ptr);
+void    free(void* ptr);
 
 /**
  * @brief Allocates memory for an array.
@@ -81,7 +81,7 @@ void free(void* ptr);
  * @param size The size of each element.
  * @return void* A pointer to the allocated memory, or NULL if the allocation fails.
  */
-void* calloc(size_t nmemb, size_t size);
+void    *calloc(size_t nmemb, size_t size);
 
 /**
  * @brief Reallocates memory.
@@ -92,6 +92,6 @@ void* calloc(size_t nmemb, size_t size);
  * @param size The new size of the memory block.
  * @return void* A pointer to the reallocated memory, or NULL if the reallocation fails.
  */
-void* realloc(void* ptr, size_t size);
+void    *realloc(void* ptr, size_t size);
 
 #endif // SECMALLOC_H

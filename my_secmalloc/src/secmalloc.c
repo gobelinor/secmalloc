@@ -18,10 +18,10 @@
 #include "log.h"
 
 // Global variables
-void *heapdata = NULL; // Pointer to the heap data
-struct chunkmetadata *heapmetadata = NULL; // Pointer to the heap metadata
-size_t heapdata_size = PAGE_HEAP_SIZE; // Current size of the heap data, will increase as needed
-size_t heapmetadata_size = PAGE_HEAP_SIZE; // Current size of the heap metadata, will increase as needed
+void                    *heapdata = NULL; // Pointer to the heap data
+struct chunkmetadata    *heapmetadata = NULL; // Pointer to the heap metadata
+size_t                  heapdata_size = PAGE_HEAP_SIZE; // Current size of the heap data, will increase as needed
+size_t                  heapmetadata_size = PAGE_HEAP_SIZE; // Current size of the heap metadata, will increase as needed
 
 /**
  * @brief Initialize heap data.
@@ -92,8 +92,8 @@ struct chunkmetadata* my_init_heapmetadata()
 long my_generate_canary()
 {
     my_log_message("call generate_canary\n");
-    long canary = 0;
-    int fd = open("/dev/urandom", O_RDONLY);
+    long    canary = 0;
+    int     fd = open("/dev/urandom", O_RDONLY);
 
     // Check if opening /dev/urandom was successful
     if (fd == -1)
@@ -104,7 +104,7 @@ long my_generate_canary()
     }
 
     // Read random data into the canary variable
-    ssize_t result = read(fd, &canary, sizeof(long));
+    ssize_t    result = read(fd, &canary, sizeof(long));
     if (result == -1)
     {
         perror("read");
@@ -134,8 +134,8 @@ long my_generate_canary()
 size_t my_get_allocated_heapmetadata_size()
 {
     my_log_message("call get_allocated_heapmetadata_size\n");
-    size_t size = 0;
-    void *item = heapmetadata;
+    size_t    size = 0;
+    void      *item = heapmetadata;
 
     while (((struct chunkmetadata*)item)->size != 0)
     {
@@ -157,8 +157,8 @@ size_t my_get_allocated_heapmetadata_size()
 size_t my_get_allocated_heapdata_size()
 {
     my_log_message("call get_allocated_heapdata_size\n");
-    struct chunkmetadata *last_item = NULL;
-    size_t size = 0;
+    struct chunkmetadata    *last_item = NULL;
+    size_t                  size = 0;
 
     for (struct chunkmetadata *item = heapmetadata; item != NULL; item = item->next)
     {
@@ -185,7 +185,7 @@ size_t my_get_allocated_heapdata_size()
 struct chunkmetadata* my_lastmetadata()
 {
     my_log_message("call lastmetadata\n");
-    struct chunkmetadata *item = heapmetadata;
+    struct chunkmetadata    *item = heapmetadata;
 
     while (item->next != NULL)
     {
@@ -211,13 +211,13 @@ void my_resizeheapmetadata()
         return;
     }
 
-    void *old_heapmetadata = heapmetadata;
+    void    *old_heapmetadata = heapmetadata;
 
     // Calculate the new size of the heap metadata
-    size_t new_size = heapmetadata_size + PAGE_HEAP_SIZE;
+    size_t    new_size = heapmetadata_size + PAGE_HEAP_SIZE;
 
     // Attempt to resize the heap metadata using mremap
-    void *new_heapmetadata = mremap(heapmetadata, heapmetadata_size, new_size, MREMAP_MAYMOVE);
+    void    *new_heapmetadata = mremap(heapmetadata, heapmetadata_size, new_size, MREMAP_MAYMOVE);
 
     // Check if the remapping was successful
     if (new_heapmetadata == MAP_FAILED) {
@@ -257,9 +257,9 @@ void my_resizeheapdata(size_t new_size)
         return;
     }
 
-    void *old_heapdata = heapdata;
+    void    *old_heapdata = heapdata;
     // Attempt to resize the heap data using mremap
-    void *new_heapdata = mremap(heapdata, heapdata_size, new_size, MREMAP_MAYMOVE);
+    void    *new_heapdata = mremap(heapdata, heapdata_size, new_size, MREMAP_MAYMOVE);
 
     if (old_heapdata != new_heapdata){
         my_log_message("Error: old_heapdata != new_heapdata\n");
@@ -279,7 +279,7 @@ void my_resizeheapdata(size_t new_size)
     heapdata_size = new_size;
 
     // Get the last metadata block
-    struct chunkmetadata *last = my_lastmetadata();
+    struct chunkmetadata    *last = my_lastmetadata();
     if (last != NULL)
     {
         last->size = new_size;
@@ -343,7 +343,7 @@ void my_split(struct chunkmetadata *bloc, size_t size, long canary)
         return;
     }
     // Create new metadata block for the second part
-    struct chunkmetadata *newbloc = (struct chunkmetadata*) ((size_t)heapmetadata + my_get_allocated_heapmetadata_size());
+    struct chunkmetadata    *newbloc = (struct chunkmetadata*) ((size_t)heapmetadata + my_get_allocated_heapmetadata_size());
     my_log_message("in split : selected empty new newbloc %p pointing to %p, size = %zu, flags = %d\n", newbloc, newbloc->addr, newbloc->size, newbloc->flags);
 
     // Set metadata for the new block
@@ -439,32 +439,32 @@ void* my_malloc(size_t size)
     }
 
     // Get the total size of allocated heap metadata and resize if needed
-    size_t allocated_heapmetadata_size = my_get_allocated_heapmetadata_size();
+    size_t    allocated_heapmetadata_size = my_get_allocated_heapmetadata_size();
     if (PAGE_HEAP_SIZE - allocated_heapmetadata_size % PAGE_HEAP_SIZE < sizeof(struct chunkmetadata))
     {
         my_resizeheapmetadata();
     }
 
     // Get the total size of allocated data heap and resize if needed
-    size_t allocated_heapdata_size = my_get_allocated_heapdata_size();
-    size_t needed_size = size + sizeof(long);
-    size_t available_size = heapdata_size - allocated_heapdata_size;
+    size_t    allocated_heapdata_size = my_get_allocated_heapdata_size();
+    size_t    needed_size = size + sizeof(long);
+    size_t    available_size = heapdata_size - allocated_heapdata_size;
     if (available_size < needed_size)
     {
-        size_t new_size = allocated_heapdata_size + needed_size;
+        size_t    new_size = allocated_heapdata_size + needed_size;
         new_size = ((new_size / PAGE_HEAP_SIZE) + ((new_size % PAGE_HEAP_SIZE != 0) ? 1 : 0)) * PAGE_HEAP_SIZE;
         my_resizeheapdata(new_size);
     }
 
     // Look up a free block with large enough size
-    struct chunkmetadata *bloc = my_lookup(size);
+    struct chunkmetadata    *bloc = my_lookup(size);
     if (bloc == NULL)
     {
         return NULL; // No suitable block found
     }
 
     // Generate a canary
-    long canary = my_generate_canary();
+    long    canary = my_generate_canary();
     if (canary == -1)
     {
         return NULL; // Canary generation failed
@@ -494,10 +494,10 @@ int my_verify_canary(struct chunkmetadata *item)
     my_log_message("Verifying canary\n");
 
     // Calculate the expected canary value
-    long expected_canary = item->canary;
+    long    expected_canary = item->canary;
 
     // Locate the canary at the end of the block
-    long *canary = (long*)((size_t)item->addr + item->size);
+    long    *canary = (long*)((size_t)item->addr + item->size);
 
     // Verify if the canary matches the expected value
     if (*canary != expected_canary)
@@ -537,15 +537,15 @@ void my_merge_chunks()
     my_log_message("Call merge chunks\n");
 
     // Iterate over the heapmetadata to merge free chunks
-    struct chunkmetadata *item = heapmetadata;
+    struct chunkmetadata    *item = heapmetadata;
     while (item != NULL)
     {
         // If the chunk is free, attempt to merge it with the next free chunks
         if (item->flags == FREE)
         {
-            struct chunkmetadata *end = item->next;
-            size_t new_size = item->size;
-            int count = 0;
+            struct chunkmetadata    *end = item->next;
+            size_t                  new_size = item->size;
+            int                     count = 0;
 
             // Merge consecutive free chunks
             while (end != NULL && end->flags == FREE)
@@ -679,10 +679,10 @@ void* my_calloc(size_t nmemb, size_t size)
     }
 
     // Calculate the total size for allocation
-    size_t total_size = nmemb * size;
+    size_t    total_size = nmemb * size;
 
     // Allocate memory
-    void *ptr = my_malloc(total_size);
+    void    *ptr = my_malloc(total_size);
 
     // If allocation failed, return NULL
     if (ptr == NULL)
@@ -778,7 +778,7 @@ void *my_realloc(void *ptr, size_t size)
 
 void *malloc(size_t size)
 {
-    void *ptr = my_malloc(size);
+    void    *ptr = my_malloc(size);
     return ptr;
 }
 
@@ -789,13 +789,13 @@ void free(void *ptr)
 
 void *calloc(size_t nmemb, size_t size)
 {
-    void *ptr = my_calloc(nmemb, size);
+    void    *ptr = my_calloc(nmemb, size);
     return ptr;
 }
 
 void *realloc(void *ptr, size_t size)
 {
-    void *new_ptr = my_realloc(ptr, size);
+    void    *new_ptr = my_realloc(ptr, size);
     return new_ptr;
 }
 

@@ -20,6 +20,6 @@
  * @param ... Additional arguments for the format string.
  * @return int Return 0 on success, or a negative error code on failure.
  */
-int my_log_message(const char *format, ...);
+int    my_log_message(const char *format, ...);
 
 #endif // LOG_H
