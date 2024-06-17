@@ -310,7 +310,7 @@ struct chunkmetadata* my_lookup(size_t size)
         return NULL;
     }
 
-    // Traverse the linked list of chunkmetadata to find a suitable free block
+    // Traverse the  linked list of chunkmetadata to find a suitable free block
     for (struct chunkmetadata *item = heapmetadata; item != NULL; item = item->next)
     {
         // Check if the current block is free and has enough size
@@ -707,9 +707,10 @@ void* my_calloc(size_t nmemb, size_t size)
  * @param size The new size of the memory block.
  * @return void* A pointer to the reallocated memory, or NULL if the reallocation fails.
  */
-void *my_realloc(void *ptr, size_t size)
+
+void* my_realloc(void *ptr, size_t size)
 {
-    my_log_message("\n\nCALL REALLOC PTR %p, SIZE %zu\n", ptr, size);
+    my_log_message("\n\nCALL REALLOC ptr %p, size %zu\n", ptr, size);
 
     // Check if the heap data is initialized
     if (heapdata == NULL)
@@ -723,56 +724,91 @@ void *my_realloc(void *ptr, size_t size)
         my_init_heapmetadata();
     }
 
-    // If ptr is NULL, equivalent to malloc
+    // Malloc equivalent
     if (ptr == NULL)
     {
         return my_malloc(size);
     }
 
-    // If size is 0, equivalent to free
+    // Free equivalent
     if (size == 0)
     {
         my_free(ptr);
-        return NULL;
+        return  NULL;
     }
 
-    // Find the metadata block corresponding to ptr
     for (struct chunkmetadata *item = heapmetadata; item != NULL; item = item->next)
     {
         if (item->addr == ptr)
         {
-            // Verify the canary value to detect buffer overflows
+            // Buffer overflow
             if (my_verify_canary(item) == -1)
             {
-                my_log_message("Error: Realloc Canary verification failed: Buffer overflow detected\n");
+                my_log_message("Error: Canary verification failed : Buffer overflow detected\n");
             }
 
-            // Allocate new memory of the specified size
+            // Locate the canary at the end of the block
+            long    canary = *(long*)((size_t)item->addr + item->size);
+
+            // if < size realloc with taille plus petite
+            if (size < item->size)
+            {
+                // Split l'item
+                my_split(item, size, canary);
+
+                // Place the canary at the end of the block data in heapdata
+                my_place_canary(item, canary);
+
+                return item->addr;
+            }
+
+            // if > size realloc with taille plus grande
+            if (size > item->size)
+            {
+                // If free
+                if (item->next->flags == FREE)
+                {
+                    if ((item->size + item->next->size) > size)
+                    {
+
+                        // old addr + la difference de la new size et de l'ancienne
+                        //item->next->addr = (void*)((size_t)item->next->addr + (size - item->size));
+                        item->next->addr = (void*)((size_t)item->addr + size + sizeof(long));
+                        item->next->size = item->next->size - (size - item->size);
+                        // Set metadata for the new itemlong
+                        item->size = size;
+
+                        // Place the canary at the end of the block data in heapdata
+                        my_place_canary(item, canary);
+
+                        return item->addr;
+
+                    }
+                }
+
+            }
+
             void *new_ptr = my_malloc(size);
 
-            // If allocation failed, return NULL
             if (new_ptr == NULL)
             {
                 return NULL;
             }
 
-            // Copy data from the old memory to the new memory
-            size_t copy_size = (item->size < size) ? item->size : size;
-            memcpy(new_ptr, ptr, copy_size);
+            memcpy(new_ptr, ptr, size);
 
-            // Free the old memory
             my_free(ptr);
 
-            // Return the new pointer
-            my_log_message("RETURN REALLOC : %p\n", new_ptr);
+            my_log_message("RETURN REALLOC : %p\n", new_ptr);;
             return new_ptr;
+
         }
     }
 
-    // If ptr is not in the heap, log an error
-    my_log_message("Error: Invalid pointer to realloc: not in the heap\n");
+    my_log_message("ERROR : invalid pointer to realloc : not in the heap\n");
     return NULL;
 }
+
 
 #if DYNAMIC
 
