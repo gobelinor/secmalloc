@@ -758,8 +758,6 @@ Test(simple, my_realloc_07)
 	my_free(ptr3);
 	void *ptr5 = my_realloc(ptr, 1500);
 	cr_assert(ptr == ptr5);
-	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
-	printf("((struct chunkmetadata*)ptr4)->addr) = %p\n", ((struct chunkmetadata*)ptr4)->addr);
-	cr_assert(heapmetadata->next->next->addr == ((struct chunkmetadata*)ptr4)->addr);
+	cr_assert(heapmetadata->next->next->addr == ptr4);
 }
 /* ***** End of simples tests realloc ***** */
