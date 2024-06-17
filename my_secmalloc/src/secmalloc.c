@@ -756,47 +756,59 @@ void* my_realloc(void *ptr, size_t size)
 			}
 
             // Locate the canary at the end of the block
-            long    canary = *(long*)((size_t)item->addr + item->size);
-
-            // if < size realloc with taille plus petite
-            if (size < item->size)
-            {
-                // Split l'item
-                my_split(item, size, canary);
-				
-                // Place the canary at the end of the block data in heapdata
-                my_place_canary(item, canary);
-				
+            /* long    canary = *(long*)((size_t)item->addr + item->size); */
+			long canary = item->canary;
+			
+	
+			if ((size < item->size) || ((size < item->size + item->next->size + sizeof(long)) && item->next->flags == FREE))
+			{
+				item->flags = FREE;
 				my_merge_chunks();
-
-				my_log_message("RETURN REALLOC : %p\n", item->addr);
-                return item->addr;
-            }
-
-            // if > size realloc with taille plus grande
-            if (size > item->size)
-            {
-                // If free
-                if (item->next->flags == FREE)
-                {
-                    if (size < item->size + item->next->size)
-                    {
-
-						// set metadata for the next item
-						item->next->addr = (void*)((size_t)item->addr + size + sizeof(long)); 
-                        item->next->size = item->next->size + item->size - size;
-
-						// Set metadata for the new item
-                        item->size = size;
-
-                        // Place the canary at the end of the block data in heapdata
-                        my_place_canary(item, canary);
-
-						my_log_message("RETURN REALLOC : %p\n", item->addr);
-                        return item->addr;
-                    }
-                }
-            }
+				my_split(item, size, canary);
+				my_log_message("RETURN REALLOC : %p\n", ptr);	
+				return item->addr;
+			}
+			
+            /*  */
+            /* // if < size realloc with taille plus petite */
+            /* if (size < item->size) */
+            /* { */
+            /*     // Split l'item */
+            /*     my_split(item, size, canary); */
+			/* 	 */
+            /*     // Place the canary at the end of the block data in heapdata */
+            /*     my_place_canary(item, canary); */
+			/* 	 */
+			/* 	my_merge_chunks(); */
+            /*  */
+			/* 	my_log_message("RETURN REALLOC : %p\n", item->addr); */
+            /*     return item->addr; */
+            /* } */
+            /*  */
+            /* // if > size realloc with taille plus grande */
+            /* if (size > item->size) */
+            /* { */
+            /*     // If free */
+            /*     if (item->next->flags == FREE) */
+            /*     { */
+            /*         if (size < item->size + item->next->size) */
+            /*         { */
+            /*  */
+			/* 			// set metadata for the next item */
+			/* 			item->next->addr = (void*)((size_t)item->addr + size + sizeof(long));  */
+            /*             item->next->size = item->next->size + item->size - size; */
+            /*  */
+			/* 			// Set metadata for the new item */
+            /*             item->size = size; */
+            /*  */
+            /*             // Place the canary at the end of the block data in heapdata */
+            /*             my_place_canary(item, canary); */
+            /*  */
+			/* 			my_log_message("RETURN REALLOC : %p\n", item->addr); */
+            /*             return item->addr; */
+            /*         } */
+            /*     } */
+            /* } */
 
             void *new_ptr = my_malloc(size);
 
