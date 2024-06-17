@@ -748,4 +748,18 @@ Test(simple, my_realloc_06)
 	cr_assert(heapmetadata->next->flags == FREE);
 }
 
+Test(simple, my_realloc_07)
+{
+	void *ptr = my_malloc(1000);
+	void *ptr2 = my_malloc(1000);
+	void *ptr3 = my_malloc(1000);
+	void *ptr4 = my_malloc(1000);
+	my_free(ptr2);
+	my_free(ptr3);
+	void *ptr5 = my_realloc(ptr, 1500);
+	cr_assert(ptr == ptr5);
+	printf("heapmetadata->next->addr = %p\n", heapmetadata->next->addr);
+	printf("((struct chunkmetadata*)ptr4)->addr) = %p\n", ((struct chunkmetadata*)ptr4)->addr);
+	cr_assert(heapmetadata->next->next->addr == ((struct chunkmetadata*)ptr4)->addr);
+}
 /* ***** End of simples tests realloc ***** */
