@@ -742,6 +742,7 @@ void* my_realloc(void *ptr, size_t size)
     {
         if (item->addr == ptr)
         {
+			my_log_message("Found metadata block %p corresponding to ptr %p\n", item, ptr);
             // Buffer overflow
             if (my_verify_canary(item) == -1)
             {
@@ -778,12 +779,12 @@ void* my_realloc(void *ptr, size_t size)
                 // If free
                 if (item->next->flags == FREE)
                 {
-                    if ((item->size + item->next->size) > size)
+                    if (size < item->size + item->next->size + sizeof(long))
                     {
 
 						// set metadata for the next item
 						item->next->addr = (void*)((size_t)item->addr + size + sizeof(long)); 
-                        item->next->size = item->next->size + item->size + 2*sizeof(long) - size;
+                        item->next->size = item->next->size + item->size - size;
 
 						// Set metadata for the new item
                         item->size = size;
@@ -793,10 +794,8 @@ void* my_realloc(void *ptr, size_t size)
 
 						my_log_message("RETURN REALLOC : %p\n", item->addr);
                         return item->addr;
-
                     }
                 }
-
             }
 
             void *new_ptr = my_malloc(size);
@@ -807,15 +806,12 @@ void* my_realloc(void *ptr, size_t size)
             }
 
             memcpy(new_ptr, ptr, size);
-
             my_free(ptr);
 
             my_log_message("RETURN REALLOC : %p\n", new_ptr);;
             return new_ptr;
-
         }
     }
-
     my_log_message("Error : invalid pointer to realloc : not in the heap\n");
     return NULL;
 }

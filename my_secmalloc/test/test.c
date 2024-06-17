@@ -718,4 +718,34 @@ Test(simple, my_realloc_05)
 	cr_assert(ptr2 != NULL);
 }
 
+Test(simple, my_realloc_06)
+{
+	void    *ptr = my_malloc(1000);
+	void 	*ptr2 = my_malloc(1000);
+	void 	*ptr3 = my_malloc(1000);
+
+	cr_assert(ptr != NULL);
+	cr_assert(ptr2 != NULL);
+	cr_assert(ptr3 != NULL);
+	/* printf("(size_t)heapmetadata->next->addr = %ld\n", (size_t)heapmetadata->next->addr);  */
+	/* printf("(size_t)heapmetadata + 1000+sizeof(long) = %ld\n", (size_t)heapmetadata->addr + 1000+sizeof(long)); */
+	cr_assert((size_t)heapmetadata->next->addr == (size_t)heapmetadata->addr + 1000+sizeof(long));
+	my_free(ptr2);
+
+	void 	*ptr4 = my_realloc(ptr, 1500);
+	
+	cr_assert(ptr == ptr4);
+	cr_assert(heapmetadata->size == 1500);
+
+	printf("heapmetadata->next->size = %ld\n", heapmetadata->next->size);
+	size_t global_size = (1000+sizeof(long))*3;
+	size_t actual_size = heapmetadata->size + sizeof(long) + heapmetadata->next->size + sizeof(long) + heapmetadata->next->next->size + sizeof(long);
+	printf("global_size = %ld\n", global_size);
+	printf("actual_size = %ld\n", actual_size);
+	cr_assert((void*)heapmetadata->next->addr == (void*)((size_t)heapmetadata->addr + 1500 + sizeof(long)));
+	cr_assert(global_size == actual_size);
+	cr_assert(heapmetadata->next->size == 500);
+	cr_assert(heapmetadata->next->flags == FREE);
+}
+
 /* ***** End of simples tests realloc ***** */
