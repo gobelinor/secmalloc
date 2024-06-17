@@ -779,7 +779,7 @@ void* my_realloc(void *ptr, size_t size)
                 // If free
                 if (item->next->flags == FREE)
                 {
-                    if (size < item->size + item->next->size + sizeof(long))
+                    if (size < item->size + item->next->size)
                     {
 
 						// set metadata for the next item
