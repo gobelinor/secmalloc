@@ -736,6 +736,7 @@ void* my_realloc(void *ptr, size_t size)
         my_free(ptr);
         return  NULL;
     }
+	
 
     for (struct chunkmetadata *item = heapmetadata; item != NULL; item = item->next)
     {
@@ -747,6 +748,12 @@ void* my_realloc(void *ptr, size_t size)
                 my_log_message("Error: Canary verification failed : Buffer overflow detected\n");
             }
 
+			if (size == item->size)
+			{
+				my_log_message("RETURN REALLOC : %p\n", ptr);	
+				return ptr;
+			}
+
             // Locate the canary at the end of the block
             long    canary = *(long*)((size_t)item->addr + item->size);
 
@@ -755,10 +762,13 @@ void* my_realloc(void *ptr, size_t size)
             {
                 // Split l'item
                 my_split(item, size, canary);
-
+				
                 // Place the canary at the end of the block data in heapdata
                 my_place_canary(item, canary);
+				
+				my_merge_chunks();
 
+				my_log_message("RETURN REALLOC : %p\n", item->addr);
                 return item->addr;
             }
 
@@ -771,16 +781,17 @@ void* my_realloc(void *ptr, size_t size)
                     if ((item->size + item->next->size) > size)
                     {
 
-                        // old addr + la difference de la new size et de l'ancienne
-                        //item->next->addr = (void*)((size_t)item->next->addr + (size - item->size));
-                        item->next->addr = (void*)((size_t)item->addr + size + sizeof(long));
-                        item->next->size = item->next->size - (size - item->size);
-                        // Set metadata for the new itemlong
+						// set metadata for the next item
+						item->next->addr = (void*)((size_t)item->addr + size + sizeof(long)); 
+                        item->next->size = item->next->size + item->size + 2*sizeof(long) - size;
+
+						// Set metadata for the new item
                         item->size = size;
 
                         // Place the canary at the end of the block data in heapdata
                         my_place_canary(item, canary);
 
+						my_log_message("RETURN REALLOC : %p\n", item->addr);
                         return item->addr;
 
                     }
@@ -805,7 +816,7 @@ void* my_realloc(void *ptr, size_t size)
         }
     }
 
-    my_log_message("ERROR : invalid pointer to realloc : not in the heap\n");
+    my_log_message("Error : invalid pointer to realloc : not in the heap\n");
     return NULL;
 }
 
