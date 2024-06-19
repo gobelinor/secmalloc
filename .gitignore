@@ -1,6 +1,5 @@
 *.swp
 *.o 
-*.so
 *.out
 *.h.gch
 *.gcda
